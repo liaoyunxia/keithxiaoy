@@ -119,8 +119,8 @@ def init_django(source=' -i http://mirrors.aliyun.com/pypi/simple/ --trusted-hos
     sudo('pip3 install -U virtualenvwrapper{}'.format(''))
     sudo('pip3 install https://github.com/Supervisor/supervisor/archive/master.zip')
     put('configs/{}.bashrc'.format(cloud.name), '~/.bashrc')
-    # init_code()
-    # run('mkvirtualenv {}'.format(env.project_name))  # 永远不要在virtualenv上用sudo
+    init_code()
+    run('mkvirtualenv {}'.format(env.project_name))  # 永远不要在virtualenv上用sudo
     with cd(env.project_path), prefix('workon {}'.format(env.project_name)):
         run('pip install -U -r requirements.txt{}'.format(source))
     if env.lb_https:
