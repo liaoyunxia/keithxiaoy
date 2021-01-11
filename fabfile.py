@@ -114,12 +114,12 @@ def get_file(path='~/.bashrc'):
 @task
 @roles('django')
 def init_django(source=' -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com'):
-    apt_upgrade()
-    sudo('apt-get install -y wkhtmltopdf libmysqlclient-dev libmemcached-dev libz-dev libjpeg-dev libfreetype6-dev python-dev python3-pip git gettext tree')  # tree只是为了登陆服务器时查看方便 libjpeg8-dev libpng-dev libgif-dev
-    sudo('pip3 install -U virtualenvwrapper{}'.format(''))
-    sudo('pip3 install https://github.com/Supervisor/supervisor/archive/master.zip')
-    put('configs/{}.bashrc'.format(cloud.name), '~/.bashrc')
-    init_code()
+    # apt_upgrade()
+    # sudo('apt-get install -y wkhtmltopdf libmysqlclient-dev libmemcached-dev libz-dev libjpeg-dev libfreetype6-dev python-dev python3-pip git gettext tree')  # tree只是为了登陆服务器时查看方便 libjpeg8-dev libpng-dev libgif-dev
+    # sudo('pip3 install -U virtualenvwrapper{}'.format(''))
+    # sudo('pip3 install https://github.com/Supervisor/supervisor/archive/master.zip')
+    # put('configs/{}.bashrc'.format(cloud.name), '~/.bashrc')
+    # init_code()
     run('mkvirtualenv {}'.format(env.project_name))  # 永远不要在virtualenv上用sudo
     with cd(env.project_path), prefix('workon {}'.format(env.project_name)):
         run('pip install -U -r requirements.txt{}'.format(source))
@@ -142,7 +142,7 @@ def init_code():
     #     smartputs('● ├── 删除已存在代码库')
     #     run('rm -rf {}'.format(env.project_path))
     # smartputs('● ├── 创建代码库')
-    run('git clone {0.repositories[django]} {0.project_path}'.format(env))
+    # run('git clone {0.repositories[django]} {0.project_path}'.format(env))
     smartputs('● ├── 切换到 {} 分支'.format(env.branch))
     smartrun('git checkout {}'.format(env.branch))
 
