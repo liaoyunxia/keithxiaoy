@@ -114,20 +114,18 @@ def get_file(path='~/.bashrc'):
 @task
 @roles('django')
 def init_django(source=' -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com'):
-    # apt_upgrade()
-    # sudo('apt-get install -y wkhtmltopdf libmysqlclient-dev libmemcached-dev libz-dev libjpeg-dev libfreetype6-dev python-dev python3-pip git gettext tree')  # tree只是为了登陆服务器时查看方便 libjpeg8-dev libpng-dev libgif-dev
-    # sudo('pip3 install -U virtualenvwrapper{}'.format(''))
-    # sudo('pip3 install https://github.com/Supervisor/supervisor/archive/master.zip')
-    # put('configs/{}.bashrc'.format(cloud.name), '~/.bashrc')
-    # init_code()
-    run('mkvirtualenv {}'.format(env.project_name))  # 永远不要在virtualenv上用sudo
+    sudo('apt install -y git libmysqlclient-dev python3-pip')
+    sudo('apt install -y language-pack-zh-hans')  # aliyun ubuntu, python
+    sudo('apt install -y language-pack-id')
+    # sudo('apt install -y libjpeg-dev libfreetype6-dev libgif-dev tree')  # freetype6 png, tree
+    sudo('pip3 install -U virtualenvwrapper{}'.format(env.pypi_mirror))
+    sudo('pip3 install https://codeload.github.com/Supervisor/supervisor/zip/master')
+    put('configs/{}.bashrc'.format(cloud.name), '~/.bashrc')
+    init_code()
+    run('mkvirtualenv {}'.format(env.project_name))  #
     with cd(env.project_path), prefix('workon {}'.format(env.project_name)):
-        run('pip install -U -r requirements.txt{}'.format(source))
-    if env.lb_https:
-        run('apt-get install -y nginx')
-        put('configs/nginx.conf ', '/etc/nginx/sites-enabled/{}.conf'.format(env.domain_name))
-        run('service nginx start')
-
+        run('pip install -U -r requirements.txt{}'.format(env.pypi_mirror))
+    init_nginx()
 
 @task
 @roles('django')
@@ -139,12 +137,13 @@ def init_code():
     # run('chmod 400 ~/.ssh/id_rsa')
     # run('chmod 400 ~/.ssh/id_rsa.pub')
     # if exists(env.project_path):
-    #     smartputs('● ├── 删除已存在代码库')
+    #     smartputs('● ├── delete exist databases')
     #     run('rm -rf {}'.format(env.project_path))
-    # smartputs('● ├── 创建代码库')
-    # run('git clone {0.repositories[django]} {0.project_path}'.format(env))
-    smartputs('● ├── 切换到 {} 分支'.format(env.branch))
+    # smartputs('● ├── create new db')
+    run('git clone {0.repositories[django]} {0.project_path}'.format(env))
+    smartputs('● ├── switch to {} branch'.format(env.branch))
     smartrun('git checkout {}'.format(env.branch))
+
 
 
 @task
