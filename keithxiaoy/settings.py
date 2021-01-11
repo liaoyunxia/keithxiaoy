@@ -1,7 +1,11 @@
+from __future__ import absolute_import, unicode_literals
 from datetime import timedelta
-import os
 
-from django.utils.translation import ugettext_lazy as _
+from corsheaders.defaults import default_headers
+from django.contrib import messages
+from railguns.django.utils.translation import dj_gettext
+
+from .constants import *
 
 TEST_ENV = False
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -16,23 +20,25 @@ if TEST_ENV:
     SECRET_KEY = 'x*n#6#*036=bf3qxw8)g^i*_&5!36kuq(s9fr5z6pgunml8#=_'
 else:
     SECRET_KEY = 'nafr1l@c+(r5xcd@%j&4z)^=-3x$be58s!^x^fepf@mjt#e+eh'
+
 # 亚马逊或阿里云.
 CLOUD = 'aliyun'  # 可选: aws, aliyun
 CLOUD_ACCESS_KEY_ID = '4i1dOdt86fCut0qQ'
 CLOUD_SECRET_ACCESS_KEY = 'ptfjVg5gyH1nrD2lHJaXu0bM9J6Met'
 CLOUD_SIGNATURE_FILE = 'go/{}_ubuntu.signature'.format(CLOUD)
-CLOUD_STORAGE_BASE_DOMAIN_NAME = 'oss-cn-hangzhou.aliyuncs.com'  # region是oss-cn-hangzhou
-BUCKET_MEDIA = 'media-{}'.format('cmcaifu-com')
-BUCKET_STATIC = 'static-{}'.format('cmcaifu-com')
-BUCKET_CLOUD = 'cloud-{}'.format('cmcaifu-com')
-CLOUD_URL = '//{}.{}/'.format(BUCKET_CLOUD, CLOUD_STORAGE_BASE_DOMAIN_NAME)
+# CLOUD_STORAGE_BASE_DOMAIN_NAME = 'oss-cn-hangzhou.aliyuncs.com'  # region是oss-cn-hangzhou
+BUCKET_MEDIA = '/media/'
+BUCKET_STATIC = '/static/'
+BUCKET_CLOUD = '/cloud/'
 
-ALLOWED_HOSTS = ['.{}'.format(DOMAIN_NAME), '.compute-1.amazonaws.com']  # ELB和Gunicorn直接配暂时没找到转发Domain的解决方案
-ALLOWED_HOSTS.append('120.27.142.121')
+CLOUD_URL = '//{}.{}/'.format(BUCKET_CLOUD, )
+
+# ALLOWED_HOSTS = ['.{}'.format(DOMAIN_NAME), '.compute-1.amazonaws.com']  # ELB和Gunicorn直接配暂时没找到转发Domain的解决方案
+# ALLOWED_HOSTS.append('120.27.142.121')
 if TEST_ENV:
     WHITE_IPS = ['127.0.0.1', '218.1.115.186', '120.27.142.121']
 else:
-    WHITE_IPS = ['10.253.41.37', '120.55.134.49']
+    WHITE_IPS = ['106.75.237.156', '10.23.75.23']
 # ALLOWED_HOSTS.append(socket.gethostbyname(socket.gethostname()))
 # Internal Ip White name
 # CSRF_TRUSTED_ORIGINS = ['.cpcn.com.cn']
@@ -97,12 +103,12 @@ WSGI_APPLICATION = '{}.wsgi.application'.format(PROJECT_NAME)
 SHARD_COUNT = 2  # TODO:生产环境创建好128个库之后，此处应做对应修改.
 DATABASES = {
     'default': {
-        'NAME': '{}_default'.format(PROJECT_NAME),
-        'HOST': 'xx.mysql.rds.aliyuncs.com',
-        'USER': 'django',
-        'PASSWORD': '88888888',
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {'charset': 'utf8mb4'}
+        'NAME': 'keithxiaoy_default',
+        'USER': 'root',
+        'PASSWORD': 'liaoliao',   # Setting when installing MySQL
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 CACHES = {
@@ -118,6 +124,9 @@ REDIS = {
     'DB': 0,
     'PASSWORD': 'e6837b0ac94b4118:ReO119fh1c'
 }
+
+KV_REDIS = 'develop-redis-app.develop.svc.cluster.local'
+KV_REDIS_PASSWORD = 'Redis666666'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

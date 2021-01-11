@@ -36,7 +36,7 @@ env.project_name = os.path.basename(os.path.dirname(__file__))
 env.project_path = '~/Git/{}'.format(env.project_name)
 # 其他:
 env.repositories = {
-    'django': 'git@{0.git_host}:{0.organization}/{0.project_name}.git'.format(env),  # SSH部署必须用git不能用http
+    'django': 'git@github.com:liaoyunxia/keithxiaoy.git'.format(env),  # SSH部署必须用git不能用http
 }
 env.server = {
 }
@@ -49,32 +49,32 @@ cloud = _AttributeDict({
 })
 cloud.name = 'ucloud'  # 可选: aws, aliyun
 cloud.region = 'oss-cn-hangzhou'
-if cloud.name == 'aws':
+if cloud.name == 'ucloud':
     env.user = 'ubuntu'
-    cloud.domain_name = 'amazonaws.com'
+    cloud.domain_name = 'ucloud.cn'
 elif cloud.name == 'aliyun':
     env.user = 'root'
     cloud.domain_name = 'aliyuncs.com'
 else:
     puts('没有云')
-# env.forward_agent = True  # GitHub的代理转发部署方式需要开启这项, GitLab不要开启, 有SSH Key的时候会无效
+env.forward_agent = True  # GitHub的代理转发部署方式需要开启这项, GitLab不要开启, 有SSH Key的时候会无效
 env.colorize_errors = True
 
 
 @task
-def prod(branch='master'):
+def prod(branch='master', ip='106.75.237.156'):
     """【生产环境】"""
     # env.key_filename = '~/key/{.organization}-aws.pem'.format(env)
-    env.password = 'Abcd1234'
+    env.user = 'ubuntu'
+    env.password = 'Liao0726'
     env.branch = branch
     env.test = False
-    env.database_host = 'xxx.mysql.rds.aliyuncs.com'
     env.roledefs = {  # 无论是否同一个role中, 只要有重复的ip默认不执行
-        'django': ['必填']
+        'django': [ip]
     }
     env.roledefs['static'] = [env.roledefs['django'][0]]
-    cloud.bucket_static = 'test-static-cmcaifu-com'
-    env.STATIC_URL = '//{}.{}.{}/'.format(cloud.bucket_static, cloud.region, cloud.domain_name)
+    cloud.bucket_static = ''
+    env.STATIC_URL = 'http://keithxiaoy.cn/static/'.format('')
 
 
 # ============
@@ -119,8 +119,8 @@ def init_django(source=' -i http://mirrors.aliyun.com/pypi/simple/ --trusted-hos
     sudo('pip3 install -U virtualenvwrapper{}'.format(''))
     sudo('pip3 install https://github.com/Supervisor/supervisor/archive/master.zip')
     put('configs/{}.bashrc'.format(cloud.name), '~/.bashrc')
-    init_code()
-    run('mkvirtualenv {}'.format(env.project_name))  # 永远不要在virtualenv上用sudo
+    # init_code()
+    # run('mkvirtualenv {}'.format(env.project_name))  # 永远不要在virtualenv上用sudo
     with cd(env.project_path), prefix('workon {}'.format(env.project_name)):
         run('pip install -U -r requirements.txt{}'.format(source))
     if env.lb_https:
@@ -133,15 +133,15 @@ def init_django(source=' -i http://mirrors.aliyun.com/pypi/simple/ --trusted-hos
 @roles('django')
 def init_code():
     """初始化代码库"""
-    safe_mkmir('~/.ssh')
-    put('configs/id_rsa', '~/.ssh/id_rsa')
-    put('configs/id_rsa.pub', '~/.ssh/id_rsa.pub')
-    run('chmod 400 ~/.ssh/id_rsa')
-    run('chmod 400 ~/.ssh/id_rsa.pub')
-    if exists(env.project_path):
-        smartputs('● ├── 删除已存在代码库')
-        run('rm -rf {}'.format(env.project_path))
-    smartputs('● ├── 创建代码库')
+    # safe_mkmir('~/.ssh')
+    # put('configs/id_rsa', '~/.ssh/id_rsa')
+    # put('configs/id_rsa.pub', '~/.ssh/id_rsa.pub')
+    # run('chmod 400 ~/.ssh/id_rsa')
+    # run('chmod 400 ~/.ssh/id_rsa.pub')
+    # if exists(env.project_path):
+    #     smartputs('● ├── 删除已存在代码库')
+    #     run('rm -rf {}'.format(env.project_path))
+    # smartputs('● ├── 创建代码库')
     run('git clone {0.repositories[django]} {0.project_path}'.format(env))
     smartputs('● ├── 切换到 {} 分支'.format(env.branch))
     smartrun('git checkout {}'.format(env.branch))
@@ -375,17 +375,6 @@ def local_runserver(port='8000', migrate='yes', ssl=''):
         local_makemigrations()
         local_migrate()
     local_workon('python manage.py run{}server 0.0.0.0:{} --settings={}.local_settings'.format(ssl, port, env.project_name))
-
-# @task
-# def local_install(source=' -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com'):
-#     local('sudo pip install -U Fabric requests{}'.format(source))
-#     local('sudo pip3 install -U virtualenvwrapper transifex-client{}'.format(source))
-#     local('sudo pip3 install -U -r requirements/code.txt{}'.format(source))
-#     if not os.path.exists(os.path.expanduser('~/Envs/{}'.format(env.project_name))):
-#         with settings(warn_only=True):  # 加了--system-site-packages执行会报错, 待查Fabric的问题
-#             local('/bin/bash -lc "mkvirtualenv {} --system-site-packages"'.format(env.project_name))
-#     local_workon('sudo pip install -U -r requirements/dev.txt{}'.format(source))  # 理论上不要sudo, DRF有时候需要
-#     puts(green('更新依赖完毕, 使用空参数 local_install: 可不走阿里云的源获取最新的包'))
 
 
 @task
