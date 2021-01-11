@@ -1,0 +1,902 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-24 11:55+0800\n"
+"PO-Revision-Date: 2016-04-01 18:52+0800\n"
+"Last-Translator: b'  <admin@fhic.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Translated-Using: django-rosetta 0.7.10\n"
+
+#: cmcaifu/apps/accounts/admin.py:16 cmcaifu/apps/accounts/admin.py:17
+msgid "Personal info"
+msgstr ""
+
+#: cmcaifu/apps/accounts/admin.py:18
+msgid "Permissions"
+msgstr ""
+
+#: cmcaifu/apps/accounts/forms.py:9 cmcaifu/apps/accounts/forms.py:52
+msgid "Password"
+msgstr ""
+
+#: cmcaifu/apps/accounts/forms.py:15 cmcaifu/apps/accounts/forms.py:27
+#: cmcaifu/apps/accounts/forms.py:44
+msgid "username"
+msgstr ""
+
+#: cmcaifu/apps/accounts/forms.py:19 cmcaifu/apps/accounts/forms.py:31
+#: cmcaifu/apps/accounts/forms.py:48
+msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr ""
+
+#: cmcaifu/apps/accounts/forms.py:21 cmcaifu/apps/accounts/forms.py:33
+#: cmcaifu/apps/accounts/forms.py:50
+msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
+msgstr ""
+
+#: cmcaifu/apps/accounts/models.py:45
+msgid "male"
+msgstr "Male"
+
+#: cmcaifu/apps/accounts/models.py:45
+msgid "female"
+msgstr "Female"
+
+#: cmcaifu/apps/accounts/models.py:49
+msgid "nickname"
+msgstr "Nickname"
+
+#: cmcaifu/apps/accounts/models.py:50
+msgid "gender"
+msgstr "Gender"
+
+#: cmcaifu/apps/accounts/models.py:51
+msgid "full_name"
+msgstr "Full Name"
+
+#: cmcaifu/apps/accounts/models.py:52 cmcaifu/apps/organizations/models.py:25
+#: cmcaifu/apps/products/models.py:36
+msgid "about"
+msgstr "About"
+
+#: cmcaifu/apps/accounts/models.py:53 cmcaifu/apps/articles/admin.py:14
+#: cmcaifu/apps/assets/admin.py:20 cmcaifu/apps/assets/models.py:59
+#: cmcaifu/apps/cards/models.py:56 cmcaifu/apps/likes/models.py:11
+#: cmcaifu/apps/organizations/models.py:23
+#: cmcaifu/apps/organizations/models.py:40
+#: cmcaifu/apps/organizations/models.py:62 cmcaifu/apps/products/models.py:38
+#: cmcaifu/apps/products/models.py:53 cmcaifu/apps/projects/models.py:57
+#: cmcaifu/apps/tags/models.py:17 cmcaifu/apps/x/admin.py:11
+#: cmcaifu/apps/x/models.py:21 nyssance/django/db/models.py:18
+#: nyssance/django/db/models.py:30
+msgid "image_urls"
+msgstr "Image URLs"
+
+#: cmcaifu/apps/accounts/models.py:54 cmcaifu/apps/articles/admin.py:15
+#: cmcaifu/apps/cards/admin.py:11 cmcaifu/apps/cards/models.py:60
+#: cmcaifu/apps/products/models.py:54 cmcaifu/apps/questions/admin.py:12
+#: cmcaifu/apps/tags/models.py:21 cmcaifu/apps/videos/admin.py:13
+#: cmcaifu/configs/suit.py:29 nyssance/django/db/models.py:31
+msgid "tags"
+msgstr "Tags"
+
+#: cmcaifu/apps/accounts/models.py:55
+msgid "id_card_number"
+msgstr "Id Card Number"
+
+#: cmcaifu/apps/accounts/models.py:56 cmcaifu/apps/orders/models.py:47
+#: cmcaifu/apps/organizations/models.py:42
+msgid "phone_number"
+msgstr "Phone Number"
+
+#: cmcaifu/apps/accounts/models.py:57 cmcaifu/apps/cash/models.py:13
+#: cmcaifu/apps/orders/models.py:44 cmcaifu/apps/transactions/models.py:48
+msgid "payment_service_id"
+msgstr "Payment Service ID"
+
+#: cmcaifu/apps/accounts/models.py:58
+msgid "payment_account_status"
+msgstr "Payment Account Status"
+
+#: cmcaifu/apps/accounts/models.py:59
+msgid "payment_account_number"
+msgstr "Payment Account Number"
+
+#: cmcaifu/apps/accounts/models.py:60
+msgid "social_user_id"
+msgstr "Social User ID"
+
+#: cmcaifu/apps/accounts/models.py:61
+msgid "social_site"
+msgstr ""
+
+#: cmcaifu/apps/accounts/models.py:62
+msgid "from_id"
+msgstr "From ID"
+
+#: cmcaifu/apps/accounts/models.py:63 cmcaifu/apps/cards/models.py:58
+#: cmcaifu/apps/comments/models.py:11
+msgid "like_count"
+msgstr "Like Count"
+
+#: cmcaifu/apps/accounts/models.py:64 cmcaifu/apps/cards/models.py:59
+msgid "comment_count"
+msgstr "Comment Count"
+
+#: cmcaifu/apps/accounts/models.py:65 cmcaifu/apps/projects/models.py:70
+msgid "risk_level"
+msgstr "Risk Level"
+
+#: cmcaifu/apps/accounts/models.py:66
+msgid "level"
+msgstr "Level"
+
+#: cmcaifu/apps/accounts/models.py:67
+msgid "birthday"
+msgstr "Birthday"
+
+#: cmcaifu/apps/accounts/models.py:87 cmcaifu/apps/orders/models.py:45
+#: cmcaifu/apps/products/models.py:33 cmcaifu/apps/transactions/models.py:46
+#: nyssance/django/db/models.py:19
+msgid "active"
+msgstr ""
+
+#: cmcaifu/apps/articles/admin.py:12 cmcaifu/apps/featured/admin.py:14
+#: cmcaifu/apps/specials/admin.py:13 cmcaifu/apps/videos/admin.py:12
+#: nyssance/django/db/models.py:29
+msgid "summary"
+msgstr "Summary"
+
+#: cmcaifu/apps/articles/admin.py:13 cmcaifu/apps/articles/models.py:9
+#: cmcaifu/apps/comments/models.py:10 cmcaifu/apps/questions/admin.py:20
+#: cmcaifu/apps/questions/models.py:20
+msgid "text"
+msgstr "Text"
+
+#: cmcaifu/apps/articles/models.py:15 cmcaifu/apps/cards/models.py:21
+msgid "article"
+msgstr "Article"
+
+#: cmcaifu/apps/articles/models.py:16
+msgid "articles"
+msgstr "Articles"
+
+#: cmcaifu/apps/articles/templates/article_detail.html:32
+#: cmcaifu/apps/projects/templates/contract_detail.html:30
+msgid "Home"
+msgstr ""
+
+#: cmcaifu/apps/assets/admin.py:19 cmcaifu/apps/assets/models.py:58
+#: cmcaifu/apps/coupons/admin.py:11 cmcaifu/apps/coupons/models.py:13
+#: cmcaifu/apps/orders/models.py:48 cmcaifu/apps/organizations/models.py:39
+#: cmcaifu/apps/products/admin.py:13 cmcaifu/apps/products/models.py:52
+#: cmcaifu/apps/projects/admin.py:33 cmcaifu/apps/projects/models.py:56
+msgid "description"
+msgstr "Description"
+
+#: cmcaifu/apps/assets/admin.py:21 cmcaifu/apps/assets/models.py:77
+#: cmcaifu/apps/orders/admin.py:11 cmcaifu/apps/orders/models.py:49
+#: cmcaifu/apps/organizations/models.py:24 cmcaifu/apps/products/models.py:39
+#: cmcaifu/apps/transactions/models.py:47 cmcaifu/apps/x/models.py:13
+#: cmcaifu/apps/x/models.py:22
+msgid "remark"
+msgstr "Remark"
+
+#: cmcaifu/apps/assets/admin.py:54 cmcaifu/apps/assets/models.py:69
+msgid "min_fund"
+msgstr "Min Fund"
+
+#: cmcaifu/apps/assets/admin.py:59 cmcaifu/apps/assets/models.py:70
+msgid "max_fund"
+msgstr "Max Fund"
+
+#: cmcaifu/apps/assets/models.py:57 cmcaifu/apps/coupons/models.py:11
+#: cmcaifu/apps/orders/models.py:31 cmcaifu/apps/organizations/models.py:17
+#: cmcaifu/apps/organizations/models.py:37 cmcaifu/apps/products/models.py:34
+#: cmcaifu/apps/products/models.py:51 cmcaifu/apps/projects/models.py:55
+#: cmcaifu/apps/region/models.py:14 cmcaifu/apps/region/models.py:30
+#: cmcaifu/apps/tags/models.py:15 cmcaifu/apps/x/models.py:18
+msgid "name"
+msgstr "Name"
+
+#: cmcaifu/apps/assets/models.py:60 cmcaifu/apps/coupons/models.py:10
+msgid "number"
+msgstr "Number"
+
+#: cmcaifu/apps/assets/models.py:61
+msgid "drawer"
+msgstr "Drawer"
+
+#: cmcaifu/apps/assets/models.py:62
+msgid "par_value"
+msgstr "Par Value"
+
+#: cmcaifu/apps/assets/models.py:63
+msgid "issue_time"
+msgstr "Issue Time"
+
+#: cmcaifu/apps/assets/models.py:64
+msgid "maturity_time"
+msgstr "Maturity Time"
+
+#: cmcaifu/apps/assets/models.py:66 cmcaifu/apps/coupons/models.py:14
+#: cmcaifu/apps/orders/models.py:36 cmcaifu/apps/projects/models.py:63
+msgid "start_time"
+msgstr "Start Time"
+
+#: cmcaifu/apps/assets/models.py:67 cmcaifu/apps/orders/models.py:37
+#: cmcaifu/apps/projects/models.py:65
+msgid "period"
+msgstr "Period"
+
+#: cmcaifu/apps/assets/models.py:68
+msgid "grace_period"
+msgstr "Grace Period"
+
+#: cmcaifu/apps/assets/models.py:71
+msgid "payment_online"
+msgstr "Payment Online"
+
+#: cmcaifu/apps/assets/models.py:73 cmcaifu/apps/projects/models.py:61
+msgid "interest_rate"
+msgstr "Interest Rate"
+
+#: cmcaifu/apps/assets/models.py:74
+msgid "service_rate"
+msgstr "Service Rate"
+
+#: cmcaifu/apps/assets/models.py:75
+msgid "overdue_rate"
+msgstr "Overdue Rate"
+
+#: cmcaifu/apps/assets/models.py:76
+msgid "prepayment_rate"
+msgstr "Prepayment Rate"
+
+#: cmcaifu/apps/assets/models.py:78
+msgid "receiver"
+msgstr "Recevier"
+
+#: cmcaifu/apps/assets/models.py:79
+msgid "payer_id"
+msgstr "Payer ID"
+
+#: cmcaifu/apps/assets/models.py:80
+msgid "repayment_amount"
+msgstr "Repayment Amount"
+
+#: cmcaifu/apps/assets/models.py:81
+msgid "manual_full"
+msgstr "Manual Full"
+
+#: cmcaifu/apps/assets/models.py:82 cmcaifu/apps/cash/models.py:12
+#: cmcaifu/apps/coupons/models.py:18 cmcaifu/apps/orders/models.py:43
+#: cmcaifu/apps/products/models.py:56 cmcaifu/apps/projects/models.py:71
+#: cmcaifu/apps/region/models.py:17 cmcaifu/apps/region/models.py:31
+#: cmcaifu/apps/x/models.py:11 cmcaifu/apps/x/models.py:23
+msgid "status"
+msgstr "Status"
+
+#: cmcaifu/apps/assets/models.py:85
+msgid "bill"
+msgstr "Bill"
+
+#: cmcaifu/apps/assets/models.py:86
+msgid "bills"
+msgstr "Bills"
+
+#: cmcaifu/apps/cards/models.py:18 cmcaifu/apps/cards/models.py:19
+#: cmcaifu/apps/products/models.py:79
+msgid "product"
+msgstr "Product"
+
+#: cmcaifu/apps/cards/models.py:20 cmcaifu/apps/notifications/models.py:13
+#: cmcaifu/apps/projects/admin.py:19 cmcaifu/apps/projects/models.py:40
+#: cmcaifu/apps/site/admin.py:12 cmcaifu/apps/site/models.py:8
+#: cmcaifu/apps/x/models.py:10 cmcaifu/configs/suit.py:25
+msgid "content"
+msgstr "Content"
+
+#: cmcaifu/apps/cards/models.py:22 cmcaifu/apps/questions/models.py:13
+msgid "question"
+msgstr "Quesiton"
+
+#: cmcaifu/apps/cards/models.py:23 cmcaifu/apps/videos/models.py:17
+msgid "video"
+msgstr "Video"
+
+#: cmcaifu/apps/cards/models.py:54
+msgid "caption"
+msgstr "Caption"
+
+#: cmcaifu/apps/cards/models.py:55 cmcaifu/apps/coupons/models.py:17
+#: cmcaifu/apps/featured/models.py:10 cmcaifu/apps/organizations/models.py:43
+#: cmcaifu/apps/organizations/models.py:54 cmcaifu/apps/products/models.py:37
+#: cmcaifu/apps/products/models.py:55 cmcaifu/apps/projects/models.py:59
+#: cmcaifu/apps/questions/models.py:35 cmcaifu/apps/site/models.py:10
+#: cmcaifu/apps/tags/models.py:16 cmcaifu/apps/transactions/models.py:42
+#: cmcaifu/apps/x/models.py:12
+msgid "type"
+msgstr "Type"
+
+#: cmcaifu/apps/cards/models.py:64 cmcaifu/apps/site/models.py:9
+#: cmcaifu/configs/suit.py:32
+msgid "site"
+msgstr "Site"
+
+#: cmcaifu/apps/cards/models.py:65
+msgid "tips"
+msgstr ""
+
+#: cmcaifu/apps/cards/models.py:66
+msgid "repost_count"
+msgstr "Repost Count"
+
+#: cmcaifu/apps/cards/models.py:69 cmcaifu/apps/featured/models.py:10
+msgid "card"
+msgstr "Card"
+
+#: cmcaifu/apps/cards/models.py:70 cmcaifu/configs/suit.py:26
+msgid "cards"
+msgstr "Cards"
+
+#: cmcaifu/apps/cash/admin.py:21 cmcaifu/apps/cash/models.py:9
+msgid "available_balance"
+msgstr "Available Balance"
+
+#: cmcaifu/apps/cash/admin.py:26 cmcaifu/apps/cash/models.py:15
+msgid "principal"
+msgstr "Principal"
+
+#: cmcaifu/apps/cash/admin.py:31 cmcaifu/apps/cash/models.py:11
+msgid "invest_frozen_balance"
+msgstr "Invest Frozen Balance"
+
+#: cmcaifu/apps/cash/admin.py:36 cmcaifu/apps/cash/models.py:10
+msgid "withdraw_frozen_balance"
+msgstr "Withdraw Frozen Balance"
+
+#: cmcaifu/apps/cash/models.py:8 cmcaifu/apps/orders/models.py:35
+#: cmcaifu/apps/transactions/models.py:36
+msgid "user_id"
+msgstr "User ID"
+
+#: cmcaifu/apps/cash/models.py:14
+msgid "interest"
+msgstr "Interest"
+
+#: cmcaifu/apps/cash/models.py:19 cmcaifu/apps/cash/models.py:20
+#: cmcaifu/configs/suit.py:13
+msgid "cash"
+msgstr "Cash"
+
+#: cmcaifu/apps/comments/models.py:15
+msgid "comment"
+msgstr "Comment"
+
+#: cmcaifu/apps/comments/models.py:16 cmcaifu/configs/suit.py:35
+msgid "comments"
+msgstr "Comments"
+
+#: cmcaifu/apps/coupons/models.py:12 cmcaifu/apps/products/admin.py:43
+#: cmcaifu/apps/products/models.py:58 cmcaifu/apps/projects/admin.py:83
+#: cmcaifu/apps/projects/models.py:60
+msgid "price"
+msgstr "Price"
+
+#: cmcaifu/apps/coupons/models.py:15
+msgid "end_time"
+msgstr "End Time"
+
+#: cmcaifu/apps/coupons/models.py:16
+msgid "order_id"
+msgstr "Order ID"
+
+#: cmcaifu/apps/coupons/models.py:21
+msgid "coupon"
+msgstr "Coupon"
+
+#: cmcaifu/apps/coupons/models.py:22 cmcaifu/apps/products/models.py:74
+#: cmcaifu/configs/suit.py:21
+msgid "coupons"
+msgstr "Coupons"
+
+#: cmcaifu/apps/featured/models.py:10 cmcaifu/apps/specials/models.py:13
+msgid "special"
+msgstr "Special"
+
+#: cmcaifu/apps/featured/models.py:10 cmcaifu/apps/featured/models.py:11
+#: cmcaifu/apps/notifications/models.py:14
+msgid "url"
+msgstr "URL"
+
+#: cmcaifu/apps/featured/models.py:12 cmcaifu/apps/orders/models.py:53
+#: cmcaifu/apps/specials/models.py:9
+msgid "order"
+msgstr "Order"
+
+#: cmcaifu/apps/featured/models.py:16 cmcaifu/apps/featured/models.py:17
+#: cmcaifu/configs/suit.py:28
+msgid "featured"
+msgstr "Featured"
+
+#: cmcaifu/apps/files/admin.py:16 cmcaifu/apps/projects/admin.py:54
+#: cmcaifu/apps/videos/admin.py:32 nyssance/django/contrib/admin.py:18
+msgid "preview"
+msgstr "Preview"
+
+#: cmcaifu/apps/files/models.py:11
+msgid "file"
+msgstr "File"
+
+#: cmcaifu/apps/files/models.py:12 cmcaifu/configs/suit.py:24
+msgid "files"
+msgstr "Files"
+
+#: cmcaifu/apps/ips/models.py:8
+msgid "ip_address"
+msgstr "ID Address"
+
+#: cmcaifu/apps/likes/models.py:17
+msgid "like"
+msgstr "Like"
+
+#: cmcaifu/apps/likes/models.py:18 cmcaifu/configs/suit.py:36
+msgid "likes"
+msgstr "Likes"
+
+#: cmcaifu/apps/notifications/models.py:12 cmcaifu/apps/projects/models.py:39
+#: cmcaifu/apps/site/models.py:7 cmcaifu/apps/x/models.py:9
+#: nyssance/django/db/models.py:28
+msgid "title"
+msgstr "Title"
+
+#: cmcaifu/apps/notifications/models.py:17
+msgid "notification"
+msgstr "Notification"
+
+#: cmcaifu/apps/notifications/models.py:18 cmcaifu/configs/suit.py:31
+msgid "notifications"
+msgstr "Notifications"
+
+#: cmcaifu/apps/orders/admin.py:27 cmcaifu/apps/orders/models.py:41
+msgid "total_fee"
+msgstr "Total Fee"
+
+#: cmcaifu/apps/orders/models.py:32
+msgid "product_id"
+msgstr "Product ID"
+
+#: cmcaifu/apps/orders/models.py:33
+msgid "project_id"
+msgstr "Project"
+
+#: cmcaifu/apps/orders/models.py:34
+msgid "parent_id"
+msgstr "Parent ID"
+
+#: cmcaifu/apps/orders/models.py:38 cmcaifu/apps/transactions/models.py:35
+msgid "payment_number"
+msgstr "Payment Number"
+
+#: cmcaifu/apps/orders/models.py:39
+msgid "quantity"
+msgstr "Quantity"
+
+#: cmcaifu/apps/orders/models.py:40
+msgid "gross"
+msgstr "Gross"
+
+#: cmcaifu/apps/orders/models.py:42
+msgid "refund"
+msgstr "Refund"
+
+#: cmcaifu/apps/orders/models.py:46 cmcaifu/apps/organizations/models.py:41
+msgid "address"
+msgstr "Address"
+
+#: cmcaifu/apps/orders/models.py:50
+msgid "contract_urls"
+msgstr "Contract URLs"
+
+#: cmcaifu/apps/orders/models.py:54 cmcaifu/configs/suit.py:15
+msgid "orders"
+msgstr "Orders"
+
+#: cmcaifu/apps/organizations/models.py:18
+#: cmcaifu/apps/organizations/models.py:38 cmcaifu/apps/products/models.py:35
+#: cmcaifu/apps/region/models.py:15
+msgid "short_name"
+msgstr "Short Name"
+
+#: cmcaifu/apps/organizations/models.py:19
+msgid "host"
+msgstr "Host"
+
+#: cmcaifu/apps/organizations/models.py:20
+msgid "organization_code"
+msgstr "Organization Code"
+
+#: cmcaifu/apps/organizations/models.py:21
+msgid "instruction_code"
+msgstr "Instruction Code"
+
+#: cmcaifu/apps/organizations/models.py:22
+msgid "tax_code"
+msgstr "Tax Code"
+
+#: cmcaifu/apps/organizations/models.py:28
+msgid "organization"
+msgstr "Organization"
+
+#: cmcaifu/apps/organizations/models.py:29 cmcaifu/configs/suit.py:22
+msgid "organizations"
+msgstr "Organizations"
+
+#: cmcaifu/apps/organizations/models.py:49
+msgid "branch"
+msgstr "Branch"
+
+#: cmcaifu/apps/organizations/models.py:50
+msgid "branches"
+msgstr "Branches"
+
+#: cmcaifu/apps/organizations/models.py:55
+msgid "bank_account_name"
+msgstr "Bank Account Name"
+
+#: cmcaifu/apps/organizations/models.py:56
+msgid "bank_account"
+msgstr "Bank Account"
+
+#: cmcaifu/apps/organizations/models.py:57
+msgid "bank_code"
+msgstr "Bank Code"
+
+#: cmcaifu/apps/organizations/models.py:58
+msgid "bank_name"
+msgstr "Bank Name"
+
+#: cmcaifu/apps/organizations/models.py:59
+msgid "bank_branch_name"
+msgstr "Bank Branch Name"
+
+#: cmcaifu/apps/organizations/models.py:60
+msgid "bank_province"
+msgstr "Bank Province"
+
+#: cmcaifu/apps/organizations/models.py:61
+msgid "bank_city"
+msgstr "Bank City"
+
+#: cmcaifu/apps/organizations/models.py:66
+msgid "payment_account"
+msgstr "Payment Account"
+
+#: cmcaifu/apps/organizations/models.py:67
+msgid "payment_accounts"
+msgstr "Payment Accounts"
+
+#: cmcaifu/apps/popping/models.py:6
+msgid "categories"
+msgstr "Categories"
+
+#: cmcaifu/apps/products/admin.py:47 cmcaifu/apps/products/models.py:73
+#: cmcaifu/apps/projects/models.py:76 cmcaifu/configs/suit.py:19
+msgid "projects"
+msgstr "Projects"
+
+#: cmcaifu/apps/products/models.py:42
+msgid "publisher"
+msgstr "Publisher"
+
+#: cmcaifu/apps/products/models.py:43 cmcaifu/apps/products/models.py:75
+msgid "publishers"
+msgstr "Publishers"
+
+#: cmcaifu/apps/products/models.py:59
+msgid "shipping_fee"
+msgstr "Shipping Fee"
+
+#: cmcaifu/apps/products/models.py:60
+msgid "increment"
+msgstr "Increment"
+
+#: cmcaifu/apps/products/models.py:61
+msgid "min_order_quantity"
+msgstr "Min Order Quantity"
+
+#: cmcaifu/apps/products/models.py:62
+msgid "max_order_quantity"
+msgstr "Max Order Quantity"
+
+#: cmcaifu/apps/products/models.py:63
+msgid "inventory"
+msgstr "Inventory"
+
+#: cmcaifu/apps/products/models.py:66
+msgid "list_time"
+msgstr "List Time"
+
+#: cmcaifu/apps/products/models.py:67
+msgid "open_time"
+msgstr "Open Time"
+
+#: cmcaifu/apps/products/models.py:68
+msgid "close_time"
+msgstr "Close Time"
+
+#: cmcaifu/apps/products/models.py:69
+msgid "reservable"
+msgstr "Reservable"
+
+#: cmcaifu/apps/products/models.py:70
+msgid "provider"
+msgstr "Provider"
+
+#: cmcaifu/apps/products/models.py:71
+msgid "split"
+msgstr "Split"
+
+#: cmcaifu/apps/products/models.py:76
+msgid "next_product"
+msgstr "Next Product"
+
+#: cmcaifu/apps/products/models.py:80 cmcaifu/configs/suit.py:20
+msgid "products"
+msgstr "Products"
+
+#: cmcaifu/apps/projects/admin.py:20 cmcaifu/apps/projects/models.py:41
+msgid "template"
+msgstr "Template"
+
+#: cmcaifu/apps/projects/models.py:38 cmcaifu/apps/projects/models.py:54
+msgid "sku_id"
+msgstr "SKU ID"
+
+#: cmcaifu/apps/projects/models.py:42
+msgid "sign_coordinate"
+msgstr "Sign Coordinate"
+
+#: cmcaifu/apps/projects/models.py:45
+msgid "contract"
+msgstr "Contract"
+
+#: cmcaifu/apps/projects/models.py:46
+msgid "contracts"
+msgstr "Contracts"
+
+#: cmcaifu/apps/projects/models.py:62
+msgid "repayment_type"
+msgstr "Repayment Type"
+
+#: cmcaifu/apps/projects/models.py:64
+msgid "arrival_time"
+msgstr "Arrival Time"
+
+#: cmcaifu/apps/projects/models.py:67
+msgid "transferable"
+msgstr "Transferable"
+
+#: cmcaifu/apps/projects/models.py:68
+msgid "period_type"
+msgstr "Period Type"
+
+#: cmcaifu/apps/projects/models.py:75
+msgid "project"
+msgstr "Project"
+
+#: cmcaifu/apps/questions/models.py:14 cmcaifu/configs/suit.py:37
+msgid "questions"
+msgstr "Questions"
+
+#: cmcaifu/apps/questions/models.py:21
+msgid "upvote_count"
+msgstr "Upvote Count"
+
+#: cmcaifu/apps/questions/models.py:22
+msgid "downvote_count"
+msgstr "Downvote Count"
+
+#: cmcaifu/apps/questions/models.py:25
+msgid "answer"
+msgstr "Answer"
+
+#: cmcaifu/apps/questions/models.py:26
+msgid "answers"
+msgstr "Answers"
+
+#: cmcaifu/apps/questions/models.py:35
+msgid "upvote"
+msgstr "Upvote"
+
+#: cmcaifu/apps/questions/models.py:35
+msgid "downvote"
+msgstr "Downvote"
+
+#: cmcaifu/apps/questions/models.py:39
+msgid "vote"
+msgstr "Vote"
+
+#: cmcaifu/apps/questions/models.py:40
+msgid "votes"
+msgstr "Votes"
+
+#: cmcaifu/apps/region/models.py:16
+msgid "pinyin"
+msgstr "Pinyin"
+
+#: cmcaifu/apps/region/models.py:18
+msgid "license_for"
+msgstr ""
+
+#: cmcaifu/apps/region/models.py:21
+msgid "province"
+msgstr "Province"
+
+#: cmcaifu/apps/region/models.py:22
+msgid "provinces"
+msgstr "Provinces"
+
+#: cmcaifu/apps/region/models.py:32
+msgid "city_code"
+msgstr "City Code"
+
+#: cmcaifu/apps/region/models.py:33 cmcaifu/apps/tags/models.py:8
+msgid "hot"
+msgstr "Hot"
+
+#: cmcaifu/apps/region/models.py:36
+msgid "city"
+msgstr "City"
+
+#: cmcaifu/apps/region/models.py:37
+msgid "cities"
+msgstr "Cities"
+
+#: cmcaifu/apps/site/models.py:13
+msgid "clause"
+msgstr "Clause"
+
+#: cmcaifu/apps/site/models.py:14
+msgid "clauses"
+msgstr "Clauses"
+
+#: cmcaifu/apps/specials/models.py:14 cmcaifu/configs/suit.py:27
+msgid "specials"
+msgstr "Specials"
+
+#: cmcaifu/apps/specials/models.py:18
+msgid "special_id"
+msgstr "Special ID"
+
+#: cmcaifu/apps/tags/models.py:7
+msgid "brand"
+msgstr "Brand"
+
+#: cmcaifu/apps/tags/models.py:9
+msgid "company"
+msgstr "Company"
+
+#: cmcaifu/apps/tags/models.py:20
+msgid "tag"
+msgstr "Tag"
+
+#: cmcaifu/apps/transactions/admin.py:22
+#: cmcaifu/apps/transactions/models.py:40
+msgid "amount"
+msgstr "Amount"
+
+#: cmcaifu/apps/transactions/models.py:37
+msgid "user_name"
+msgstr "User Name"
+
+#: cmcaifu/apps/transactions/models.py:38
+msgid "related_user_id"
+msgstr "Related User ID"
+
+#: cmcaifu/apps/transactions/models.py:39
+msgid "related_user_name"
+msgstr "Related User Name"
+
+#: cmcaifu/apps/transactions/models.py:41
+msgid "account_balance"
+msgstr "Account Balance"
+
+#: cmcaifu/apps/transactions/models.py:43
+msgid "trade_channel"
+msgstr "Trade Channel"
+
+#: cmcaifu/apps/transactions/models.py:45
+msgid "payment_time"
+msgstr "Payment Time"
+
+#: cmcaifu/apps/transactions/models.py:49
+msgid "related_business_id"
+msgstr "Related Business ID"
+
+#: cmcaifu/apps/transactions/models.py:52
+msgid "transaction"
+msgstr "Transaction"
+
+#: cmcaifu/apps/transactions/models.py:53 cmcaifu/configs/suit.py:16
+msgid "transactions"
+msgstr "Transactions"
+
+#: cmcaifu/apps/videos/models.py:18
+msgid "videos"
+msgstr "Videos"
+
+#: cmcaifu/apps/x/models.py:17
+#| msgid "tax_code"
+msgid "code"
+msgstr "Code"
+
+#: cmcaifu/apps/x/models.py:19
+msgid "daily_limit"
+msgstr "Daily Limit"
+
+#: cmcaifu/apps/x/models.py:20
+#| msgid "transaction"
+msgid "transaction_limit"
+msgstr "Transaction Limit"
+
+#: cmcaifu/configs/suit.py:8
+msgid "accounts"
+msgstr "Accounts"
+
+#: cmcaifu/configs/suit.py:18
+msgid "assets"
+msgstr "Assets"
+
+#: cmcaifu/settings.py:141
+msgid "English"
+msgstr ""
+
+#: cmcaifu/settings.py:142
+msgid "Japanese"
+msgstr ""
+
+#: cmcaifu/settings.py:143
+msgid "Simplified Chinese"
+msgstr ""
+
+#: cmcaifu/templates/admin/base_site.html:4
+#: cmcaifu/templates/admin/base_site.html:7
+msgid "app_name"
+msgstr "CMCaifu"
+
+#: cmcaifu/templates/admin/base_site.html:14
+msgid "Documentation"
+msgstr ""
+
+#: cmcaifu/templates/admin/base_site.html:18
+msgid "Change password"
+msgstr ""
+
+#: cmcaifu/templates/admin/base_site.html:20
+msgid "Log out"
+msgstr ""
+
+#: cmcaifu/templates/captcha/image.html:3
+msgid "Play CAPTCHA as audio file"
+msgstr ""
+
+#: nyssance/django/db/models.py:8
+msgid "created_time"
+msgstr "Created Time"
+
+#: nyssance/django/db/models.py:9
+msgid "updated_time"
+msgstr "Updated Time"

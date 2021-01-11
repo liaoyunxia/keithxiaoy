@@ -1,0 +1,14 @@
+https://codeload.github.com/tiran/defusedxml/zip/master
+railguns==0.2.1
+django-haystack
+django-import-export
+https://github.com/darklow/django-suit/tarball/v2
+boto
+Jinja2
+weibo
+django-s3direct
+pycrypto
+django-ipware
+django-simple-captcha
+django_fsm
+pdfkit

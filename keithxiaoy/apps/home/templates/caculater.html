@@ -1,0 +1,100 @@
+{% extends 'includes/home_frame.html' %}
+{% load i18n static %}
+
+{% block css %}{{ block.super }}
+<style>
+	.mdl-textfield{
+		margin-left:10px;
+	}
+	.ground_wrap{
+		overflow: hidden;
+	}
+	h4{text-align:center; margin-left:10px;}
+	
+	.mdl-textfield{
+		margin-left:10px;
+	}
+</style>
+{% endblock %}
+
+
+   
+{% block content %}
+	<div class="mdl-cluster">
+		<header class="mdl-cluster__header">
+	        <h2 class="mdl-cluster__title-text">贴现计算器</h2>   <!-- 主标题 -->
+	        <div class="mdl-cluster__subtitle-text"></div>  <!-- 副标题 -->
+	        <div class="mdl-cluster-spacer"></div>  <!-- 填充占位符 -->
+	        <div class="mdl-cluster__actions">
+	        </div>    <!-- 头部右侧内容块 -->
+	    </header>
+	    <div class="mdl-divider"></div> 
+	    <div class="mdl-cluster__body">
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input tx" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="pay_value">
+			    <label class="mdl-textfield__label" for="pay_value">票面金额（万元）</label>
+			    <span class="mdl-textfield__error">Input is not a number!</span>
+			 </div>
+			 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input tx" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="quote_rate">
+			    <label class="mdl-textfield__label" for="quote_rate">月利率(%)</label>
+			    <span class="mdl-textfield__error">Input is not a number!</span>
+			 </div>
+			 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    			<input id="discount_time" name="discount_time" class="mdl-textfield__input datepicker tx" type="datetime" data-role="datepicker">
+    			<label class="mdl-textfield__label" for="discount_time">贴现日<span class='star_label'>*</span></label>
+			 </div>
+			 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    			<input id="maturity_time" name="maturity_time tx" class="mdl-textfield__input datepicker tx" type="datetime" data-role="datepicker">
+    			<label class="mdl-textfield__label" for="maturity_time">到期日<span class='star_label'>*</span></label>
+			 </div>
+			 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input tx" type="text" pattern="[0-9]+" id="grace_period">
+			    <label class="mdl-textfield__label" for="grace_period">调整天数(天)</label>
+			    <span class="mdl-textfield__error">Input is not a number!</span>
+			 </div>
+			 <button class=" mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id='caculate'>
+				计算
+			</button>
+		</div>
+	</div>  
+	<div style="background-color:#555555; width:100%; height:2px;"></div>
+	<div class="mdl-grid">
+		<div class="mdl--cell mdl-cell--4-col mdl-cell--12-col-desktop mdl-cell--4-col-phone lable_cell">
+			<div class='ltitle'>总天数:</div>
+			<div class='rinfo' id="period"></div>
+		</div>
+		<div class="mdl--cell mdl-cell--4-col mdl-cell--12-col-desktop mdl-cell--4-col-phone lable_cell">
+			<div class='ltitle'>贴现利息(万元):</div>
+			<div class='rinfo' id="interest"></div>
+		</div>
+		<div class="mdl--cell mdl-cell--4-col mdl-cell--12-col-desktop mdl-cell--4-col-phone lable_cell">
+			<div class='ltitle'>放款金额(万元):</div>
+			<div class='rinfo' id="loan_total"></div>
+		</div>
+	</div>
+{% endblock %}
+    
+{% block js %}{{ block.super }}
+<script>
+$(function(){
+	$('#caculate').on('click', function(){
+		var date1 = $('#maturity_time').val();// 到期日
+		var date2 = $('#discount_time').val();//贴现日
+		var adjust_days = parseInt($('#grace_period').val())
+		
+		var quote_rate = $('#quote_rate').val();//利率
+		var pay_val = $('#pay_value').val() * 10000;//票面金额
+		
+		//计算出相差天数  
+		var days = GetDateDiff(date2, date1, "day") + adjust_days;
+		$('#period').html(days);
+		
+		var interest = parseFloat(quote_rate/30 * days * pay_val / 100.0 /10000).toFixed(2);
+		$('#interest').html(interest);
+		
+		$('#loan_total').html(parseFloat(pay_val/10000-interest).toFixed(2));
+	})    
+})
+</script>
+{% endblock %}

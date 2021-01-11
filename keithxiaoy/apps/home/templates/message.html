@@ -1,0 +1,46 @@
+{% extends 'includes/home_frame_list.html' %}
+{% load timetags %}
+
+{% block template %}{% verbatim %}
+{{#results}}
+<a class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--4dp demo-card-wide" href="{{uri}}" style="text-decoration: none;">
+  	<div class="mdl-card__title">
+   		<div class="mdl-card__title-text">
+   		{{title}}
+   		</div>
+  	</div>
+  	<div class="mdl-card__supporting-text">
+  		{{content}}
+  	</div>
+  	<div class="mdl-card__menu" style="color:#888">{{formatDate created_time 'YYYY-MM-DD'}}</div>
+</a>
+{{/results}}
+{% endverbatim %}{% endblock %}
+
+{% block js%}{{ block.super }}
+<script>
+$(function(event){
+	api = $('#list').attr('data-endpoint')
+	scrollLoadData('.mdl-layout__content', '#list', '#entry-template', api, 20, '.mdl-layout__content');
+})
+</script>
+
+{% endblock %}
+
+
+{% load i18n static %}
+
+{% block css %}{{ block.super }}
+<style>
+.demo-card-wide.mdl-card {
+  width: 100%;
+  min-height: 120px;
+  height:120px;
+}
+
+.mdl-card__title-text{
+	color: #000;
+	font-size: 20px;
+}
+</style>
+{% endblock %}

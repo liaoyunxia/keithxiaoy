@@ -1,0 +1,214 @@
+{% extends 'includes/home_frame.html' %}
+{% load i18n static %}
+
+{% block css %}{{ block.super }}
+<style>
+	 .ground_wrap{
+		overflow: hidden;
+	}
+	 .main_btn{
+		width:25%;; height:50px; margin-right:10px;
+	}
+	.mdl-textfield{
+		margin-left:10px;
+	}	
+	
+</style>
+{% endblock %}
+
+
+   
+{% block content %}
+	<div class="mdl-cluster">
+		<header class="mdl-cluster__header">
+	        <h2 class="mdl-cluster__title-text">基本信息</h2>   <!-- 主标题 -->
+	        <div class="mdl-cluster__subtitle-text"></div>  <!-- 副标题 -->
+	        <div class="mdl-cluster-spacer"></div>  <!-- 填充占位符 -->
+	        <div class="mdl-cluster__actions">
+	        </div>    <!-- 头部右侧内容块 -->
+	    </header>
+	    <div class="mdl-divider"></div> 
+	    <div class="mdl-cluster__body base_info mdl-grid mdl-grid--no-spacing mdl-flex--center">
+			<!-- // 注意改以下每个控件的名称。。。 -->
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		    	<input class="mdl-textfield__input" type="text" id="number" name='number'>
+		       	<label class="mdl-textfield__label" for="number">保理号<span style='color:red'>*</span></label>
+			</div>
+			<div class="mdl-flex mdl-flex--middle" style="width:300px; padding: 8px 0px; margin:10px;">
+				<div class="mdl-flex__bd mdl-flex mdl--padding-none">
+					<div class="mdl-flex__bd" style="width:300px;">
+						<select class="mdl-textfield__input" onChange="OnDropDownChange(this);" id="seller_list">
+							<option value="----">--合同甲方--</option>
+						</select>
+						<input type="hidden" id="seller_id" name="seller_id"/>
+					</div>
+				</div>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		       	<input class="mdl-textfield__input figure" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="pre_pay_max_x" name="pre_pay_max_x">
+		       	<label class="mdl-textfield__label" for="pre_pay_max_x">保理预付款最高金额（小写）<span style='color:red'>*</span></label>
+		       	<span class="mdl-textfield__error">Input is not a number!</span>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		       	<input class="mdl-textfield__input" type="text" id="pre_pay_max_d" name="pre_pay_max_d">
+		       	<label class="mdl-textfield__label" for="pre_pay_max_d">保理预付款最高金额（大写）</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	   			<input id="valid_start_date" name="valid_start_date" class="mdl-textfield__input datepicker" type="datetime" data-role="datepicker">
+	   			<label class="mdl-textfield__label" for="valid_start_date">额度有效期开始日<span class='star_label'>*</span></label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	   			<input id="valid_end_date" name="valid_end_date" class="mdl-textfield__input datepicker" type="datetime" data-role="datepicker">
+	   			<label class="mdl-textfield__label" for="valid_end_date">额度有效期截止日<span class='star_label'>*</span></label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input figure" type="text" pattern="[0-9]+" id="penalty_interest" name="overdue_defaut_interest_float" value=100>
+			    <label class="mdl-textfield__label" for="overdue_defaut_interest_float">逾期罚息上浮(%)<span style='color:red'>*</span></label>
+			    <span class="mdl-textfield__error">Input is not a number!</span>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	   			<input id="sign_date" name="sign_date" class="mdl-textfield__input datepicker" type="datetime" data-role="datepicker">
+	   			<label class="mdl-textfield__label" for="sign_date">签约日<span class='star_label'>*</span></label>
+			</div>
+		</div>
+	</div>
+	<div class="mdl-cluster">
+		<header class="mdl-cluster__header">
+	        <h2 class="mdl-cluster__title-text">买方清单</h2>   <!-- 主标题 -->
+	        <div class="mdl-cluster__subtitle-text"></div>  <!-- 副标题 -->
+	        <div class="mdl-cluster-spacer"></div>  <!-- 填充占位符 -->
+	        <div class="mdl-cluster__actions">
+	        	<div class="mdl-cluster__actions mdl-flex__item-middle add_buyer">
+	  				<i class="material-icons">add</i>
+				</div>
+	        </div>    <!-- 头部右侧内容块 -->
+	    </header>
+	    <div class="mdl-divider"></div> 
+	    <div class="mdl-cluster__body zhifu_info base_info mdl-grid">
+			{% for i in buyer_count %}
+			<div class="mdl-cell mdl-cell--4-col payments mdl-card mdl-shadow--4dp buyer_item" data-index="{{i}}" id='buyer_{{i}}'>
+			  	<div class="mdl-card__supporting-text">
+					<div class="mdl-flex mdl-flex--middle" style="padding: 8px 0px;">
+						<div class="mdl-flex__bd mdl-flex mdl--padding-none">
+							<div class="mdl-flex__bd" style="">
+								<select class="mdl-textfield__input buyer_list" onChange="OnDropDownChange(this);">
+									<option value="----">--买方名称--</option>
+								</select>
+								<input type="hidden" name="customer_id"/>
+							</div>
+						</div>
+					</div>
+					<div class="mdl-textfield">业务类型
+						<label class="mdl-radio mdl-js-radio">
+						    <input type="radio" class="mdl-radio__button" value=0 name="b_type_{{i}}" checked/>
+						    <span class="mdl-radio__label">公开</span>
+						</label>
+						<label class="mdl-radio mdl-js-radio">
+						    <input type="radio" class="mdl-radio__button" value=1  name="b_type_{{i}}" />
+						    <span class="mdl-radio__label">隐私</span>
+						</label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					    <input class="mdl-textfield__input pre_pay_rate figure" type="text" pattern="[0-9]+" value=100>
+					    <label class="mdl-textfield__label" for="pre_pay_rate">预付款比例(%)</label>
+					    <span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				    	<input class="mdl-textfield__input trading_relate_amount figure" pattern="-?[0-9]*(\.[0-9]+)?" type="text">
+				       	<label class="mdl-textfield__label" for="trading_relate_amount">买卖双方关联限额(元)</label>
+				       	<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>	
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div style="background-color:#555555; width:100%; height:5px;"></div>
+	<div style="text-align:center; margin:10px 0px; ">
+	<button class="main_btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--light-blue-grey mdl-color-text--grey-1000">提交</button>
+	</div>
+{% endblock %}
+    
+{% block js %}{{ block.super }}
+<script>
+
+$(function(){
+	insert_customer('/api/v1/customers/?type=s&page=1&page_size=32767', '#seller_list');
+	insert_customer('/api/v1/customers/?type=b&page=1&page_size=32767', '.buyer_list')	
+	var add_times = 1;
+	$('.buyer_item').each(function(event){
+		$(this).hide();		
+	})
+	$('#buyer_1').show();
+
+	$('.add_buyer').on('click', function(event){
+		add_times = add_times + 1;
+		if(add_times <= 5){
+			$('#buyer_'+add_times).show();
+		}
+	})
+	
+	$('.main_btn').on('click', function(event){
+		var json_data = {}
+
+		$('.base_info input').each(function(event){
+			var val = $(this).val();
+			if($(this).attr('type') == 'datetime'){
+				val += ' 00:00:00';
+			}
+			if($(this).hasClass('figure')){
+				val *= 100;
+				val = parseInt(val);
+			}
+			json_data[$(this).attr('name')] = val;
+		})
+		
+		var buyers = []
+		var b_index = 1;
+		$('.buyer_item').each(function(event){
+			var $this = $('#buyer_'+b_index) 
+			if($this.is(":hidden")){
+				;
+			}else{
+				if ($this.find('input[name="customer_id"]').val()){
+					var buyer = {}
+					index = $this.attr('data-index')
+					check_name = 'b_type_'+index;
+					checked_obj = "input[name='"+ check_name +"'][checked]"
+					buyer['business_type'] = $this.find(checked_obj).val();
+					buyer['pre_pay_rate'] = $this.find('.pre_pay_rate').val() * 100;
+					buyer['trading_relate_amount'] = $this.find('.trading_relate_amount').val() * 100;
+					buyer['customer_id'] = $this.find('input[name="customer_id"]').val();
+					buyers.push(buyer)
+				}
+				b_index = b_index + 1;
+			}
+		})
+		json_data['buyers'] = JSON.stringify(buyers);
+	    console.log('===================')
+		console.log(json_data)
+		console.log('===================')
+		$.ajax({
+			url: '/api/v1/contracts/',
+			type: 'POST',
+			dataType: 'json',
+			data: json_data,
+		})
+		.done(function(data) {
+			alert('保理合同信息添加成功！');
+			location.href = '/';			
+		})
+		.fail(function(data) {
+			if(data.status === 400){
+				var err = JSON.parse(data.responseText).detail;
+				alert(err)
+			} else {
+				alert('保理合同信息添加失败！');
+			}
+			return;
+		});
+	})
+	
+})
+</script>
+{% endblock %}

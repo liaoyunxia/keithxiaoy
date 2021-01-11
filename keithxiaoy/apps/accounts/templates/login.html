@@ -1,0 +1,59 @@
+{% extends 'railguns/mdl/detail.html' %}
+<!-- load -->
+{% load i18n static %}
+{% block css %}{{ block.super }}
+<style type="text/css">
+body>.grid {
+	height: 100%;
+}
+
+</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<div class="mdl-grid">
+		<div class="mdl-card mdl--cell mdl-cell--4-col mdl-cell--4-col-desktop mdl-cell--4-col-phone mdl-shadow--4dp" style="margin-left:auto; margin-right:auto; margin-top:50px;">
+			<div class="mdl-card__title mdl-color--blue-400 mdl-color-text--grey-50" style="height:50px;">
+		  		<h4>用户登录</h4>
+	    	</div>
+	    	<form action="/accounts/login/" method="post">
+			{% csrf_token %} 
+			<div class="mdl-card__supporting-text" style="{margin-top: 20px;}">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				    <input class="mdl-textfield__input" type="text" id="username" name="username">
+				    <label class="mdl-textfield__label" for="username">用户名</label>
+				</div>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				    <input class="mdl-textfield__input" type="password" id="password" name="password" value="111111">
+				    <label class="mdl-textfield__label" for="password">密码</label>
+				</div>
+		        <div class="ui error message">{{err_msg | safe}}</div>
+			</div>
+			<div class="mdl-card__actions mdl-card--border">
+			    <button class="mdl-button mdl-js-button mdl-button--raised submit" style="margin:0 auto;display: block; background-color: #178df0; width: 300px; color:#ffffff">
+				 登录
+				</button>
+			</div>
+			<input type="hidden" name='openid' value="{{openid}}">
+			</form>
+		</div>
+	</div>
+{% endblock %}
+
+{% block js %}{{ block.super }}
+<script type="text/javascript">
+    var browser={versions:function(){var a=navigator.userAgent,b=navigator.appVersion;return{trident:a.indexOf("Trident")>-1,presto:a.indexOf("Presto")>-1,webKit:a.indexOf("AppleWebKit")>-1,gecko:a.indexOf("Gecko")>-1&&a.indexOf("KHTML")==-1,mobile:!!a.match(/AppleWebKit.*Mobile/)||!!a.match(/Windows Phone/)||!!a.match(/Android/)||!!a.match(/MQQBrowser/),ios:!!a.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:a.indexOf("Android")>-1||a.indexOf("Linux")>-1,iPhone:a.indexOf("iPhone")>-1||a.indexOf("Mac")>-1,iPad:a.indexOf("iPad")>-1,webApp:a.indexOf("Safari")==-1}}()};
+    if(browser.versions.mobile){
+    	if(location.pathname == '/accounts/login/'){
+    		window.location.href="/accounts/login/m/";	
+    	}
+    }else{
+    	if(location.pathname == '/accounts/login/m/'){
+    		window.location.href="/accounts/login/";	
+    	}
+	}
+    
+</script>
+{% endblock %}

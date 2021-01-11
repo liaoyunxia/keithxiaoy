@@ -1,0 +1,32 @@
+{% extends 'railguns/mdl/list.html' %}
+{% load i18n static %}
+	{% block js %}
+	<script src="//static-cmcaifu-com.oss-cn-hangzhou.aliyuncs.com/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="//static-cmcaifu-com.oss-cn-hangzhou.aliyuncs.com/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
+	<script type="text/javascript" src="{% static 'railguns/js/django.js' %}"></script>
+	<!--   libs -->
+	<script src="//static-cmcaifu-com.oss-cn-hangzhou.aliyuncs.com/libs/jquery.lazy/1.7.4/jquery.lazy.min.js"></script>
+	<script src="//static-cmcaifu-com.oss-cn-hangzhou.aliyuncs.com/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script type="text/javascript" src="{% static 'railguns/js/libs.js' %}"></script>
+	<!-- mdl/base -->
+	<script src="//static-cmcaifu-com.oss-cn-hangzhou.aliyuncs.com/libs/mdl/1.3.0/material.min.js"></script>
+	<script src="http://static.cmcaifu.com/mdl/extend/componentextend.js"></script>
+	<script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/upload_scripts.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/factoring_public.js' %}"></script>
+	{% endblock %}
+	
+    {% block css%}{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/factoring_public.css' %}">
+	<link rel="stylesheet" href="http://static.cmcaifu.com/mdl/extend/componentextend.css">
+    {% endblock %}
+    
+	{% block navbar %}{{ block.super }}
+	    {% include 'includes/nav.html' %}
+    {% endblock %}
+    
+  	{% block list %}        
+	  	<div class="mdl-grid" data-endpoint="{{ endpoint }}" data-user_id="{{request.user.id}}" id="list"></div>
+	  	{% block page_tail %}{% endblock %}      
+  	{% endblock %}
+

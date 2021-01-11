@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /api
+Disallow: /admin
+Disallow: /i18n
+Disallow: /developer
+Disallow: /captcha
+Disallow: /download_url
+Disallow: /upload_params
+Disallow: /payments
+Disallow: /internal

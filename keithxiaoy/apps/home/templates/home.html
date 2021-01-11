@@ -1,0 +1,111 @@
+{% extends 'includes/home_frame_list.html' %}
+{% load timetags %}
+
+{% block template %}{% verbatim %}
+{{#results}}
+<a class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--4dp" href="{{uri}}" style="text-decoration: none;">
+  	<div class="mdl-card__title" style="height:30%">
+  		<i class="material-icons mdl-list__item-ico">receipt</i>&nbsp;
+  		<span>{{code}}</span>
+  	</div>
+  	<div class="mdl-card__supporting-text">
+		<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-desktop mdl-cell--4-col-phone">
+			<div class='ltitle'>业务类型:</div>
+			<div class='rinfo'>{{type.message}}&nbsp;</div>
+		</div>
+		<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-desktop mdl-cell--4-col-phone">
+			<div class='ltitle'>审核状态:</div>
+			<div class='rinfo'>{{status.message}}</div>
+		</div>
+		<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-desktop mdl-cell--4-col-phone">
+			<div class='ltitle'>审核节点:</div>
+			<div class='rinfo'>{{vetting.message}}&nbsp;</div>
+		</div>
+		<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-desktop mdl-cell--4-col-phone">
+			<div class='ltitle'>创建人:</div>
+			<div class='rinfo'>{{user.name}}&nbsp;</div>
+		</div>
+		<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-desktop mdl-cell--4-col-phone">
+			<div class='ltitle'>创建时间:</div>
+			<div class='rinfo'>{{formatDate created_time "YYYY-MM-DD"}}&nbsp;</div>
+		</div>
+  	</div>
+</a>
+{{/results}}
+{% endverbatim %}{% endblock %}
+
+{% block js %}{{ block.super }}
+<script>
+$(function(event){
+	api = $('#list').attr('data-endpoint')
+	scrollLoadData('.mdl-layout__content', '#list', '#entry-template', api, 20, '.mdl-layout__content');
+	if('{{opt_type}}' == '0'){
+		$('#opt_0').addClass('is-active').siblings().removeClass('is-active');
+	}else if('{{opt_type}}' == '1'){
+		$('#opt_1').addClass('is-active').siblings().removeClass('is-active');
+	}else{
+		$('#opt_2').addClass('is-active').siblings().removeClass('is-active');
+	}
+})
+</script>
+{% endblock %}
+
+{% block page_tail %}
+{% if request.user.is_manager %}
+<div class="mdl-handle--fixed">
+    <div id="demo-button-add" class="mdl-handle__menu">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--6dp">
+            <i class="material-icons">dashboard</i>
+        </button>
+    </div>
+    <div class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect" for="demo-button-add">
+        <a href='/customers/create/' class="mdl-menu__item">融资人授信审批</a>
+        <a href='/bills/create/' class="mdl-menu__item">备案票据审批</a>
+        {% if request.user.is_financier %}
+        <a href='/transferdiscounts/bills/' class="mdl-menu__item">转贴审批</a>
+        {% endif %}
+    </div>
+</div>
+{% elif request.user.is_financier %}
+<div class="mdl-handle--fixed">
+    <div id="demo-button-add" class="mdl-handle__menu">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--6dp">
+            <i class="material-icons">dashboard</i>
+        </button>
+    </div>
+    <div class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect" for="demo-button-add">
+        <a href='/transferdiscounts/bills/' class="mdl-menu__item">转贴审批</a>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+{% load i18n static %}
+	{% block css %}{{ block.super }}
+	<style>
+	.demo-card-wide > .mdl-card__menu {
+		color: #fff;
+	}
+	.ltitle{
+		width:40%; float:left; display:inline;
+	}
+	
+	.rinfo{
+		width:60%; float:right; display:inline;;
+	}
+	.demo-card-wide{
+		width:100%;
+	}
+	#add_order {
+	    position: fixed;
+	    display: block;
+	    right: 0;
+	    bottom: 0;
+	    margin-right: 20px;
+	    margin-bottom: 20px;
+	    z-index: 900;
+  	}
+	</style>
+	{% endblock %}

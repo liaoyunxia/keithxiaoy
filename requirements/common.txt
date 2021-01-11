@@ -1,0 +1,3 @@
+-r code.txt
+pysolr
+Pillow

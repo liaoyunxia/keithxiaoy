@@ -1,0 +1,99 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no">
+		<title>基本信息</title>
+		<style type="text/css">
+			@charset "utf-8";
+			html {-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+			input[type="submit"], input[type="reset"], input[type="button"], input {-webkit-appearance: none;resize: none;}
+			body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+			article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+			img {width: 100%;height: auto;width: auto\9; /* ie8 */-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/}
+			body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {margin: 0;padding: 0;border: none;}
+			body {font: 12px Microsoft YaHei, '微软雅黑' Tahoma, Arial, sans-serif;color: #555;background-color: #ffffff;}
+			em, i {font-style: normal;}
+			strong {font-weight: normal;}
+			.clearfix:after {content: "";display: block;visibility: hidden;height: 0;clear: both;}
+			.clearfix {zoom: 1;}
+			a {text-decoration: none;color: #969696;font-family: '微软雅黑', Microsoft YaHei, Tahoma, Arial, sans-serif;}
+			a:hover {text-decoration: none;}
+			ul, ol {list-style: none;}
+			h1, h2, h3, h4, h5, h6 {font-size: 100%;font-family: Microsoft YaHei;}
+			img {border: none;display: block;}	
+			/*---reset---*/
+			html{font-size:100px;font-family:'微软雅黑';}
+			.certifition{width:100%;height:100%;padding-top: 1.4rem;-webkit-box-sizing: border-box;box-sizing: border-box;padding-bottom: 0.5rem;}
+			.information{width:6.9rem;height:4rem;margin:0 auto; }
+			.information p{font-size:0.28rem;color:#666666;height:0.8rem;line-height: 0.8rem;border-bottom: 1px solid #cccccc;padding-left: 0.25rem;}
+			.information input{outline:none;line-height: 0.8rem;font-size:0.28rem;color:#666666;}
+			.submisstion{width:6.63rem;height:1.29rem;margin:0.42rem auto 0;background: url({% static 'wechat/images/procedure.png' %}) 0 0 no-repeat;-webkit-background-size: 100%;
+			background-size: 100%;}
+			.submit{width:3rem;height:0.84rem;background: url({% static 'wechat/images/submit.png' %}) 0 0 no-repeat;margin:1.73rem auto 0;display: block;-webkit-background-size: 100%;
+			background-size: 100%;}
+		</style>
+		<script src="{% static 'libs/jquery/3.1.0/jquery.min.js' %}"></script>
+		<script type="text/javascript">
+	        (function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                if(clientWidth>=750){
+		                    docEl.style.fontSize = '100px';
+		                }else{
+		                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+		                }
+		            };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+   		</script>
+    </head>
+    <body data-userid="{{ request.user.id }}" data-endpoint="{{ endpoint }}" data-nav_name="{{ nav_name }}">
+    	<form action="/accounts/register/" method="post" onsubmit="return applyPost();">
+    	{% csrf_token %}
+	    	<div class="certifition clearfix">
+	    		<div class="information clearfix">
+	    			<p>姓名：<input type="text" id="name" name="name"></p>
+	    			<p>手机：<input type="text" id="phone_number" name="phone_number"></p>
+	    		</div>
+	    		<div class="submisstion"></div>
+	    		<input type="hidden" name="openid" value="{{openid}}">
+	    		<input type="hidden" name="appid" value="{{ appid }}">
+	    		<input type="hidden" name="demand_tags" value="{{demand_tags}}">
+	    		<input type="hidden" name="err_msg" id="err_msg" value="{{err_msg}}">
+	    		<input type="hidden" name="intention_tags" value="{{intention_tags}}">
+	    		<input type="submit" class="submit" value="">
+	    	</div>
+    	</form>
+    	<script type="text/javascript">
+			function applyPost(){
+				var _username = $.trim($('#name').val());
+					_phone_number = $.trim($('#phone_number').val());
+					// _email = $.trim($('#email').val());
+				var _phoneRegExp = /^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9}$/;
+				if(_username != "" && _organization != "" && _position != "" ) {
+					if(!_phoneRegExp.test(_phone_number)) {
+						alert("请输入正确的手机号码"); return false;
+						$('#phone_number').focus();
+					}
+				} else if(_username == "") {
+						alert("请填写姓名"); return false;
+				}
+			}
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				var err = $("#err_msg").val();
+				if (err != "") {
+					alert(err);
+				};
+			});
+		</script>
+    </body>
+</html>

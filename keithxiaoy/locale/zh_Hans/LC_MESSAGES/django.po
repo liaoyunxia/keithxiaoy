@@ -1,0 +1,906 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ping <cokkywu@gmail.com>, 2015
+# nypisces <loliandny@icloud.com>, 2015-2016
+# nypisces <nypisces@msn.com>, 2015
+# Ping <cokkywu@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: 城满财富\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-24 11:55+0800\n"
+"PO-Revision-Date: 2016-02-24 04:01+0000\n"
+"Last-Translator: nypisces <loliandny@icloud.com>\n"
+"Language-Team: Chinese Simplified (http://www.transifex.com/nypisces/cmcaifu/language/zh-Hans/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh-Hans\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.7.8\n"
+
+#: cmcaifu/apps/accounts/admin.py:16 cmcaifu/apps/accounts/admin.py:17
+msgid "Personal info"
+msgstr ""
+
+#: cmcaifu/apps/accounts/admin.py:18
+msgid "Permissions"
+msgstr ""
+
+#: cmcaifu/apps/accounts/forms.py:9 cmcaifu/apps/accounts/forms.py:52
+msgid "Password"
+msgstr ""
+
+#: cmcaifu/apps/accounts/forms.py:15 cmcaifu/apps/accounts/forms.py:27
+#: cmcaifu/apps/accounts/forms.py:44
+msgid "username"
+msgstr ""
+
+#: cmcaifu/apps/accounts/forms.py:19 cmcaifu/apps/accounts/forms.py:31
+#: cmcaifu/apps/accounts/forms.py:48
+msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr ""
+
+#: cmcaifu/apps/accounts/forms.py:21 cmcaifu/apps/accounts/forms.py:33
+#: cmcaifu/apps/accounts/forms.py:50
+msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
+msgstr ""
+
+#: cmcaifu/apps/accounts/models.py:45
+msgid "male"
+msgstr "男"
+
+#: cmcaifu/apps/accounts/models.py:45
+msgid "female"
+msgstr "女"
+
+#: cmcaifu/apps/accounts/models.py:49
+msgid "nickname"
+msgstr "昵称"
+
+#: cmcaifu/apps/accounts/models.py:50
+msgid "gender"
+msgstr "性别"
+
+#: cmcaifu/apps/accounts/models.py:51
+msgid "full_name"
+msgstr "姓名"
+
+#: cmcaifu/apps/accounts/models.py:52 cmcaifu/apps/organizations/models.py:25
+#: cmcaifu/apps/products/models.py:36
+msgid "about"
+msgstr "关于"
+
+#: cmcaifu/apps/accounts/models.py:53 cmcaifu/apps/articles/admin.py:14
+#: cmcaifu/apps/assets/admin.py:20 cmcaifu/apps/assets/models.py:59
+#: cmcaifu/apps/cards/models.py:56 cmcaifu/apps/likes/models.py:11
+#: cmcaifu/apps/organizations/models.py:23
+#: cmcaifu/apps/organizations/models.py:40
+#: cmcaifu/apps/organizations/models.py:62 cmcaifu/apps/products/models.py:38
+#: cmcaifu/apps/products/models.py:53 cmcaifu/apps/projects/models.py:57
+#: cmcaifu/apps/tags/models.py:17 cmcaifu/apps/x/admin.py:11
+#: cmcaifu/apps/x/models.py:21 nyssance/django/db/models.py:18
+#: nyssance/django/db/models.py:30
+msgid "image_urls"
+msgstr ""
+
+#: cmcaifu/apps/accounts/models.py:54 cmcaifu/apps/articles/admin.py:15
+#: cmcaifu/apps/cards/admin.py:11 cmcaifu/apps/cards/models.py:60
+#: cmcaifu/apps/products/models.py:54 cmcaifu/apps/questions/admin.py:12
+#: cmcaifu/apps/tags/models.py:21 cmcaifu/apps/videos/admin.py:13
+#: cmcaifu/configs/suit.py:29 nyssance/django/db/models.py:31
+msgid "tags"
+msgstr "标签"
+
+#: cmcaifu/apps/accounts/models.py:55
+msgid "id_card_number"
+msgstr "身份证号码"
+
+#: cmcaifu/apps/accounts/models.py:56 cmcaifu/apps/orders/models.py:47
+#: cmcaifu/apps/organizations/models.py:42
+msgid "phone_number"
+msgstr "电话号码"
+
+#: cmcaifu/apps/accounts/models.py:57 cmcaifu/apps/cash/models.py:13
+#: cmcaifu/apps/orders/models.py:44 cmcaifu/apps/transactions/models.py:48
+msgid "payment_service_id"
+msgstr "支付服务ID"
+
+#: cmcaifu/apps/accounts/models.py:58
+msgid "payment_account_status"
+msgstr "支付账号状态"
+
+#: cmcaifu/apps/accounts/models.py:59
+msgid "payment_account_number"
+msgstr "支付账号"
+
+#: cmcaifu/apps/accounts/models.py:60
+msgid "social_user_id"
+msgstr "社交账号ID"
+
+#: cmcaifu/apps/accounts/models.py:61
+msgid "social_site"
+msgstr ""
+
+#: cmcaifu/apps/accounts/models.py:62
+msgid "from_id"
+msgstr "推荐人ID"
+
+#: cmcaifu/apps/accounts/models.py:63 cmcaifu/apps/cards/models.py:58
+#: cmcaifu/apps/comments/models.py:11
+msgid "like_count"
+msgstr "喜欢数量"
+
+#: cmcaifu/apps/accounts/models.py:64 cmcaifu/apps/cards/models.py:59
+msgid "comment_count"
+msgstr "评论数量"
+
+#: cmcaifu/apps/accounts/models.py:65 cmcaifu/apps/projects/models.py:70
+msgid "risk_level"
+msgstr "风险等级"
+
+#: cmcaifu/apps/accounts/models.py:66
+msgid "level"
+msgstr "等级"
+
+#: cmcaifu/apps/accounts/models.py:67
+msgid "birthday"
+msgstr "生日"
+
+#: cmcaifu/apps/accounts/models.py:87 cmcaifu/apps/orders/models.py:45
+#: cmcaifu/apps/products/models.py:33 cmcaifu/apps/transactions/models.py:46
+#: nyssance/django/db/models.py:19
+msgid "active"
+msgstr ""
+
+#: cmcaifu/apps/articles/admin.py:12 cmcaifu/apps/featured/admin.py:14
+#: cmcaifu/apps/specials/admin.py:13 cmcaifu/apps/videos/admin.py:12
+#: nyssance/django/db/models.py:29
+msgid "summary"
+msgstr "摘要"
+
+#: cmcaifu/apps/articles/admin.py:13 cmcaifu/apps/articles/models.py:9
+#: cmcaifu/apps/comments/models.py:10 cmcaifu/apps/questions/admin.py:20
+#: cmcaifu/apps/questions/models.py:20
+msgid "text"
+msgstr "文本"
+
+#: cmcaifu/apps/articles/models.py:15 cmcaifu/apps/cards/models.py:21
+msgid "article"
+msgstr "文章"
+
+#: cmcaifu/apps/articles/models.py:16
+msgid "articles"
+msgstr "文章"
+
+#: cmcaifu/apps/articles/templates/article_detail.html:32
+#: cmcaifu/apps/projects/templates/contract_detail.html:30
+msgid "Home"
+msgstr ""
+
+#: cmcaifu/apps/assets/admin.py:19 cmcaifu/apps/assets/models.py:58
+#: cmcaifu/apps/coupons/admin.py:11 cmcaifu/apps/coupons/models.py:13
+#: cmcaifu/apps/orders/models.py:48 cmcaifu/apps/organizations/models.py:39
+#: cmcaifu/apps/products/admin.py:13 cmcaifu/apps/products/models.py:52
+#: cmcaifu/apps/projects/admin.py:33 cmcaifu/apps/projects/models.py:56
+msgid "description"
+msgstr "描述"
+
+#: cmcaifu/apps/assets/admin.py:21 cmcaifu/apps/assets/models.py:77
+#: cmcaifu/apps/orders/admin.py:11 cmcaifu/apps/orders/models.py:49
+#: cmcaifu/apps/organizations/models.py:24 cmcaifu/apps/products/models.py:39
+#: cmcaifu/apps/transactions/models.py:47 cmcaifu/apps/x/models.py:13
+#: cmcaifu/apps/x/models.py:22
+msgid "remark"
+msgstr "备注"
+
+#: cmcaifu/apps/assets/admin.py:54 cmcaifu/apps/assets/models.py:69
+msgid "min_fund"
+msgstr "最低融资额度"
+
+#: cmcaifu/apps/assets/admin.py:59 cmcaifu/apps/assets/models.py:70
+msgid "max_fund"
+msgstr "最高融资额度"
+
+#: cmcaifu/apps/assets/models.py:57 cmcaifu/apps/coupons/models.py:11
+#: cmcaifu/apps/orders/models.py:31 cmcaifu/apps/organizations/models.py:17
+#: cmcaifu/apps/organizations/models.py:37 cmcaifu/apps/products/models.py:34
+#: cmcaifu/apps/products/models.py:51 cmcaifu/apps/projects/models.py:55
+#: cmcaifu/apps/region/models.py:14 cmcaifu/apps/region/models.py:30
+#: cmcaifu/apps/tags/models.py:15 cmcaifu/apps/x/models.py:18
+msgid "name"
+msgstr "名称"
+
+#: cmcaifu/apps/assets/models.py:60 cmcaifu/apps/coupons/models.py:10
+msgid "number"
+msgstr "汇票编号"
+
+#: cmcaifu/apps/assets/models.py:61
+msgid "drawer"
+msgstr "出票人"
+
+#: cmcaifu/apps/assets/models.py:62
+msgid "par_value"
+msgstr "票面金额"
+
+#: cmcaifu/apps/assets/models.py:63
+msgid "issue_time"
+msgstr "出票日期"
+
+#: cmcaifu/apps/assets/models.py:64
+msgid "maturity_time"
+msgstr "汇票到期日"
+
+#: cmcaifu/apps/assets/models.py:66 cmcaifu/apps/coupons/models.py:14
+#: cmcaifu/apps/orders/models.py:36 cmcaifu/apps/projects/models.py:63
+msgid "start_time"
+msgstr "开始时间"
+
+#: cmcaifu/apps/assets/models.py:67 cmcaifu/apps/orders/models.py:37
+#: cmcaifu/apps/projects/models.py:65
+msgid "period"
+msgstr "期限"
+
+#: cmcaifu/apps/assets/models.py:68
+msgid "grace_period"
+msgstr "免息期限"
+
+#: cmcaifu/apps/assets/models.py:71
+msgid "payment_online"
+msgstr "线上支付"
+
+#: cmcaifu/apps/assets/models.py:73 cmcaifu/apps/projects/models.py:61
+msgid "interest_rate"
+msgstr "利率"
+
+#: cmcaifu/apps/assets/models.py:74
+msgid "service_rate"
+msgstr "服务费率"
+
+#: cmcaifu/apps/assets/models.py:75
+msgid "overdue_rate"
+msgstr "逾期罚息费率"
+
+#: cmcaifu/apps/assets/models.py:76
+msgid "prepayment_rate"
+msgstr "提前偿还罚金利率"
+
+#: cmcaifu/apps/assets/models.py:78
+msgid "receiver"
+msgstr "融资方"
+
+#: cmcaifu/apps/assets/models.py:79
+msgid "payer_id"
+msgstr "付款人ID"
+
+#: cmcaifu/apps/assets/models.py:80
+msgid "repayment_amount"
+msgstr "还款金额"
+
+#: cmcaifu/apps/assets/models.py:81
+msgid "manual_full"
+msgstr "人工手动满标"
+
+#: cmcaifu/apps/assets/models.py:82 cmcaifu/apps/cash/models.py:12
+#: cmcaifu/apps/coupons/models.py:18 cmcaifu/apps/orders/models.py:43
+#: cmcaifu/apps/products/models.py:56 cmcaifu/apps/projects/models.py:71
+#: cmcaifu/apps/region/models.py:17 cmcaifu/apps/region/models.py:31
+#: cmcaifu/apps/x/models.py:11 cmcaifu/apps/x/models.py:23
+msgid "status"
+msgstr "状态"
+
+#: cmcaifu/apps/assets/models.py:85
+msgid "bill"
+msgstr "票据"
+
+#: cmcaifu/apps/assets/models.py:86
+msgid "bills"
+msgstr "票据"
+
+#: cmcaifu/apps/cards/models.py:18 cmcaifu/apps/cards/models.py:19
+#: cmcaifu/apps/products/models.py:79
+msgid "product"
+msgstr "产品"
+
+#: cmcaifu/apps/cards/models.py:20 cmcaifu/apps/notifications/models.py:13
+#: cmcaifu/apps/projects/admin.py:19 cmcaifu/apps/projects/models.py:40
+#: cmcaifu/apps/site/admin.py:12 cmcaifu/apps/site/models.py:8
+#: cmcaifu/apps/x/models.py:10 cmcaifu/configs/suit.py:25
+msgid "content"
+msgstr "内容"
+
+#: cmcaifu/apps/cards/models.py:22 cmcaifu/apps/questions/models.py:13
+msgid "question"
+msgstr "问题"
+
+#: cmcaifu/apps/cards/models.py:23 cmcaifu/apps/videos/models.py:17
+msgid "video"
+msgstr "视频"
+
+#: cmcaifu/apps/cards/models.py:54
+msgid "caption"
+msgstr "视频"
+
+#: cmcaifu/apps/cards/models.py:55 cmcaifu/apps/coupons/models.py:17
+#: cmcaifu/apps/featured/models.py:10 cmcaifu/apps/organizations/models.py:43
+#: cmcaifu/apps/organizations/models.py:54 cmcaifu/apps/products/models.py:37
+#: cmcaifu/apps/products/models.py:55 cmcaifu/apps/projects/models.py:59
+#: cmcaifu/apps/questions/models.py:35 cmcaifu/apps/site/models.py:10
+#: cmcaifu/apps/tags/models.py:16 cmcaifu/apps/transactions/models.py:42
+#: cmcaifu/apps/x/models.py:12
+msgid "type"
+msgstr "类型"
+
+#: cmcaifu/apps/cards/models.py:64 cmcaifu/apps/site/models.py:9
+#: cmcaifu/configs/suit.py:32
+msgid "site"
+msgstr "站点"
+
+#: cmcaifu/apps/cards/models.py:65
+msgid "tips"
+msgstr ""
+
+#: cmcaifu/apps/cards/models.py:66
+msgid "repost_count"
+msgstr "转发数量"
+
+#: cmcaifu/apps/cards/models.py:69 cmcaifu/apps/featured/models.py:10
+msgid "card"
+msgstr "卡片"
+
+#: cmcaifu/apps/cards/models.py:70 cmcaifu/configs/suit.py:26
+msgid "cards"
+msgstr "卡片"
+
+#: cmcaifu/apps/cash/admin.py:21 cmcaifu/apps/cash/models.py:9
+msgid "available_balance"
+msgstr "可用余额"
+
+#: cmcaifu/apps/cash/admin.py:26 cmcaifu/apps/cash/models.py:15
+msgid "principal"
+msgstr "待获本金"
+
+#: cmcaifu/apps/cash/admin.py:31 cmcaifu/apps/cash/models.py:11
+msgid "invest_frozen_balance"
+msgstr "投资冻结余额"
+
+#: cmcaifu/apps/cash/admin.py:36 cmcaifu/apps/cash/models.py:10
+msgid "withdraw_frozen_balance"
+msgstr "提现冻结余额"
+
+#: cmcaifu/apps/cash/models.py:8 cmcaifu/apps/orders/models.py:35
+#: cmcaifu/apps/transactions/models.py:36
+msgid "user_id"
+msgstr "用户ID"
+
+#: cmcaifu/apps/cash/models.py:14
+msgid "interest"
+msgstr "待获收益"
+
+#: cmcaifu/apps/cash/models.py:19 cmcaifu/apps/cash/models.py:20
+#: cmcaifu/configs/suit.py:13
+msgid "cash"
+msgstr "现金"
+
+#: cmcaifu/apps/comments/models.py:15
+msgid "comment"
+msgstr "评论"
+
+#: cmcaifu/apps/comments/models.py:16 cmcaifu/configs/suit.py:35
+msgid "comments"
+msgstr "评论"
+
+#: cmcaifu/apps/coupons/models.py:12 cmcaifu/apps/products/admin.py:43
+#: cmcaifu/apps/products/models.py:58 cmcaifu/apps/projects/admin.py:83
+#: cmcaifu/apps/projects/models.py:60
+msgid "price"
+msgstr "价格"
+
+#: cmcaifu/apps/coupons/models.py:15
+msgid "end_time"
+msgstr "结束时间"
+
+#: cmcaifu/apps/coupons/models.py:16
+msgid "order_id"
+msgstr "订单ID"
+
+#: cmcaifu/apps/coupons/models.py:21
+msgid "coupon"
+msgstr "优惠券"
+
+#: cmcaifu/apps/coupons/models.py:22 cmcaifu/apps/products/models.py:74
+#: cmcaifu/configs/suit.py:21
+msgid "coupons"
+msgstr "优惠券"
+
+#: cmcaifu/apps/featured/models.py:10 cmcaifu/apps/specials/models.py:13
+msgid "special"
+msgstr "专题"
+
+#: cmcaifu/apps/featured/models.py:10 cmcaifu/apps/featured/models.py:11
+#: cmcaifu/apps/notifications/models.py:14
+msgid "url"
+msgstr ""
+
+#: cmcaifu/apps/featured/models.py:12 cmcaifu/apps/orders/models.py:53
+#: cmcaifu/apps/specials/models.py:9
+msgid "order"
+msgstr "订单"
+
+#: cmcaifu/apps/featured/models.py:16 cmcaifu/apps/featured/models.py:17
+#: cmcaifu/configs/suit.py:28
+msgid "featured"
+msgstr "精选"
+
+#: cmcaifu/apps/files/admin.py:16 cmcaifu/apps/projects/admin.py:54
+#: cmcaifu/apps/videos/admin.py:32 nyssance/django/contrib/admin.py:18
+msgid "preview"
+msgstr "预览"
+
+#: cmcaifu/apps/files/models.py:11
+msgid "file"
+msgstr "文件"
+
+#: cmcaifu/apps/files/models.py:12 cmcaifu/configs/suit.py:24
+msgid "files"
+msgstr "文件"
+
+#: cmcaifu/apps/ips/models.py:8
+msgid "ip_address"
+msgstr ""
+
+#: cmcaifu/apps/likes/models.py:17
+msgid "like"
+msgstr "喜欢"
+
+#: cmcaifu/apps/likes/models.py:18 cmcaifu/configs/suit.py:36
+msgid "likes"
+msgstr "喜欢"
+
+#: cmcaifu/apps/notifications/models.py:12 cmcaifu/apps/projects/models.py:39
+#: cmcaifu/apps/site/models.py:7 cmcaifu/apps/x/models.py:9
+#: nyssance/django/db/models.py:28
+msgid "title"
+msgstr "标题"
+
+#: cmcaifu/apps/notifications/models.py:17
+msgid "notification"
+msgstr "通知"
+
+#: cmcaifu/apps/notifications/models.py:18 cmcaifu/configs/suit.py:31
+msgid "notifications"
+msgstr "通知"
+
+#: cmcaifu/apps/orders/admin.py:27 cmcaifu/apps/orders/models.py:41
+msgid "total_fee"
+msgstr "实付金额"
+
+#: cmcaifu/apps/orders/models.py:32
+msgid "product_id"
+msgstr "产品ID"
+
+#: cmcaifu/apps/orders/models.py:33
+msgid "project_id"
+msgstr "项目"
+
+#: cmcaifu/apps/orders/models.py:34
+msgid "parent_id"
+msgstr "父ID"
+
+#: cmcaifu/apps/orders/models.py:38 cmcaifu/apps/transactions/models.py:35
+msgid "payment_number"
+msgstr "交易流水号"
+
+#: cmcaifu/apps/orders/models.py:39
+msgid "quantity"
+msgstr "数量"
+
+#: cmcaifu/apps/orders/models.py:40
+msgid "gross"
+msgstr "总额"
+
+#: cmcaifu/apps/orders/models.py:42
+msgid "refund"
+msgstr "退款"
+
+#: cmcaifu/apps/orders/models.py:46 cmcaifu/apps/organizations/models.py:41
+msgid "address"
+msgstr "地址"
+
+#: cmcaifu/apps/orders/models.py:50
+msgid "contract_urls"
+msgstr "合同URL"
+
+#: cmcaifu/apps/orders/models.py:54 cmcaifu/configs/suit.py:15
+msgid "orders"
+msgstr "订单"
+
+#: cmcaifu/apps/organizations/models.py:18
+#: cmcaifu/apps/organizations/models.py:38 cmcaifu/apps/products/models.py:35
+#: cmcaifu/apps/region/models.py:15
+msgid "short_name"
+msgstr "短名字"
+
+#: cmcaifu/apps/organizations/models.py:19
+msgid "host"
+msgstr ""
+
+#: cmcaifu/apps/organizations/models.py:20
+msgid "organization_code"
+msgstr "组织机构代码"
+
+#: cmcaifu/apps/organizations/models.py:21
+msgid "instruction_code"
+msgstr "营业执照编号"
+
+#: cmcaifu/apps/organizations/models.py:22
+msgid "tax_code"
+msgstr "税务登记号"
+
+#: cmcaifu/apps/organizations/models.py:28
+msgid "organization"
+msgstr "组织"
+
+#: cmcaifu/apps/organizations/models.py:29 cmcaifu/configs/suit.py:22
+msgid "organizations"
+msgstr "组织"
+
+#: cmcaifu/apps/organizations/models.py:49
+msgid "branch"
+msgstr "分支"
+
+#: cmcaifu/apps/organizations/models.py:50
+msgid "branches"
+msgstr "分支"
+
+#: cmcaifu/apps/organizations/models.py:55
+msgid "bank_account_name"
+msgstr "银行账户名"
+
+#: cmcaifu/apps/organizations/models.py:56
+msgid "bank_account"
+msgstr "银行账户"
+
+#: cmcaifu/apps/organizations/models.py:57
+msgid "bank_code"
+msgstr "银行代码"
+
+#: cmcaifu/apps/organizations/models.py:58
+msgid "bank_name"
+msgstr "银行名称"
+
+#: cmcaifu/apps/organizations/models.py:59
+msgid "bank_branch_name"
+msgstr "分行名称"
+
+#: cmcaifu/apps/organizations/models.py:60
+msgid "bank_province"
+msgstr "银行省份"
+
+#: cmcaifu/apps/organizations/models.py:61
+msgid "bank_city"
+msgstr "银行城市"
+
+#: cmcaifu/apps/organizations/models.py:66
+msgid "payment_account"
+msgstr "支付账户"
+
+#: cmcaifu/apps/organizations/models.py:67
+msgid "payment_accounts"
+msgstr "支付账户"
+
+#: cmcaifu/apps/popping/models.py:6
+msgid "categories"
+msgstr "分类"
+
+#: cmcaifu/apps/products/admin.py:47 cmcaifu/apps/products/models.py:73
+#: cmcaifu/apps/projects/models.py:76 cmcaifu/configs/suit.py:19
+msgid "projects"
+msgstr "项目"
+
+#: cmcaifu/apps/products/models.py:42
+msgid "publisher"
+msgstr "发布者"
+
+#: cmcaifu/apps/products/models.py:43 cmcaifu/apps/products/models.py:75
+msgid "publishers"
+msgstr "发布者"
+
+#: cmcaifu/apps/products/models.py:59
+msgid "shipping_fee"
+msgstr "运费"
+
+#: cmcaifu/apps/products/models.py:60
+msgid "increment"
+msgstr "增量"
+
+#: cmcaifu/apps/products/models.py:61
+msgid "min_order_quantity"
+msgstr "最小可购数"
+
+#: cmcaifu/apps/products/models.py:62
+msgid "max_order_quantity"
+msgstr "最大可购数"
+
+#: cmcaifu/apps/products/models.py:63
+msgid "inventory"
+msgstr "库存量"
+
+#: cmcaifu/apps/products/models.py:66
+msgid "list_time"
+msgstr "上架时间"
+
+#: cmcaifu/apps/products/models.py:67
+msgid "open_time"
+msgstr "认购开始时间"
+
+#: cmcaifu/apps/products/models.py:68
+msgid "close_time"
+msgstr "认购结束时间"
+
+#: cmcaifu/apps/products/models.py:69
+msgid "reservable"
+msgstr "可预约"
+
+#: cmcaifu/apps/products/models.py:70
+msgid "provider"
+msgstr "提供方"
+
+#: cmcaifu/apps/products/models.py:71
+msgid "split"
+msgstr "可拆分"
+
+#: cmcaifu/apps/products/models.py:76
+msgid "next_product"
+msgstr ""
+
+#: cmcaifu/apps/products/models.py:80 cmcaifu/configs/suit.py:20
+msgid "products"
+msgstr "产品"
+
+#: cmcaifu/apps/projects/admin.py:20 cmcaifu/apps/projects/models.py:41
+msgid "template"
+msgstr "模板"
+
+#: cmcaifu/apps/projects/models.py:38 cmcaifu/apps/projects/models.py:54
+msgid "sku_id"
+msgstr ""
+
+#: cmcaifu/apps/projects/models.py:42
+msgid "sign_coordinate"
+msgstr "签章坐标"
+
+#: cmcaifu/apps/projects/models.py:45
+msgid "contract"
+msgstr "合同"
+
+#: cmcaifu/apps/projects/models.py:46
+msgid "contracts"
+msgstr "合同"
+
+#: cmcaifu/apps/projects/models.py:62
+msgid "repayment_type"
+msgstr "还款方式"
+
+#: cmcaifu/apps/projects/models.py:64
+msgid "arrival_time"
+msgstr "到账时间"
+
+#: cmcaifu/apps/projects/models.py:67
+msgid "transferable"
+msgstr "可转让"
+
+#: cmcaifu/apps/projects/models.py:68
+msgid "period_type"
+msgstr "期限类型"
+
+#: cmcaifu/apps/projects/models.py:75
+msgid "project"
+msgstr "项目"
+
+#: cmcaifu/apps/questions/models.py:14 cmcaifu/configs/suit.py:37
+msgid "questions"
+msgstr "问题"
+
+#: cmcaifu/apps/questions/models.py:21
+msgid "upvote_count"
+msgstr ""
+
+#: cmcaifu/apps/questions/models.py:22
+msgid "downvote_count"
+msgstr ""
+
+#: cmcaifu/apps/questions/models.py:25
+msgid "answer"
+msgstr "回答"
+
+#: cmcaifu/apps/questions/models.py:26
+msgid "answers"
+msgstr "回答"
+
+#: cmcaifu/apps/questions/models.py:35
+msgid "upvote"
+msgstr "支持"
+
+#: cmcaifu/apps/questions/models.py:35
+msgid "downvote"
+msgstr "反对"
+
+#: cmcaifu/apps/questions/models.py:39
+msgid "vote"
+msgstr "投票"
+
+#: cmcaifu/apps/questions/models.py:40
+msgid "votes"
+msgstr "投票"
+
+#: cmcaifu/apps/region/models.py:16
+msgid "pinyin"
+msgstr ""
+
+#: cmcaifu/apps/region/models.py:18
+msgid "license_for"
+msgstr ""
+
+#: cmcaifu/apps/region/models.py:21
+msgid "province"
+msgstr "省"
+
+#: cmcaifu/apps/region/models.py:22
+msgid "provinces"
+msgstr "省"
+
+#: cmcaifu/apps/region/models.py:32
+msgid "city_code"
+msgstr "城市代码"
+
+#: cmcaifu/apps/region/models.py:33 cmcaifu/apps/tags/models.py:8
+msgid "hot"
+msgstr "最热"
+
+#: cmcaifu/apps/region/models.py:36
+msgid "city"
+msgstr "城市"
+
+#: cmcaifu/apps/region/models.py:37
+msgid "cities"
+msgstr "城市"
+
+#: cmcaifu/apps/site/models.py:13
+msgid "clause"
+msgstr "条款"
+
+#: cmcaifu/apps/site/models.py:14
+msgid "clauses"
+msgstr "条款"
+
+#: cmcaifu/apps/specials/models.py:14 cmcaifu/configs/suit.py:27
+msgid "specials"
+msgstr "专题"
+
+#: cmcaifu/apps/specials/models.py:18
+msgid "special_id"
+msgstr "精选ID"
+
+#: cmcaifu/apps/tags/models.py:7
+msgid "brand"
+msgstr "品牌"
+
+#: cmcaifu/apps/tags/models.py:9
+msgid "company"
+msgstr "公司"
+
+#: cmcaifu/apps/tags/models.py:20
+msgid "tag"
+msgstr "标签"
+
+#: cmcaifu/apps/transactions/admin.py:22
+#: cmcaifu/apps/transactions/models.py:40
+msgid "amount"
+msgstr "金额"
+
+#: cmcaifu/apps/transactions/models.py:37
+msgid "user_name"
+msgstr "用户姓名"
+
+#: cmcaifu/apps/transactions/models.py:38
+msgid "related_user_id"
+msgstr "关联用户ID"
+
+#: cmcaifu/apps/transactions/models.py:39
+msgid "related_user_name"
+msgstr "关联用户姓名"
+
+#: cmcaifu/apps/transactions/models.py:41
+msgid "account_balance"
+msgstr "账户余额"
+
+#: cmcaifu/apps/transactions/models.py:43
+msgid "trade_channel"
+msgstr "交易渠道"
+
+#: cmcaifu/apps/transactions/models.py:45
+msgid "payment_time"
+msgstr "支付时间"
+
+#: cmcaifu/apps/transactions/models.py:49
+msgid "related_business_id"
+msgstr "关联业务ID"
+
+#: cmcaifu/apps/transactions/models.py:52
+msgid "transaction"
+msgstr "交易"
+
+#: cmcaifu/apps/transactions/models.py:53 cmcaifu/configs/suit.py:16
+msgid "transactions"
+msgstr "交易"
+
+#: cmcaifu/apps/videos/models.py:18
+msgid "videos"
+msgstr "视频"
+
+#: cmcaifu/apps/x/models.py:17
+#| msgid "tax_code"
+msgid "code"
+msgstr "代码"
+
+#: cmcaifu/apps/x/models.py:19
+msgid "daily_limit"
+msgstr "单日限额"
+
+#: cmcaifu/apps/x/models.py:20
+#| msgid "transaction"
+msgid "transaction_limit"
+msgstr "单笔限额"
+
+#: cmcaifu/configs/suit.py:8
+msgid "accounts"
+msgstr "账户"
+
+#: cmcaifu/configs/suit.py:18
+msgid "assets"
+msgstr "资产"
+
+#: cmcaifu/settings.py:141
+msgid "English"
+msgstr ""
+
+#: cmcaifu/settings.py:142
+msgid "Japanese"
+msgstr ""
+
+#: cmcaifu/settings.py:143
+msgid "Simplified Chinese"
+msgstr ""
+
+#: cmcaifu/templates/admin/base_site.html:4
+#: cmcaifu/templates/admin/base_site.html:7
+msgid "app_name"
+msgstr "城满财富"
+
+#: cmcaifu/templates/admin/base_site.html:14
+msgid "Documentation"
+msgstr ""
+
+#: cmcaifu/templates/admin/base_site.html:18
+msgid "Change password"
+msgstr ""
+
+#: cmcaifu/templates/admin/base_site.html:20
+msgid "Log out"
+msgstr ""
+
+#: cmcaifu/templates/captcha/image.html:3
+msgid "Play CAPTCHA as audio file"
+msgstr ""
+
+#: nyssance/django/db/models.py:8
+msgid "created_time"
+msgstr "创建时间"
+
+#: nyssance/django/db/models.py:9
+msgid "updated_time"
+msgstr "更新时间"

@@ -1,0 +1,25 @@
+{% extends 'railguns/mdl/detail.html' %}
+{% load i18n static %}
+	{% block js %}{{ block.super }}
+	<script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/upload_scripts.js' %}"></script>
+	<script src="http://static.cmcaifu.com/mdl/extend/componentextend.js"></script>
+	<script type="text/javascript" src="{% static 'js/factoring_public.js' %}"></script>
+	{% endblock %}
+	
+    {% block css%}{{ block.super }}
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="{% static 'css/factoring_public.css' %}">
+	<link rel="stylesheet" href="http://static.cmcaifu.com/mdl/extend/componentextend.css">
+	<link rel="stylesheet" href="{% static 'css/material.min.css' %}">
+    {% endblock %}
+    
+	{% block navbar %}{{ block.super }}
+	    {% include 'includes/nav.html' %}
+    {% endblock %}
+    
+    {% block content %}
+	<div class="page-content" data-endpoint="{{ endpoint }}">
+	</div>
+	{% block append_content %}{%endblock%}
+	{% endblock %}
