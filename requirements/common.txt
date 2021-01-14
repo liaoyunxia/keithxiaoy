@@ -1,3 +1,8 @@
--r common.txt
-pysolr
+pip
+Django[argon2]==2.2.7
+djangorestframework==3.9.4
+drf-yasg[validation]
+elasticsearch
 Pillow
+pygments
+markdown==2.6.11

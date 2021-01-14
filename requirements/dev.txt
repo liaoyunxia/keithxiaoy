@@ -1,5 +1,6 @@
 -r code.txt
-django-debug-toolbar
-django-silk
-pytest
-fabric3
+-r common.txt
+gunicorn
+aiohttp
+aiohttp_wsgi
+uvloop
