@@ -2,7 +2,7 @@ https://codeload.github.com/nyssance/railguns/zip/develop
 django-currentuser
 django-haystack
 django-import-export
-https://codeload.github.com/darklow/django-suit/zip/v2
+
 drf-extensions
 boto
 isort
