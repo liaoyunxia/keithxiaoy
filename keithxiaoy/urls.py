@@ -14,7 +14,7 @@ urlpatterns = [
 # 第三方:
 urlpatterns += [
     url(r'^s3direct/', include('s3direct.urls')),
-    url(r'^captcha/', include('captcha.urls'))
+    # url(r'^captcha/', include('captcha.urls'))
 ]
 
 
