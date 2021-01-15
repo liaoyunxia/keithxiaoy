@@ -7,7 +7,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from ..organizations.models import Organization
 
 
 class UserManager(BaseUserManager):
@@ -54,7 +53,7 @@ class User(AbstractUser):
     level = models.PositiveIntegerField(_('level'), default=1)
     grade = models.PositiveSmallIntegerField(_('grade'), default=0)
     birthday = models.DateTimeField(_('birthday'), default=datetime.datetime(1980, 1, 1, 12, 0, 0), editable=False)  # 生日.
-    organization = models.ManyToManyField(Organization, blank=True)
+    # organization = models.ManyToManyField(Organization, blank=True)
     type = models.PositiveSmallIntegerField(_('type'), choices=USER_TYPE_CHOICES, default=0)
     is_login = models.BooleanField(_('is_login'), default=False)
     objects = UserManager()
