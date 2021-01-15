@@ -15,12 +15,6 @@ from rest_framework import generics, exceptions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from public.rest_framework.serializers import UserCreatedSerializer
-from public.utils.func_ext import write_log, is_offce, get_user_list, is_manager, \
-    BaseExceptions, is_financier, get_result
-from public.weixin.push_wechat_message import PushWechatMessage
-
-
 
 #
 # def order_approved(order_obj, request, taget=1):
