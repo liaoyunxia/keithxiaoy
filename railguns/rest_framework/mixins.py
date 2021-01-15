@@ -1,79 +1,68 @@
+from collections import OrderedDict
 import datetime
 
-from django.contrib.auth import login as auth_login
-from django.contrib.auth.hashers import make_password
 from django.utils.timezone import localtime
-from rest_framework.fields import CharField, SerializerMethodField
-from rest_framework.serializers import Serializer
-from rest_framework_jwt.settings import api_settings
-
-from .utils import get_nested_list
+from rest_framework import serializers
+from rest_framework.response import Response
 
 
-class PasswordMixin(Serializer):
-    password = CharField(style={'input_type': 'password'}, min_length=6, max_length=128, write_only=True)
+class IdStrMixin(serializers.Serializer):
+    id_str = serializers.SerializerMethodField()
 
-    # SO: https://stackoverflow.com/questions/29746584/django-rest-framework-create-user-with-password
-    def validate_password(self, value):
-        return make_password(value)
-
-
-class TokenMixin(Serializer):
-    token = SerializerMethodField()
-
-    def get_token(self, obj):
-        request = self.context.get('request')
-        if request:
-            auth_login(request, obj)  # 主要为了记录last_login的, 其他的作用待研究
-        else:
-            print('request is None, 请在代码手动传入, 否则无法自动登录')
-        # https://getblimp.github.io/django-rest-framework-jwt/#additional-settings
-        jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
-        jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
-        return jwt_encode_handler(jwt_payload_handler(obj))
+    def get_id_str(self, obj):
+        return str(obj.id)
 
 
-class ModelMixin(object):
-
-    def get_model(self):
-        return self.serializer_class.Meta.model
-
-
-class ImagesMixin(Serializer):
-    images = SerializerMethodField()
+class ImageUrlsMixin(serializers.Serializer):
+    images = serializers.SerializerMethodField()
 
     def get_images(self, obj):
-        if hasattr(obj, 'images'):
-            return get_nested_list([{'uri': item.strip()} for item in obj.images.split('\n') if item.strip()])
-        else:
-            return '👈⚠️️字段不存在，请去除。'
+        data = []
+        if obj.image_urls.strip() != '':
+            data = [{'url': item.strip()} for item in obj.image_urls.split('\n')]
+        return OrderedDict([('count', len(data)), ('next', None), ('previous', None), ('results', data)])
 
 
-class TagsMixin(Serializer):
-    tags = SerializerMethodField()
+class TagsMixin(serializers.Serializer):
+    tags = serializers.SerializerMethodField()
 
     def get_tags(self, obj):
-        if hasattr(obj, 'tags'):
-            return [item.strip() for item in obj.tags.split('#') if item.strip()]
-        else:
-            return '👈⚠️️字段不存在，请去除。'
+        data = []
+        for item in obj.tags.strip().split('#'):
+            if item.strip() != '':
+                data.append({'name': item.strip()})
+        return OrderedDict([('count', len(data)), ('next', None), ('previous', None), ('results', data)])
 
 
 class OwnerMixin(object):
-
     def pre_save(self, obj):
         obj.user_id = self.request.user.id
 
 
-class StartDateMixin(Serializer):
-    start_date = SerializerMethodField()
+class PutToPatchMixin(object):
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', True)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data)
+
+
+class PutToPatchApiViewMixin(object):
+    def put(self, request, *args, **kwargs):
+        return self.patch(request, *args, **kwargs)
+
+
+class StartDateMixin(serializers.Serializer):
+    start_date = serializers.SerializerMethodField()
 
     def get_start_date(self, obj):
         return localtime(obj.start_time).strftime('%Y-%m-%d')
 
 
-class EndDateMixin(Serializer):
-    end_date = SerializerMethodField()
+class EndDateMixin(serializers.Serializer):
+    end_date = serializers.SerializerMethodField()
 
     def get_end_date(self, obj):
         if obj.period <= 0:
