@@ -156,3 +156,9 @@ class TokenHasClientType(permissions.BasePermission):
             raise ImproperlyConfigured(
                 "TokenHasClientType requires the view to define the required_types attribute"
             )
+
+class IsUserSelf(permissions.IsAuthenticated):  # 未登录用户id为None, 没必要继承BasePermission, 用IsAuthenticated更安全
+
+    def has_object_permission(self, request, view, obj):
+        return obj == request.user
+
