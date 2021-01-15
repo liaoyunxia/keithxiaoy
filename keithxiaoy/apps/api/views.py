@@ -5,7 +5,7 @@ from django.conf import settings
 from django.contrib import auth
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
-from railguns.django.db.utils import get_object_or_none, get_pk_int
+from railguns.django.db.utils import get_object_or_none
 from railguns.rest_framework.mixins import PutToPatchMixin, \
     PutToPatchApiViewMixin
 from railguns.rest_framework.permissions import IsUserSelf, IsOwnerOnList
@@ -20,18 +20,7 @@ from public.utils.func_ext import write_log, is_offce, get_user_list, is_manager
     BaseExceptions, is_financier, get_result
 from public.weixin.push_wechat_message import PushWechatMessage
 
-from . import serializers
-from ..banks.models import Bank
-from ..bills.models import Bill, LoanApply
-from ..contacts.models import Contact
-from ..contracts.models import Buyer
-from ..contracts.models import Contract
-from ..customers.models import Customer
-from ..notifications.models import Notification
-from ..orders.models import Order
-from ..payment_accounts.models import PaymentAccount
-from ..transferdiscounts.models import Transferdiscount
-from ..vetting.models import VettingDiary, VettingNode, VettingFlow
+
 
 #
 # def order_approved(order_obj, request, taget=1):
