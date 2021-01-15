@@ -79,3 +79,10 @@ def datetime_timezone_zero():
 def string_to_unixtime(string):
     date_time = datetime.datetime.strptime(string, '%Y-%m-%d %H:%M:%S')
     return int(time.mktime(date_time.timetuple()))
+
+
+def get_object_or_none(model, *args, **kwargs):
+    try:
+        return model.objects.get(*args, **kwargs)
+    except model.DoesNotExist:
+        return None
