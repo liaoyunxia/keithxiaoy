@@ -31,8 +31,6 @@ BUCKET_MEDIA = '/media/'
 BUCKET_STATIC = '/static/'
 BUCKET_CLOUD = '/cloud/'
 
-CLOUD_URL = '//{}.{}/'.format(BUCKET_CLOUD, )
-
 # ALLOWED_HOSTS = ['.{}'.format(DOMAIN_NAME), '.compute-1.amazonaws.com']  # ELB和Gunicorn直接配暂时没找到转发Domain的解决方案
 # ALLOWED_HOSTS.append('120.27.142.121')
 if TEST_ENV:
@@ -287,9 +285,6 @@ if TEST_ENV:
     BUCKET_MEDIA = 'test-{}'.format(BUCKET_MEDIA)
     BUCKET_STATIC = 'test-{}'.format(BUCKET_STATIC)
     BUCKET_CLOUD = 'test-{}'.format(BUCKET_CLOUD)
-    MEDIA_URL = '//{}.{}/'.format(BUCKET_MEDIA, CLOUD_STORAGE_BASE_DOMAIN_NAME)
-    STATIC_URL = '//{}.{}/'.format(BUCKET_STATIC, CLOUD_STORAGE_BASE_DOMAIN_NAME)
-    CLOUD_URL = '//{}.{}/'.format(BUCKET_CLOUD, CLOUD_STORAGE_BASE_DOMAIN_NAME)
     SHARD_COUNT = 0
     DATABASES['default']['HOST'] = 'testcmcaifu.mysql.rds.aliyuncs.com'
     CACHES['default']['LOCATION'] = '127.0.0.1:11211'
