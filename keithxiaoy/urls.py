@@ -17,7 +17,7 @@ urlpatterns = [path('', include('railguns.urls'))]
 urlpatterns += [path('s3direct/', include('s3direct.urls'))]
 # projects
 urlpatterns += [
-    path('', include('{}.apps.website.urls'.format(settings.PROJECT_NAME), namespace='website')),
+    # path('', include('{}.apps.website.urls'.format(settings.PROJECT_NAME), namespace='website')),
     path('api/v1/', include('{}.apps.api.urls'.format(settings.PROJECT_NAME), namespace='v1')),
     # path('api/v1/agreement/', include('{}.apps.agreements.urls'.format(settings.PROJECT_NAME), namespace='v1')),
     path('i18n/', include('django.conf.urls.i18n')),
