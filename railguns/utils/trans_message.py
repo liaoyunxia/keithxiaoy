@@ -1,4 +1,4 @@
-from nyssance.django.db.utils import unixtime_to_datetime
+from railguns.django.db.utils import unixtime_to_datetime
 from django.conf import settings
 
 

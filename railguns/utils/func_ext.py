@@ -9,7 +9,7 @@ from django.conf import settings
 import requests
 from rest_framework.response import Response
 
-from nyssance.rest_framework.response import ResponseBadRequest
+from railguns.rest_framework.response import ResponseBadRequest
 import syslog
 
 
