@@ -8,21 +8,9 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer, Serializer
 
-from public.utils.func_ext import get_result, get_app_name, is_offce, \
+from railguns.utils.func_ext import get_result, get_app_name, is_offce, \
     BaseExceptions, is_valid_date
 
-from ..annex.models import Annex
-from ..banks.models import Bank
-from ..bills.models import Bill, LoanApply
-from ..contacts.models import Contact
-from ..contracts.models import Contract, Buyer
-from ..customers.models import Customer, CONSUMER_ATTRIBUTE, OWNERSHIP_CHIOCES
-from ..notifications.models import Notification
-from ..orders.models import Order
-from ..organizations.models import Organization
-from ..payment_accounts.models import PaymentAccount
-from ..transferdiscounts.models import Transferdiscount
-from ..vetting.models import VettingDiary, VettingFlow, VettingNode
 from .mixins import UserMixin
 
 #
