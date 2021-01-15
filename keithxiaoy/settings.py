@@ -104,8 +104,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'keithxiaoy_default',
-        'USER': 'root',
-        'PASSWORD': 'liaoliao',   # Setting when installing MySQL
+        'USER': 'ubuntu',
+        'PASSWORD': 'Liaoliao@1234',   # Setting when installing MySQL
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
