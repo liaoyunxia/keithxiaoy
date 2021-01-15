@@ -1,6 +1,5 @@
 import threading
 
-
 request_cfg = threading.local()
 
 
