@@ -152,8 +152,8 @@ USE_TZ = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '//{}.{}/'.format(BUCKET_MEDIA, CLOUD_STORAGE_BASE_DOMAIN_NAME)
-STATIC_URL = '//{}.{}/'.format(BUCKET_STATIC, CLOUD_STORAGE_BASE_DOMAIN_NAME)
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(PROJECT_PATH, 'static'),
 ]
