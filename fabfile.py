@@ -178,9 +178,7 @@ def deploy(mode=1):
 # @parallel(pool_size=5)  # Windows下有问题
 def deploy_django(mode=1):
     smartputs('🍺  开始部署')
-    source = ' -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com'
-    if int(mode) == -1:
-        run('ssh-keygen -f "/root/.ssh/known_hosts" -R git.cmcaifu.com')
+
     if int(mode) > 3:
         apt_upgrade()
         sudo('pip3 install -U pip virtualenvwrapper django_extensions{}'.format(source))

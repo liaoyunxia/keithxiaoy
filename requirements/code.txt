@@ -41,7 +41,7 @@ django-js-asset==1.2.2
 django-redis==4.10.0
 django-redis-cache==2.1.0
 django-s3direct==1.1.5
-django-suit==2.0a1
+
 djangorestframework==3.9.4
 djangorestframework-jwt==1.11.0
 djangorestframework-simplejwt==4.3.0
