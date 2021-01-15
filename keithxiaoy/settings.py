@@ -314,7 +314,7 @@ CAPTCHA_FOREGROUND_COLOR = 'red'
 #     REDIS['PASSWORD'] = None
     # 以下在 前端工程师 需要时开启:
 INSTALLED_APPS += ['corsheaders']
-MIDDLEWARE_CLASSES += ['corsheaders.middleware.CorsMiddleware']
+MIDDLEWARE += ['corsheaders.middleware.CorsMiddleware']
 CORS_ORIGIN_ALLOW_ALL = True
 
 # 多数据库配置.
