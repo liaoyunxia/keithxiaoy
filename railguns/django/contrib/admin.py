@@ -34,27 +34,27 @@ class CurrencyMixin(object):
             formatted = '<span style="color: red;"> {}</span>'.format(formatted)
         return format_html(formatted)
 
-#
-# class SuperAdmin(CurrencyMixin, PreviewMixin, admin.ModelAdmin):
-#     readonly_fields = []  # 默认从tuple改为list
-#
-#     def get_readonly_fields(self, request, obj=None):
-#         if obj:
-#             return [f.name for f in obj._meta.get_fields() if not f.editable] + self.readonly_fields
-#         return super().get_readonly_fields(request)
-#
-#     def get_sortable_by(self, request):
-#         if self.readonly_fields and isinstance(self.readonly_fields, tuple):
-#             messages.warning(request, 'readonly_fields 为 tuple, 建议改为 list, 修改页面未容错，会报错')
-#         return super().get_sortable_by(request)
-#
-#     def save_model(self, request, obj, form, change):
-#         if not obj.pk:  # 如果obj.pk不存在, 为新创建
-#             if isinstance(obj, OwnerModel):
-#                 obj.username = request.user.username
-#                 obj.user_avatar = request.user.avatar
-#         super().save_model(request, obj, form, change)
-#
-#     def log_change(self, request, obj, message):
-#         new_message = 'json: {}'.format(serializers.serialize('json', [obj]))
-#         super().log_change(request, obj, new_message)
+
+class SuperAdmin(CurrencyMixin, PreviewMixin, admin.ModelAdmin):
+    readonly_fields = []  # 默认从tuple改为list
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj:
+            return [f.name for f in obj._meta.get_fields() if not f.editable] + self.readonly_fields
+        return super().get_readonly_fields(request)
+
+    def get_sortable_by(self, request):
+        if self.readonly_fields and isinstance(self.readonly_fields, tuple):
+            messages.warning(request, 'readonly_fields 为 tuple, 建议改为 list, 修改页面未容错，会报错')
+        return super().get_sortable_by(request)
+
+    def save_model(self, request, obj, form, change):
+        if not obj.pk:  # 如果obj.pk不存在, 为新创建
+            if isinstance(obj, OwnerModel):
+                obj.username = request.user.username
+                obj.user_avatar = request.user.avatar
+        super().save_model(request, obj, form, change)
+
+    def log_change(self, request, obj, message):
+        new_message = 'json: {}'.format(serializers.serialize('json', [obj]))
+        super().log_change(request, obj, new_message)
