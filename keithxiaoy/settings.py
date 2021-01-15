@@ -176,24 +176,42 @@ EMAIL_SUBJECT_PREFIX = DOMAIN_NAME
 # Django REST framework
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'railguns.rest_framework.renderers.PlainTextRenderer'
+        'rest_framework.renderers.JSONRenderer'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication'
+        #h5要关
+        # 'rest_framework.authentication.SessionAuthentication'
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated'
+        # 'rest_framework.permissions.AllowAny'
     ],
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    'DEFAULT_VERSION': 'v1',
     'ALLOWED_VERSIONS': ['v1', 'v2'],
     'DEFAULT_PAGINATION_CLASS': 'railguns.rest_framework.pagination.StandardResultsSetPagination',
+    'PAGE_SIZE': 150,  # TODO: 暂时100, 待做axois上拉加载更多
     'DEFAULT_FILTER_BACKENDS': [
-        'rest_framework.filters.DjangoFilterBackend',
+        'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.filters.OrderingFilter'
-    ]
+    ],
+    'DATETIME_FORMAT': '%s',
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '10/second',
+        'user': '10/second'
+    }
 }
+# yapf: enable
+
+if ENV == STAGE.PRO:
+    REST_FRAMEWORK['DEFAULT_PERMISSION_CLASSES'] = ['rest_framework.permissions.AllowAny']
+
+# Dj
 
 # Django REST framework JWT
 JWT_AUTH = {
