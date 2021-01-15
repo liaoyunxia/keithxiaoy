@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     # 第三方:
     'railguns',
     'rest_framework',
-    'rest_framework_swagger',
     'haystack',
     'import_export',
     's3direct',
