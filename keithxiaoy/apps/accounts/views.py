@@ -14,26 +14,6 @@ from django.contrib import auth
 from django.shortcuts import redirect
 from django.utils import timezone
 
-from public.weixin.get_sign import JsApi_pub
-
-
-def login_m(request):
-    title = 'H5登录'
-
-    code = request.GET.get('code', None)
-    if not code:
-        js = JsApi_pub()
-        redirectUrl = "{}/accounts/login/m/".format(settings.BASE_URL)
-        url = js.createOauthUrlForCode(redirectUrl)
-        return redirect(url)
-    else:
-        js = JsApi_pub()
-        js.setCode(code)
-        openid = js.getOpenid()
-        if not openid:
-            return redirect('/accounts/login/m/')
-    return base_login(request, '', 'login.html', '', '', title, openid)
-
 
 def base_login(request, nav_name="", template_name="", redirect_to='/', error_redirect='', title='', openid=''):
     nav_name = nav_name
