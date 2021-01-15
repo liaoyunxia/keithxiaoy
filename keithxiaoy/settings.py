@@ -111,7 +111,9 @@ DATABASES = {
     }
 }
 
-DATABASE_ROUTERS = ['keithxiaoy.database_router.MasterSlaveRouter']
+# DATABASE_ROUTERS = ['keithxiaoy.database_router.MasterSlaveRouter']
+#
+DATABASE_ROUTERS = ['keithxiaoy.database_router.PrimaryReplicaRouter']
 
 CACHES = {
     'default': {
@@ -316,5 +318,3 @@ CAPTCHA_FOREGROUND_COLOR = 'red'
 INSTALLED_APPS += ['corsheaders']
 MIDDLEWARE += ['corsheaders.middleware.CorsMiddleware']
 CORS_ORIGIN_ALLOW_ALL = True
-#
-# DATABASE_ROUTERS = ['{}.routers.PrimaryReplicaRouter'.format(PROJECT_NAME)]
