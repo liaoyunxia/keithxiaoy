@@ -54,33 +54,33 @@ class PostModel(OwnerModel):
     def __str__(self):
         return self.title
 
-
-class ShardModel(OwnerModel):
-    id = models.BigAutoField(primary_key=True)
-
-    class Meta(OwnerModel.Meta):
-        abstract = True
-
-    def save(self, using='default', *args, **kwargs):
-        self.full_clean()
-        if not self.pk:
-            self.pk = generate_shard_id(self.user_id)
-        super().save(using=db_master(self.user_id), *args, **kwargs)
-
-
-class ShardLCModel(OwnerModel):
-    id = models.BigAutoField(primary_key=True)
-    is_origin = models.BooleanField(default=True)
-
-    class Meta(OwnerModel.Meta):
-        abstract = True
-
-    def save(self, using='default', *args, **kwargs):
-        self.full_clean()
-        if not self.pk:  # Create
-            self.pk = generate_shard_id(self.user_id)
-        super().save(using=db_master(self.user_id), *args, **kwargs)  # 保存第一份
-        card_user_id = get_user_id(self.card_id)
-        if db_master(card_user_id) != db_master(self.user_id):  # 保存第二份
-            self.is_origin = False
-            super().save(using=db_master(card_user_id), *args, **kwargs)
+#
+# class ShardModel(OwnerModel):
+#     id = models.BigAutoField(primary_key=True)
+#
+#     class Meta(OwnerModel.Meta):
+#         abstract = True
+#
+#     def save(self, using='default', *args, **kwargs):
+#         self.full_clean()
+#         if not self.pk:
+#             self.pk = generate_shard_id(self.user_id)
+#         super().save(using=db_master(self.user_id), *args, **kwargs)
+#
+#
+# class ShardLCModel(OwnerModel):
+#     id = models.BigAutoField(primary_key=True)
+#     is_origin = models.BooleanField(default=True)
+#
+#     class Meta(OwnerModel.Meta):
+#         abstract = True
+#
+#     def save(self, using='default', *args, **kwargs):
+#         self.full_clean()
+#         if not self.pk:  # Create
+#             self.pk = generate_shard_id(self.user_id)
+#         super().save(using=db_master(self.user_id), *args, **kwargs)  # 保存第一份
+#         card_user_id = get_user_id(self.card_id)
+#         if db_master(card_user_id) != db_master(self.user_id):  # 保存第二份
+#             self.is_origin = False
+#             super().save(using=db_master(card_user_id), *args, **kwargs)
