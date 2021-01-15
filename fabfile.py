@@ -149,18 +149,18 @@ def init_code():
 @roles('django')
 def init_nginx():
     """init_nginx"""
-    if env.lb_https:
-        run('apt install -y nginx')
-        with cd(env.project_path):
-            put('configs/nginx.conf', '/etc/nginx/sites-enabled/{}.conf'.format(env.domain_name))
-        run('sudo systemctl start nginx')
-    if not env.lb_https:
-        run('apt install -y nginx')
-        with cd(env.project_path):
-            put('configs/nginx_test.conf', '/etc/nginx/sites-enabled/{}.conf'.format(env.domain_name))
-        run('sudo systemctl start nginx')
+    # if env.lb_https:
+    #     run('sudo apt install -y nginx')
+    #     with cd(env.project_path):
+    #         put('configs/nginx.conf', '/etc/nginx/sites-enabled/{}.conf'.format('keithxiaoy'))
+    #     run('sudo systemctl start nginx')
+    # if not env.lb_https:
+    #     run('apt install -y nginx')
+    #     with cd(env.project_path):
+    #         put('configs/nginx_test.conf', '/etc/nginx/sites-enabled/{}.conf'.format('keithxiaoy'))
+    #     run('sudo systemctl start nginx')
 
-
+    run('sudo systemctl start nginx')
 
 
 @task
