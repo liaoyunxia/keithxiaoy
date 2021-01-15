@@ -39,9 +39,12 @@ CLOUD = 'aliyun'  # 可选: aliyun, aws
 BUCKET_MEDIA = '/media'.format('')
 BUCKET_STATIC = '/static-{}'.format('')
 BUCKET_CLOUD = 'cloud-{}'.format('360-kredi-id')
-MEDIA_URL = '/media'.format(BUCKET_MEDIA, CLOUD_SS_BASE_DOMAIN_NAME)
-STATIC_URL = '/static'.format(BUCKET_STATIC, CLOUD_SS_BASE_DOMAIN_NAME)
-CLOUD_URL = 'http://{}.{}/'.format(BUCKET_CLOUD, CLOUD_SS_BASE_DOMAIN_NAME)  # CAN'T BE CHANGE
+
+MEDIA_URL = '/media/'.format(BUCKET_MEDIA)
+STATIC_URL = '/static/'.format(BUCKET_STATIC)
+STATICFILES_DIRS = (
+    os.path.join(os.path.join(BASE_DIR, 'static')),
+)
 
 CORS_ORIGIN_WHITELIST = ('http://keithxiaoy.cn', )
 CORS_ORIGIN_ALLOW_ALL = True
