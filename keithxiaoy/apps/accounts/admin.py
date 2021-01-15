@@ -24,11 +24,11 @@ class UserAdmin(ImportExportMixin, auth.admin.UserAdmin):  # TODO: 用户导入�
                 'fields': ('nickname', 'gender', 'image_urls')})
     )
     form = UserChangeForm
-    list_display = ['id', 'get_preview', 'username', 'get_groups', 'phone_number', 'date_joined', 'is_active']
+    list_display = ['id', 'username', 'get_groups', 'phone_number', 'date_joined', 'is_active']
     list_filter = ['is_staff', 'gender', 'username', 'is_active']
     suit_list_filter_horizontal = ['gender', 'username', 'is_active']
     search_fields = ['username', 'id', 'first_name', 'last_name', 'email', 'name']
-    filter_horizontal = ('groups', 'user_permissions', 'organization')
+    filter_horizontal = ('groups', 'user_permissions')
 
     def get_groups(self, obj):
         return '#'.join([item.name for item in obj.groups.all()])
