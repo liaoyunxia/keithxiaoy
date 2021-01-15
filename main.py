@@ -5,7 +5,7 @@ import sys
 from aiohttp import web
 from aiohttp_wsgi import WSGIHandler
 
-from jk_p2p_app.wsgi import application
+from keithxiaoy.wsgi import application
 
 logger = logging.getLogger(__name__)
 
