@@ -1,4 +1,4 @@
-from nyssance.rest_framework.serializers import UserCreatedSerializer
+from railguns.rest_framework.serializers import UserCreatedSerializer
 
 
 def jwt_response_payload_handler(token, user=None, request=None):

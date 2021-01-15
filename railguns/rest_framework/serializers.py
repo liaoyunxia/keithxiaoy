@@ -1,19 +1,43 @@
-from rest_framework.fields import CharField
-from rest_framework.serializers import Serializer
+from django.contrib.auth import get_user_model
+from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
+from rest_framework_jwt.serializers import jwt_encode_handler, jwt_payload_handler
 
 
-class DownloadUrlSerializer(Serializer):
-    url = CharField(read_only=True)
+class DownloadUrlSerializer(serializers.Serializer):
+    url = serializers.CharField()
 
 
-class UploadParamsSerializer(Serializer):
-    key = CharField(read_only=True)
-    AWSAccessKeyId = CharField(read_only=True)
-    OSSAccessKeyId = CharField(read_only=True)
-    acl = CharField(read_only=True)
-    success_action_status = CharField(read_only=True)
-    ContentType = CharField(read_only=True)
-    policy = CharField(read_only=True)
-    signature = CharField(read_only=True)
-    ContentEncoding = CharField(read_only=True)
-    domain = CharField(read_only=True)
+class UploadParamsSerializer(serializers.Serializer):
+    key = serializers.CharField()
+    AWSAccessKeyId = serializers.CharField()
+    OSSAccessKeyId = serializers.CharField()
+    acl = serializers.CharField()
+    success_action_status = serializers.CharField()
+    ContentType = serializers.CharField()
+    policy = serializers.CharField()
+    signature = serializers.CharField()
+    ContentEncoding = serializers.CharField()
+    domain = serializers.CharField()
+
+
+class UserCreatedSerializer(serializers.ModelSerializer):
+    token = serializers.SerializerMethodField()
+
+    class Meta:
+        model = get_user_model()
+        exclude = ('password', 'is_superuser', 'is_staff', 'date_joined', 'groups', 'user_permissions', 'is_active', 'last_login')
+
+    def get_token(self, obj):
+        return jwt_encode_handler(jwt_payload_handler(obj))
+
+
+class UserPasswordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ('password',)
+
+    def validate_password(self, value):
+        if len(value) < 6:
+            raise ValidationError('password length must more than 6')
+        return value
