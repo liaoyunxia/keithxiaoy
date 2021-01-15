@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'haystack',
     'import_export',
     's3direct',
-    'captcha',
 ]
 for dirname in next(os.walk(os.path.join(PROJECT_PATH, 'apps')))[1]:
     if dirname not in ['__pycache__']:

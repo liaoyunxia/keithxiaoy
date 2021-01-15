@@ -1,4 +1,4 @@
-from captcha.fields import CaptchaField
+
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from .models import WXUid
@@ -19,7 +19,6 @@ class ValidateRegisterForm(forms.Form):
                                             '@/./+/-/_ only.'),
                                 error_messages={'invalid': _('This value may contain only letters, numbers and '
                                                              '@/./+/-/_ characters.')})
-    captcha = CaptchaField()
 
 
 class RegisterInstitutionUserForm(BaseForm):
