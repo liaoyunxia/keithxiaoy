@@ -197,33 +197,33 @@ REST_FRAMEWORK = {
 
 # Django REST framework JWT
 JWT_AUTH = {
-    'JWT_RESPONSE_PAYLOAD_HANDLER': 'public.rest_framework_jwt.utils.jwt_response_payload_handler',
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'railguns.rest_framework_jwt.utils.jwt_response_payload_handler',
     'JWT_EXPIRATION_DELTA': timedelta(days=90),
     'JWT_ALLOW_REFRESH': True,
     'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=90)
 }
 
-# Django REST Swagger
-SWAGGER_SETTINGS = {
-    'exclude_namespaces': ['v1'],
-    'api_version': 'v2.0.0',
-    'api_path': '/',  # Specify the path to your API not a root level
-    'api_key': '',  # An API key
-    'is_authenticated': True,
-    'is_superuser': True,
-    'info': {
-        'title': '{} API 文档'.format(DOMAIN_NAME),
-        'description': 'v2.0.0'
-    },
-    'doc_expansion': 'list'
-    #     'SECURITY_DEFINITIONS': {
-    #         'basic': {
-    #             'type': 'basic'
-    #         }
-    #     },
-    #     'APIS_SORTER': 'alpha',
-    #     'DOC_EXPANSION': 'list'
-}
+# # Django REST Swagger
+# SWAGGER_SETTINGS = {
+#     'exclude_namespaces': ['v1'],
+#     'api_version': 'v2.0.0',
+#     'api_path': '/',  # Specify the path to your API not a root level
+#     'api_key': '',  # An API key
+#     'is_authenticated': True,
+#     'is_superuser': True,
+#     'info': {
+#         'title': '{} API 文档'.format(DOMAIN_NAME),
+#         'description': 'v2.0.0'
+#     },
+#     'doc_expansion': 'list'
+#     #     'SECURITY_DEFINITIONS': {
+#     #         'basic': {
+#     #             'type': 'basic'
+#     #         }
+#     #     },
+#     #     'APIS_SORTER': 'alpha',
+#     #     'DOC_EXPANSION': 'list'
+# }
 
 # Haystack
 HAYSTACK_CONNECTIONS = {
@@ -280,23 +280,23 @@ CKEDITOR_CONFIGS = {
 CAPTCHA_FONT_SIZE = 40
 CAPTCHA_FOREGROUND_COLOR = 'red'
 
-"""💟 以下为测试环境配置"""
-if TEST_ENV:
-    DEBUG = False  # 测试环境Debug默认关闭, 以免测试环境正常而生产环境却出现500错误
-    HTML_MINIFY = True  # 测试环境不最小化html
-    BASE_URL = 'http://factor.{}'.format(DOMAIN_NAME)
-    BUCKET_MEDIA = 'test-{}'.format(BUCKET_MEDIA)
-    BUCKET_STATIC = 'test-{}'.format(BUCKET_STATIC)
-    BUCKET_CLOUD = 'test-{}'.format(BUCKET_CLOUD)
-    SHARD_COUNT = 0
-    DATABASES['default']['HOST'] = 'testcmcaifu.mysql.rds.aliyuncs.com'
-    CACHES['default']['LOCATION'] = '127.0.0.1:11211'
-    REDIS['HOST'] = '10.117.182.179'
-    REDIS['PASSWORD'] = None
+# """💟 以下为测试环境配置"""
+# if TEST_ENV:
+#     DEBUG = False  # 测试环境Debug默认关闭, 以免测试环境正常而生产环境却出现500错误
+#     HTML_MINIFY = True  # 测试环境不最小化html
+#     BASE_URL = 'http://factor.{}'.format(DOMAIN_NAME)
+#     BUCKET_MEDIA = 'test-{}'.format(BUCKET_MEDIA)
+#     BUCKET_STATIC = 'test-{}'.format(BUCKET_STATIC)
+#     BUCKET_CLOUD = 'test-{}'.format(BUCKET_CLOUD)
+#     SHARD_COUNT = 0
+#     DATABASES['default']['HOST'] = 'testcmcaifu.mysql.rds.aliyuncs.com'
+#     CACHES['default']['LOCATION'] = '127.0.0.1:11211'
+#     REDIS['HOST'] = '10.117.182.179'
+#     REDIS['PASSWORD'] = None
     # 以下在 前端工程师 需要时开启:
-    INSTALLED_APPS += ['corsheaders']
-    MIDDLEWARE_CLASSES += ['corsheaders.middleware.CorsMiddleware']
-    CORS_ORIGIN_ALLOW_ALL = True
+INSTALLED_APPS += ['corsheaders']
+MIDDLEWARE_CLASSES += ['corsheaders.middleware.CorsMiddleware']
+CORS_ORIGIN_ALLOW_ALL = True
 
 # 多数据库配置.
 for i in range(SHARD_COUNT):
