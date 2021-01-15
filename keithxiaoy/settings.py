@@ -208,8 +208,8 @@ REST_FRAMEWORK = {
 }
 # yapf: enable
 
-if ENV == STAGE.PRO:
-    REST_FRAMEWORK['DEFAULT_PERMISSION_CLASSES'] = ['rest_framework.permissions.AllowAny']
+# if ENV == STAGE.PRO:
+REST_FRAMEWORK['DEFAULT_PERMISSION_CLASSES'] = ['rest_framework.permissions.AllowAny']
 
 # Dj
 
