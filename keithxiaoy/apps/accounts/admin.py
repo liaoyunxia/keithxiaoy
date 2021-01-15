@@ -2,12 +2,12 @@ from django.contrib import admin, auth
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext_lazy as _
-from railguns.django.contrib.admin import ImageUrlsMixin, SuperAdmin
+from railguns.django.contrib.admin import SuperAdmin
 from .models import WXUid
 from import_export.admin import ImportExportMixin
 
 
-class UserAdmin(ImageUrlsMixin, ImportExportMixin, auth.admin.UserAdmin):  # TODO: 用户导入功能太危险, 可以轻松导入管理员.
+class UserAdmin(ImportExportMixin, auth.admin.UserAdmin):  # TODO: 用户导入功能太危险, 可以轻松导入管理员.
     image_width = 32
     image_height = 32
 
