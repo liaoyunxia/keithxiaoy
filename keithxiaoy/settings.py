@@ -63,7 +63,7 @@ for dirname in next(os.walk(os.path.join(PROJECT_PATH, 'apps')))[1]:
     if dirname not in ['__pycache__']:
         INSTALLED_APPS += ['{}.apps.{}.apps.Config'.format(PROJECT_NAME, dirname)]
 # TEST_RUNNER = '{}.apps.api.unit_test.run_tests'.format(PROJECT_NAME)
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
     'django.middleware.gzip.GZipMiddleware',
