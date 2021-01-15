@@ -4,7 +4,7 @@ from datetime import timedelta
 from corsheaders.defaults import default_headers
 from django.contrib import messages
 from railguns.django.utils.translation import dj_gettext
-
+from django.utils.translation import gettext_lazy as _
 from .constants import *
 
 TEST_ENV = False
