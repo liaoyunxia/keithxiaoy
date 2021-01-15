@@ -22,20 +22,6 @@ class BuyerManager(models.Manager):
         return self._create_buyer(request, **extra_fields)
 
 
-class Buyer(OwnerModel):
-    customer_id = models.IntegerField(_('客户ID'))
-    business_type = models.CharField(_('业务类型'), choices=(('1', '公开'), ('2', '隐蔽'),), max_length=1)
-    pre_pay_rate = models.PositiveSmallIntegerField(_('预付款比例%'), default=0)
-    trading_relate_amount = models.BigIntegerField(_('买卖方关联限额'), default=0)
-    objects = BuyerManager()
-
-    def __str__(self):
-        customer_obj = get_object_or_none(Customer, using='default', pk=self.customer_id)
-        if customer_obj:
-            return customer_obj.name
-        return '未知客户'
-
-
 class Contract(OwnerModel):
     number = models.CharField(_('保理号'), max_length=100)
     seller_id = models.IntegerField(_('卖方'), default=0)
