@@ -4,8 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 from railguns.django.db.models import OwnerModel
 from railguns.django.db.utils import get_object_or_none
 
-from ..customers.models import Customer
-
 
 class BuyerManager(models.Manager):
     # https://docs.djangoproject.com/en/dev/topics/auth/customizing/#a-full-example
