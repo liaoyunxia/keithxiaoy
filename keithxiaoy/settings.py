@@ -109,6 +109,9 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+DATABASE_ROUTERS = ['keithxiaoy.database_router.MasterSlaveRouter']
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
