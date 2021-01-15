@@ -25,7 +25,7 @@ urlpatterns += [
 
 # 项目:
 urlpatterns += [
-    url(r'^api/v1/', include('{}.apps.api.urls'.format(settings.PROJECT_NAME), namespace='v1')),
+    url(r'^api/v1/', include('{}.apps.api.urls'.format(settings.PROJECT_NAME), 'v1'), namespace='v1'),
     url(r'', include('{}.apps.home.urls'.format(settings.PROJECT_NAME))),
 ]
 
