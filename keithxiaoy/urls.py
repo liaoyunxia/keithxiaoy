@@ -33,3 +33,4 @@ apps_dir = join(settings.PROJECT_PATH, 'apps')
 for dirname in next(os.walk(apps_dir))[1]:
     if dirname not in ['__pycache__', 'api', 'home'] and exists(join(apps_dir, '{}/urls.py'.format(dirname))):
         urlpatterns += [url(r'^{}/'.format(dirname), include('{}.apps.{}.urls'.format(settings.PROJECT_NAME, dirname)))]
+
