@@ -41,6 +41,8 @@ else:
 # Internal Ip White name
 # CSRF_TRUSTED_ORIGINS = ['.cpcn.com.cn']
 
+ALLOWED_HOSTS = ['http://www.keithxiaoy.com', 'www.keithxiaoy.com', '106.75.237.156']
+
 INSTALLED_APPS = [
     '{}.app.SuitConfig'.format(PROJECT_NAME),
     'ckeditor',
