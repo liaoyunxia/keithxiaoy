@@ -316,10 +316,5 @@ CAPTCHA_FOREGROUND_COLOR = 'red'
 INSTALLED_APPS += ['corsheaders']
 MIDDLEWARE += ['corsheaders.middleware.CorsMiddleware']
 CORS_ORIGIN_ALLOW_ALL = True
-
-# 多数据库配置.
-for i in range(SHARD_COUNT):
-    db_dict = DATABASES['default'].copy()
-    db_dict['NAME'] = '{}_{}'.format(PROJECT_NAME, i)
-    DATABASES['db_{}'.format(i)] = db_dict
-DATABASE_ROUTERS = ['{}.routers.PrimaryReplicaRouter'.format(PROJECT_NAME)]
+#
+# DATABASE_ROUTERS = ['{}.routers.PrimaryReplicaRouter'.format(PROJECT_NAME)]
