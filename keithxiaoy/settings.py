@@ -317,3 +317,118 @@ CAPTCHA_FOREGROUND_COLOR = 'red'
 INSTALLED_APPS += ['corsheaders']
 MIDDLEWARE += ['corsheaders.middleware.CorsMiddleware']
 CORS_ORIGIN_ALLOW_ALL = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {  #
+        'standard': {
+            'format': '%(asctime)s [%(threadName)s:%(thread)d] [%(name)s:%(lineno)d] [%(module)s:%(funcName)s] [%(levelname)s]- %(message)s'}
+    },
+    'filters': {  #
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        }
+    },
+    'handlers': {  #
+        'debug': {  #
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "log", 'django.log'),  #
+            'formatter': 'standard',  # formatters
+        },
+        'error': {  #
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "log", 'error.log'),  #
+            'formatter': 'standard',  #
+        },
+        'facebook': {  #
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "log", 'facebook.log'),
+            'formatter': 'standard',
+        },
+        'task': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "log", 'task.log'),
+            'formatter': 'standard',
+        },
+        'third': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "log", 'third.log'),
+            'formatter': 'standard',
+        },
+        'pay': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "log", 'pay.log'),
+            'formatter': 'standard',
+        },
+        'rpc': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "log", 'rpc.log'),
+            'formatter': 'standard',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'filters': ['require_debug_false'],
+            'include_html': True,
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['debug', 'mail_admins'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
+        'django.request': {
+            'handlers': ['debug', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'error': {
+            'handlers': ['error', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': True
+        },
+        'facebook': {
+            'handlers': ['facebook', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': True
+        },
+        'task': {
+            'handlers': ['task', 'mail_admins'],
+            'level': 'INFO',
+            'propagate': True
+        },
+        'third': {
+            'handlers': ['third', 'mail_admins'],
+            'level': 'INFO',
+            'propagate': True
+        },
+        'pay': {
+            'handlers': ['pay', 'mail_admins'],
+            'level': 'INFO',
+            'propagate': True
+        },
+        'rpc': {
+            'handlers': ['rpc', 'mail_admins'],
+            'level': 'INFO',
+            'propagate': True
+        },
+    }
+}
