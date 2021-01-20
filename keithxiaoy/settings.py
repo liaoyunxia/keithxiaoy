@@ -30,7 +30,7 @@ CLOUD_SIGNATURE_FILE = 'go/{}_ubuntu.signature'.format(CLOUD)
 BUCKET_MEDIA = '/media/'
 BUCKET_STATIC = '/static/'
 BUCKET_CLOUD = '/cloud/'
-ALLOWED_HOSTS = ['http://www.keithxiaoy.com', 'www.keithxiaoy.com', '106.75.237.156', '127.0.0.1', 'localhost', '0.0.0.0']
+ALLOWED_HOSTS = ['http://www.keithxiaoy.cn', 'www.keithxiaoy.cn', '106.75.237.156', '127.0.0.1', 'localhost', '0.0.0.0']
 
 # ALLOWED_HOSTS = ['.{}'.format(DOMAIN_NAME), '.compute-1.amazonaws.com']  # ELB和Gunicorn直接配暂时没找到转发Domain的解决方案
 # ALLOWED_HOSTS.append('120.27.142.121')
