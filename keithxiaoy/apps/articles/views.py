@@ -31,11 +31,11 @@ from railguns.django.generics import WebView
 class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
-        category = kwargs.get('name')
+        article_name = kwargs.get('name')
 
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
-        title = kwargs.get('title', '{} - {}'.format(_(self.name), _('app_name')))
+        title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
         # endpoint = '{}{}'.format('/api/v1/orders', request.get_full_path())
         # template_name = self.template_nam
