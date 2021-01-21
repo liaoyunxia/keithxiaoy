@@ -6,8 +6,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-
-from common.models import UserModel, TimeModel, StateModel, NoModel
+from ..common.models import UserModel, TimeModel, StateModel, NoModel
 
 ARTICLE_IMPORT_METHOD_CHOICES = ((0, ' 用户编辑'), (1, '爬虫获取'), (2, '用户复制'))
 ARTICLE_TYPE_CHOICES = ((0, '草稿'), (1, '待审核'), (2, '过期'), (3, '显示'))
