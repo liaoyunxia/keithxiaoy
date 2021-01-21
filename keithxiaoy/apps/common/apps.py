@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.apps import AppConfig
+from railguns.django.utils.apps import get_name
 
 
-class VotesConfig(AppConfig):
-    name = 'votes'
+class Config(AppConfig):
+    name = get_name(__file__)
