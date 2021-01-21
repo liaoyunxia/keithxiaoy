@@ -2,6 +2,7 @@
 # from __future__ import unicode_literals
 
 from django.db import models
+from django.db.models import CASCADE
 from django.utils.translation import ugettext_lazy as _
 
 from ..accounts.models import User
@@ -31,7 +32,7 @@ class NoModel(models.Model):
 
 
 class UserModel(models.Model):
-    user = models.ForeignKey(User, verbose_name=u'创建者')
+    user = models.ForeignKey(User, verbose_name=u'创建者', on_delete=CASCADE)
 
     class Meta:
         abstract = True
