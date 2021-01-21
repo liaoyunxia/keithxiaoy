@@ -24,12 +24,11 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
-# Create your views here.
+from railguns.django.generics import WebView
 
 
 @permission_classes([AllowAny])
-class ArticleDetail(APIView):
+class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
         category = kwargs.get('name')
