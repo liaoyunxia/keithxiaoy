@@ -5,6 +5,7 @@ from django.urls import include, path
 from django.conf.urls import include, url
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
+from django.conf.urls.static import static
 
 #
 # urlpatterns = [path('', include('railguns.urls'))]
@@ -49,6 +50,8 @@ urlpatterns += [
     # url('', include(('{}.apps.urls'.format(settings.PROJECT_NAME), 'apps'), namespace='apps-urls')),
     url(r'^api/v1/', include(('{}.apps.api.urls'.format(settings.PROJECT_NAME), 'v1'), namespace='v1')),
     url(r'home', include('{}.apps.home.urls'.format(settings.PROJECT_NAME, 'home'))),
+    *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
+    *static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),
 ]
 #
 apps_dir = join(settings.PROJECT_PATH, 'apps')
