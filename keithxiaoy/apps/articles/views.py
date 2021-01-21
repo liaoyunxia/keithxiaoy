@@ -39,5 +39,5 @@ class ArticleDetail(WebView):
         # opt_type = self.request.GET.get('type', '')
         # endpoint = '{}{}'.format('/api/v1/orders', request.get_full_path())
         # template_name = self.template_nam
-        template_name = 'enter.html'
+        template_name = 'entry.html'
         return render(request, template_name, locals())
