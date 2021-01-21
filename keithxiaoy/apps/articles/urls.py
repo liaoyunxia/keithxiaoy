@@ -19,5 +19,5 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'<str:name>/', views.ArticleDetail.as_view()),
+    url(r'^\w+$/', views.ArticleDetail.as_view()),
 ]
