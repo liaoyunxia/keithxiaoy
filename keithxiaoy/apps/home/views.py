@@ -15,5 +15,5 @@ class HomeView(WebView):
         # opt_type = self.request.GET.get('type', '')
         # endpoint = '{}{}'.format('/api/v1/orders', request.get_full_path())
         # template_name = self.template_nam
-        template_name = 'entry.html'
+        template_name = 'index.html'
         return render(request, template_name, locals())
