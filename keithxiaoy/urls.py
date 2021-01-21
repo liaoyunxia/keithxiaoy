@@ -49,7 +49,7 @@ urlpatterns += [
 urlpatterns += [
     # url('', include(('{}.apps.urls'.format(settings.PROJECT_NAME), 'apps'), namespace='apps-urls')),
     url(r'^api/v1/', include(('{}.apps.api.urls'.format(settings.PROJECT_NAME), 'v1'), namespace='v1')),
-    url(r'article', include('{}.apps.article.urls'.format(settings.PROJECT_NAME, 'article'))),
+    url(r'article', include('{}.apps.articles.urls'.format(settings.PROJECT_NAME, 'article'))),
     url(r'', include('{}.apps.home.urls'.format(settings.PROJECT_NAME, 'home'))),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     *static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),
