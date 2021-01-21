@@ -31,8 +31,8 @@ from railguns.django.generics import WebView
 class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
-        article_name = kwargs.get('name')
-
+        # article_name = kwargs.get('name')
+        article_name = 'Keep going'
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
         title = kwargs.get('title', '{}'.format(article_name))
