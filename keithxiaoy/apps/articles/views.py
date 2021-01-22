@@ -26,14 +26,18 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from railguns.django.generics import WebView
 from ..articles.models import Article
+dj_logger = logging.getLogger('django')
 
 
 @permission_classes([AllowAny])
 class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
+        dj_logger.info('reque_data={}.kwargs={} '.format(request.DATA, kwargs))
 
         article_name = kwargs.get('title') if kwargs.get('title') else 'about_me'
+
+        dj_logger.info('article_name={} '.format(article_name))
 
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
@@ -43,5 +47,5 @@ class ArticleDetail(WebView):
         # opt_type = self.request.GET.get('type', '')
         # endpoint = '{}{}'.format('/api/v1/orders', request.get_full_path())
         # template_name = self.template_nam
-        template_name = 'entry.html'
+        template_name = 'article_detail.html'
         return render(request, template_name, locals())
