@@ -23,6 +23,7 @@ class Article(UserModel, TimeModel, StateModel, NoModel):
     summary = models.TextField(_('summary'))
     preview = models.CharField(_('preview'), max_length=500, blank=True, default='', help_text='预览图')
     images = models.CharField(_('images'), max_length=500, blank=True, default='',  help_text='涉及的图')
+    set_top = models.BooleanField(_('set_top'), default=False)
     priority = models.IntegerField(_('priority'), default=0, help_text='越小优先级越高')
     category = models.IntegerField(_('category'), choices=ARTICLE_CATEGORY_CHOICES, default=0)
 

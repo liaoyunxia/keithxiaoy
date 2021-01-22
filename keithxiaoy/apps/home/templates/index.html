@@ -67,13 +67,13 @@
         <div class="demo-blog__posts mdl-grid">
           <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
             <div class="mdl-card__media mdl-color-text--grey-50">
-              <h3><a href="/article/my2020/">凌晨12345点的上海</a></h3>
+              <h3><a href="/article/{{ top_article.english_name }}/">{{ top_article.name }}</a></h3>
             </div>
             <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
               <div class="minilogo"></div>
               <div>
-                <strong>keithxiaoy</strong>
-                <span>2020-12-31</span>
+                <strong>{{ top_article.user.username }}</strong>
+                <span>{{ top_article.modify_time }}</span>
               </div>
             </div>
           </div>
@@ -102,52 +102,24 @@
               </button>
             </div>
           </div>
+            {% for blog in valid_blogs  %}
           <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
             <div class="mdl-card__media mdl-color-text--grey-50">
-              <h3><a href="/article/my_code_road/">一个普通程序员的工作经历</a></h3>
+              <h3><a href="/article/{{ blog.english_name }}/">{{ blog.name }}</a></h3>
             </div>
             <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-              Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                {{ blog.summary }}
             </div>
             <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
               <div class="minilogo"></div>
               <div>
-                <strong>keithxiaoy的原创</strong>
-                <span>2021-01-15</span>
+                <strong>{{ blog.user.username }}</strong>
+                <span>{{ blog.modify_time }}</span>
               </div>
             </div>
           </div>
-          <div class="mdl-card amazing mdl-cell mdl-cell--12-col">
-            <div class="mdl-card__title mdl-color-text--grey-50">
-              <h3 class="quote"><a href="/article/the_winter_is_coming/">冬天到了，女朋友想让我的网站也下雪...</a></h3>
-            </div>
-            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-              女朋友常逛的设计网站这两天页面上多了下雪的效果,于是问我我的网站能下雪吗,作为一个程序员我一般都会说实现不了,但是作为男朋友,不能说不行
-            </div>
-            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-              <div class="minilogo"></div>
-              <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
-              </div>
-            </div>
-          </div>
-          <div class="mdl-card shopping mdl-cell mdl-cell--12-col">
-            <div class="mdl-card__media mdl-color-text--grey-50">
-              <h3><a href="/article/wechat_10years/"></a>微信十年，你值得拥有 </h3>
-            </div>
-            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                微信 8.0 的更新及微信十年徽章制作
-            </div>
-            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-              <div class="minilogo"></div>
-              <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
-              </div>
-            </div>
-          </div>
-          <nav class="demo-nav mdl-cell mdl-cell--12-col">
+          {% endfor %}
+            <nav class="demo-nav mdl-cell mdl-cell--12-col">
             <div class="section-spacer"></div>
             <a href="entry.html" class="demo-nav__button" title="show more">
               More
