@@ -23,12 +23,12 @@ class ArticleAdmin(admin.ModelAdmin):
     )
 
     add_fieldsets = (
-        (None, {'fields': ('name', 'no')}),
+        (None, {'fields': ('name', 'no', 'english_name')}),
         (_('article content'), {'fields': ('remark', 'url', 'content')}),
         (_('article state'), {'fields': ('type', 'state', 'import_method', 'user')}),
     )
 
-    list_display = ['id', 'name', 'type', 'import_method', 'remark', 'user', 'state','modify_time']
+    list_display = ['id', 'name', 'english_name','type', 'import_method', 'remark', 'user', 'state','modify_time']
     list_filter = ['import_method', 'user', 'state', 'type']
     suit_list_filter_horizontal = ['import_method', 'name', 'state']
     search_fields = ['name', 'user__username']
