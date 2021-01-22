@@ -16,7 +16,7 @@ class ArticleAdmin(admin.ModelAdmin):
     image_height = 32
 
     fieldsets = (
-        (None, {'fields': ('name', 'no')}),
+        (None, {'fields': ('name', 'no', 'english_name')}),
         (_('article content'), {'fields': ('remark', 'url', 'content')}),
         (_('article state'), {'fields': ('type', 'state', 'import_method', 'user')}),
         # (_('time'), {'fields': ('modify_time',)}),
