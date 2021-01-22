@@ -69,6 +69,7 @@ def prod(branch='master', ip='106.75.237.156'):
     env.password = 'Liao0726'
     env.branch = branch
     env.test = False
+    env.run_migrations = True
     env.roledefs = {  # 无论是否同一个role中, 只要有重复的ip默认不执行
         'django': [ip]
     }
@@ -194,40 +195,41 @@ def deploy(mode=1):
 @task
 @roles('django')
 # @parallel(pool_size=5)  # Windows下有问题
-def deploy_django(mode=1):
+def deploy_django(mode=1, source=' -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com'):
     smartputs('🍺  开始部署')
 
-    # if int(mode) > 3:
-    #     apt_upgrade()
-    #     sudo('pip3 install -U pip virtualenvwrapper django_extensions{}'.format(source))
-    #     sudo('pip3 install git+https://github.com/Supervisor/supervisor.git')
-    # settings = '{0.project_path}/{0.project_name}/settings.py'.format(env)
-    # run('sed -i "s/TEST_ENV = True/TEST_ENV = False/g" {}'.format(settings))  # 无论什么环境先还原.
-    # run('sed -i "s/DEBUG = True/DEBUG = False/g" {}'.format(settings))
-    # smartputs('● ├── 切换到 {} 分支'.format(env.branch))
-    # smartrun('git checkout {}'.format(env.branch))
-    # smartrun('git pull')
-    # smartrun('git clean -dfn')  # 清除空目录.
-    # if env.test:
-    #     run('sed -i "s/TEST_ENV = False/TEST_ENV = True/g" {}'.format(settings))
-    # if int(mode) < 1:
-    #     run('sed -i "s/DEBUG = False/DEBUG = True/g" {}'.format(settings))
-    # with cd(env.project_path), prefix('workon {}'.format(env.project_name)):
-    #     if int(mode) > 1:
-    #         run('pip install -U -r requirements.txt{}'.format(source))
-    #         run('pip install -U Pillow --no-cache-dir{}'.format(source))  # 保证Pillow重新安装
-    #     if env.test:
-    #         run('pip install -U django-cors-headers==1.2.2 {}'.format(source))
-    #     run('python manage.py compilemessages')
-    #     if env.test:
-    #         run('python manage.py makemigrations')
-    #         run('python manage.py migrate')
-    #         smartputs('● ├── 备份migrations')
-    #         with quiet():
-    #             run('find . -name  migrations |xargs tar -cvf migrations.tgz')
-    #         run('mv migrations.tgz ~/')
-    #     else:
-    #         puts(yellow('正式环境不开启migrations, 请手动进行'))
+    if int(mode) > 3:
+        apt_upgrade()
+        sudo('pip3 install -U pip virtualenvwrapper django_extensions{}'.format(source))
+        sudo('pip3 install git+https://github.com/Supervisor/supervisor.git')
+    settings = '{0.project_path}/{0.project_name}/settings.py'.format(env)
+    run('sed -i "s/TEST_ENV = True/TEST_ENV = False/g" {}'.format(settings))  # 无论什么环境先还原.
+    run('sed -i "s/DEBUG = True/DEBUG = False/g" {}'.format(settings))
+    smartputs('● ├── 切换到 {} 分支'.format(env.branch))
+    smartrun('git checkout {}'.format(env.branch))
+    smartrun('git pull')
+    smartrun('git clean -dfn')  # 清除空目录.
+    if env.test:
+        run('sed -i "s/TEST_ENV = False/TEST_ENV = True/g" {}'.format(settings))
+    if int(mode) < 1:
+        run('sed -i "s/DEBUG = False/DEBUG = True/g" {}'.format(settings))
+    with cd(env.project_path), prefix('workon {}'.format(env.project_name)):
+        if int(mode) > 1:
+            run('pip install -U -r requirements.txt{}'.format(source))
+            run('pip install -U Pillow --no-cache-dir{}'.format(source))  # 保证Pillow重新安装
+        if env.test:
+            run('pip install -U django-cors-headers==1.2.2 {}'.format(source))
+        run('python manage.py compilemessages')
+        if env.run_migrations:
+            run('python manage.py makemigrations')
+            run('python manage.py migrate')
+            smartputs('● ├── 备份migrations')
+            with quiet():
+                run('find . -name  migrations |xargs tar -cvf migrations.tgz')
+            run('mv migrations.tgz ~/')
+        else:
+            puts(yellow('当前环境不开启migrations, 请手动进行'))
+
     if exists('/tmp/supervisor.sock'):
         supervisor_update()
         supervisor_restart('gunicorn')
