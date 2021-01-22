@@ -44,7 +44,7 @@ class ArticleDetail(WebView):
         article_obj = Article.objects.get(english_name=article_name)
         dj_logger.info('type={} '.format(article_obj.type))
 
-        if article_obj.type == 1:
+        if article_obj.import_method == 1:
             dj_logger.info('do1  ')
             return redirect(article_obj.url)
 
