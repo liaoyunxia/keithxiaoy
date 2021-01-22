@@ -17,6 +17,9 @@ class Article(UserModel, TimeModel, StateModel, NoModel):
     url = models.CharField(_('url'), max_length=100, blank=True)
     import_method = models.IntegerField(_('import_method'), choices=ARTICLE_IMPORT_METHOD_CHOICES, default=0)
     name = models.CharField(_('name'), max_length=50)
+
+    english_name = models.CharField(_('english_name'), max_length=50)
+
     content = RichTextField(_('content'), blank=True)
     remark = models.CharField(_('remark'), max_length=200, blank=True)
     type = models.IntegerField(_('type'), choices=ARTICLE_TYPE_CHOICES, default=0)

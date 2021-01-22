@@ -32,11 +32,12 @@ from ..articles.models import Article
 class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
-        # article_name = kwargs.get('name')
-        article_name = 'Keep going'
+
+        article_name = kwargs.get('title') if not kwargs.get('title') else 'about_me'
+
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
-        article_obj = Article.objects.get(id=1)
+        article_obj = Article.objects.get(english_name=article_name)
         article_data = {'name': article_obj.name, 'content': article_obj.content}
         title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
