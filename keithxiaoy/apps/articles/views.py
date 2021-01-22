@@ -33,7 +33,7 @@ dj_logger = logging.getLogger('django')
 class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
-        dj_logger.info('kwargs={} ; dict={}. '.format(kwargs, self.request.__dict__ ))
+        dj_logger.info('kwargs={} ; '.format(kwargs))
 
         article_name = kwargs.get('title') if kwargs.get('title') else 'about_me'
 
@@ -42,8 +42,13 @@ class ArticleDetail(WebView):
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
         article_obj = Article.objects.get(english_name=article_name)
+        dj_logger.info('type={} '.format(article_obj.type))
+
         if article_obj.type == 1:
+            dj_logger.info('do1  ')
             return redirect(article_obj.url)
+
+        dj_logger.info('do2  ')
         article_data = {'name': article_obj.name, 'content': article_obj.content}
         title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
