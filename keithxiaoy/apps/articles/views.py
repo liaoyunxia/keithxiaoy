@@ -37,18 +37,14 @@ class ArticleDetail(WebView):
 
         article_name = kwargs.get('title') if kwargs.get('title') else 'about_me'
 
-        dj_logger.info('article_name={} '.format(article_name))
-
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
         article_obj = Article.objects.get(english_name=article_name)
-        dj_logger.info('type={} '.format(article_obj.type))
 
         if article_obj.import_method == 1:
             dj_logger.info('do1  ')
             return redirect(article_obj.url)
 
-        dj_logger.info('do2  ')
         article_data = {'name': article_obj.name, 'content': article_obj.content}
         title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
