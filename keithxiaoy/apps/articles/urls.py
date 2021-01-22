@@ -22,6 +22,6 @@ from . import views
 urlpatterns = [
     # url(r'my2020/', views.ArticleDetail.as_view()),
     # url(r'about_me/', views.ArticleDetail.as_view()),
-    url(r'^(?P<string>[\w\-]+)/$', views.ArticleDetail.as_view()),
+    url(r'^(?P<title>[\w\-]+)/$', views.ArticleDetail.as_view()),
     # url(r'^\w+$/', views.ArticleDetail.as_view()),
 ]
