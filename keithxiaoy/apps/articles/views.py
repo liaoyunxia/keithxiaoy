@@ -42,6 +42,8 @@ class ArticleDetail(WebView):
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
         article_obj = Article.objects.get(english_name=article_name)
+        if article_obj.type == 1:
+            return redirect(article_obj.url)
         article_data = {'name': article_obj.name, 'content': article_obj.content}
         title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
