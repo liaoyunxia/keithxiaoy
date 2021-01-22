@@ -33,7 +33,7 @@ dj_logger = logging.getLogger('django')
 class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
-        dj_logger.info('reque_data={}.kwargs={} '.format(request.DATA, kwargs))
+        dj_logger.info('reque_data={}.kwargs={} '.format(request.data, kwargs))
 
         article_name = kwargs.get('title') if kwargs.get('title') else 'about_me'
 
