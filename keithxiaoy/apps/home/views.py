@@ -18,7 +18,7 @@ class HomeView(WebView):
         # template_name = self.template_nam
 
         top_article = Article.objects.filter(set_top=True, type=3).order_by('priority', '-modify_time').first()
-        valid_blogs = Article.objects.filter(type=3).order_by('-modify_time')
+        valid_blogs = Article.objects.filter(type=3).order_by('-modify_time').exclude(name='about_me', id=top_article.id)
 
         template_name = 'index.html'
         return render(request, template_name, locals())
