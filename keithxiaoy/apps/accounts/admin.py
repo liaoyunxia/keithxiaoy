@@ -15,7 +15,7 @@ class UserAdmin(ImportExportMixin, auth.admin.UserAdmin):  # TODO: 用户导入�
         (None, {'fields': ('username', 'password')}),
         (_('Personal info'), {'fields': ('nickname', 'gender', 'image_urls', 'about', 'tags')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'date_joined', 'name', 'email', 'phone_number', 'id_card_number', 'social_user_id',)}),
-        (_('Permissions'), {'fields': ('type', 'is_active', 'is_staff', 'groups', 'organization')}),
+        (_('Permissions'), {'fields': ('type', 'is_active', 'is_staff', 'groups',)}),
     )
     add_fieldsets = (
         (None, {'classes': ('wide',),
