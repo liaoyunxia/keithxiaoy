@@ -33,7 +33,7 @@ class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
 
-        article_name = kwargs.get('title') if not kwargs.get('title') else 'about_me'
+        article_name = kwargs.get('title') if kwargs.get('title') else 'about_me'
 
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
