@@ -15,19 +15,19 @@ class ArticleAdmin(admin.ModelAdmin):
     image_height = 32
 
     fieldsets = (
-        (None, {'fields': ('name', 'no', 'english_name')}),
-        (_('article content'), {'fields': ('remark', 'url', 'content')}),
+        (None, {'fields': ('name', 'no', 'english_name', 'preview','priority', 'category' )}),
+        (_('article content'), {'fields': ('remark', 'url', 'summary', 'content')}),
         (_('article state'), {'fields': ('type', 'state', 'import_method', 'user')}),
         # (_('time'), {'fields': ('modify_time',)}),
     )
 
     add_fieldsets = (
-        (None, {'fields': ('name', 'no', 'english_name')}),
-        (_('article content'), {'fields': ('remark', 'url', 'content')}),
+        (None, {'fields': ('name', 'no', 'english_name', 'preview', 'priority', 'category')}),
+        (_('article content'), {'fields': ('remark', 'url', 'summary', 'content', )}),
         (_('article state'), {'fields': ('type', 'state', 'import_method', 'user')}),
     )
 
-    list_display = ['id', 'name', 'english_name','type', 'import_method', 'url', 'remark','user', 'state','modify_time']
+    list_display = ['id', 'priority', 'name', 'english_name', 'category', 'type', 'import_method', 'url', 'remark','user', 'state','modify_time']
     list_filter = ['import_method', 'user', 'state', 'type']
     suit_list_filter_horizontal = ['import_method', 'name', 'state']
     search_fields = ['name', 'user__username']
