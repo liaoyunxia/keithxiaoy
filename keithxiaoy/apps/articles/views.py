@@ -25,6 +25,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from railguns.django.generics import WebView
+from ..articles.models import Article
 
 
 @permission_classes([AllowAny])
@@ -35,6 +36,8 @@ class ArticleDetail(WebView):
         article_name = 'Keep going'
         # if not request.user.is_authenticated():
         #     return redirect('/accounts/login/')
+        article_obj = Article.objects.get(id=1)
+        article_data = {'name': article_obj.name, 'content': article_obj.content}
         title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
         # endpoint = '{}{}'.format('/api/v1/orders', request.get_full_path())
