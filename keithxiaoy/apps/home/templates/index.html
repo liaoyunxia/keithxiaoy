@@ -104,7 +104,7 @@
           </div>
             {% for blog in valid_blogs  %}
           <div class="mdl-card mdl-cell mdl-cell--12-col">
-            <div class="mdl-card__media mdl-color-text--grey-50"  style="background: url('/static/images/pengyuyan.jpg') no-repeat center center;background-size: cover">
+            <div class="mdl-card__media mdl-color-text--grey-50"  style="background: url('{{ blog.bg_img }}') no-repeat center center;background-size: cover">
               <h3><a href="/article/{{ blog.english_name }}/">{{ blog.name }}</a></h3>
             </div>
             <div class="mdl-color-text--grey-600 mdl-card__supporting-text" >
