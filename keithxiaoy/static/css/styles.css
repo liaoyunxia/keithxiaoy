@@ -211,8 +211,8 @@ body .demo-blog {
   border-top-right-radius: 2px;
 }
 .demo-blog .something-else .mdl-card__media img {
-  width: 64px;
-  height: 64px;
+  width: 200px;
+  height: 200px;
   margin-bottom: 10px;
 }
 .demo-blog .something-else .mdl-card__supporting-text {
