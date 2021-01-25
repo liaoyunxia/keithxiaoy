@@ -73,10 +73,10 @@
               <h3>{{ article_data.name }}</h3>
             </div>
             <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-              <div class="minilogo"></div>
+              <img class="minilogo" src="/media/article_bg_img/liaoliao.jpeg"></img>
               <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
+                <strong>{{ article_data.user.username }}</strong>
+                <span>{{ article_data.modify_time }}</span>
               </div>
               <div class="section-spacer"></div>
               <div class="meta__favorites">
