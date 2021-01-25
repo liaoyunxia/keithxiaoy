@@ -15,19 +15,19 @@ class ArticleAdmin(admin.ModelAdmin):
     image_height = 32
 
     fieldsets = (
-        (None, {'fields': ('name', 'no', 'english_name', 'preview','priority', 'category', 'set_top')}),
+        (None, {'fields': ('name', 'no', 'english_name', 'bg_img', 'preview','priority', 'category', 'set_top')}),
         (_('article content'), {'fields': ('remark', 'url', 'summary', 'content')}),
         (_('article state'), {'fields': ('type', 'state', 'import_method', 'user')}),
         # (_('time'), {'fields': ('modify_time',)}),
     )
 
     add_fieldsets = (
-        (None, {'fields': ('name', 'no', 'english_name', 'preview', 'priority', 'category', 'set_top')}),
+        (None, {'fields': ('name', 'no', 'english_name', 'bg_img', 'preview', 'priority', 'category', 'set_top')}),
         (_('article content'), {'fields': ('remark', 'url', 'summary', 'content', )}),
         (_('article state'), {'fields': ('type', 'state', 'import_method', 'user')}),
     )
 
-    list_display = ['id', 'priority', 'name', 'english_name', 'category', 'type', 'import_method', 'url', 'remark','user', 'state','modify_time']
+    list_display = ['id', 'priority', 'bg_img', 'name', 'english_name', 'category', 'type', 'import_method', 'url', 'remark','user', 'state','modify_time']
     list_filter = ['import_method', 'user', 'state', 'type', 'category', ]
     suit_list_filter_horizontal = ['import_method', 'name', 'state']
     search_fields = ['name', 'user__username', 'url', 'english_name']

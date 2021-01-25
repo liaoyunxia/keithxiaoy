@@ -21,4 +21,5 @@ from . import views
 
 urlpatterns = [
     url(r'^(?P<title>[\w\-]+)/$', views.ArticleDetail.as_view()),
+    url(r'^uploadimage/$',views.uploadImg),
 ]

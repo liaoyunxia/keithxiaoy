@@ -30,7 +30,27 @@ class Article(UserModel, TimeModel, StateModel, NoModel):
     content = RichTextField(_('content'), blank=True)
     remark = models.CharField(_('remark'), max_length=200, blank=True)
     type = models.IntegerField(_('type'), choices=ARTICLE_TYPE_CHOICES, default=0)
+    bg_img = models.ImageField(upload_to='article_bg_img', verbose_name='图片', null=True)
 
     class Meta:
         verbose_name = _('article')
         verbose_name_plural = _('article')
+
+
+class UploadImage(models.Model):
+    imgName = models.CharField(max_length=252, default="", verbose_name="文件名")
+    imgMd5 = models.CharField(max_length=128, verbose_name="MD5值")
+    imgType = models.CharField(max_length=32, verbose_name="类型")
+    imgSize = models.IntegerField(verbose_name="大小")
+    imgPath = models.CharField(max_length=128, verbose_name="图片路径")
+    imgCreated = models.CharField(max_length=64, default=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                  verbose_name="创建时间")
+    # imgUpdated = models.CharField(max_length=64,default=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),verbose_name="更新时间")
+
+    def __str__(self):
+        return self.imgName
+
+    class Meta:
+        db_table = 'upload_image'
+
+
