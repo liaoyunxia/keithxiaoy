@@ -20,7 +20,7 @@ class Article(UserModel, TimeModel, StateModel, NoModel):
     name = models.CharField(_('name'), max_length=50)
 
     english_name = models.CharField(_('english_name'), max_length=50)
-    summary = models.TextField(_('summary'))
+    summary = models.TextField(_('summary'), blank=True)
     preview = models.CharField(_('preview'), max_length=500, blank=True, default='', help_text='预览图')
     images = models.CharField(_('images'), max_length=500, blank=True, default='',  help_text='涉及的图')
     set_top = models.BooleanField(_('set_top'), default=False)
