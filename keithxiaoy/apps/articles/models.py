@@ -43,7 +43,7 @@ class UploadImage(models.Model):
     imgType = models.CharField(max_length=32, verbose_name="类型")
     imgSize = models.IntegerField(verbose_name="大小")
     imgPath = models.CharField(max_length=128, verbose_name="图片路径")
-    imgCreated = models.CharField(max_length=64, default=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    imgCreated = models.CharField(max_length=64, default=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                                   verbose_name="创建时间")
     # imgUpdated = models.CharField(max_length=64,default=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),verbose_name="更新时间")
 
