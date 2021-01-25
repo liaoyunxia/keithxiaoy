@@ -82,13 +82,13 @@
               <i class="material-icons mdl-color-text--white" role="presentation">add</i>
               <span class="visuallyhidden">add</span>
             </button>
-            <a class="mdl-card__media mdl-color--white mdl-color-text--grey-600" href="/article/about_me/">
-              <img src="{% static '/images/WechatIMG557.png' %}">
-              +1,337
+            <a class="mdl-card__media mdl-color--white mdl-color-text--grey-600" href="/article/{{ me_blog.english_name }}/">
+              <img src=url('/media{{ me_blog.bg_img }}'>
+              {{ me_blog.summary }}
             </a>
             <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
               <div>
-                <strong>keithxiaoy</strong>
+                <strong>{{ me_blog.user.username }}</strong>
               </div>
               <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="menubtn">
                 <li class="mdl-menu__item">About</li>
