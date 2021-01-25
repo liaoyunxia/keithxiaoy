@@ -103,11 +103,11 @@
             </div>
           </div>
             {% for blog in valid_blogs  %}
-          <div class="mdl-card mdl-cell mdl-cell--12-col"  style="background: url('/static/images/pengyuyan.jpg') no-repeat center top">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
             <div class="mdl-card__media mdl-color-text--grey-50">
               <h3><a href="/article/{{ blog.english_name }}/">{{ blog.name }}</a></h3>
             </div>
-            <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+            <div class="mdl-color-text--grey-600 mdl-card__supporting-text"  style="background: url('/static/images/pengyuyan.jpg') no-repeat center top">
                 {{ blog.summary }}
             </div>
             <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
