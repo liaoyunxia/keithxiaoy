@@ -4,7 +4,9 @@ from railguns.cloudfile.fields import CloudFileField
 
 
 class File(models.Model):
-    url = CloudFileField()
+    # url = CloudFileField()
+    url = models.ImageField(upload_to='files_url', verbose_name='url', null=True)
+
     name = models.CharField(_('名称'), max_length=100, blank=True)
     type = models.CharField(_('type'), max_length=100, choices=(('1', '图片'), ('2', 'HTML页面'), ('3', 'js'), ('4', 'css'), ('5', '其他')), blank=True)
 

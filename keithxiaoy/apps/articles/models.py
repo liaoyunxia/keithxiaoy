@@ -21,7 +21,7 @@ class Article(UserModel, TimeModel, StateModel, NoModel):
 
     english_name = models.CharField(_('english_name'), max_length=50)
     summary = models.TextField(_('summary'), blank=True)
-    preview = models.CharField(_('preview'), max_length=500, blank=True, default='', help_text='预览图')
+    # preview = models.CharField(_('preview'), max_length=500, blank=True, default='', help_text='预览图')
     images = models.CharField(_('images'), max_length=500, blank=True, default='',  help_text='涉及的图')
     set_top = models.BooleanField(_('set_top'), default=False)
     priority = models.IntegerField(_('priority'), default=0, help_text='越小优先级越高')
@@ -37,14 +37,12 @@ class Article(UserModel, TimeModel, StateModel, NoModel):
         verbose_name_plural = _('article')
 
 
-class UploadImage(models.Model):
+class UploadImage(TimeModel):
     imgName = models.CharField(max_length=252, default="", verbose_name="文件名")
     imgMd5 = models.CharField(max_length=128, verbose_name="MD5值")
     imgType = models.CharField(max_length=32, verbose_name="类型")
     imgSize = models.IntegerField(verbose_name="大小")
     imgPath = models.CharField(max_length=128, verbose_name="图片路径")
-    imgCreated = models.CharField(max_length=64, default=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                  verbose_name="创建时间")
     # imgUpdated = models.CharField(max_length=64,default=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),verbose_name="更新时间")
 
     def __str__(self):
