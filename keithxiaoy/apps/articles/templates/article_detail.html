@@ -94,7 +94,7 @@
             </div>
             <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
                 <h2>hello</h2>
-                {{ article_data.md_content |apply_markup:"markdown" }}
+                {{ article_data.md_content.toc |safe }}
                 <h2>end_hello</h2>
             </div>
           </div>
