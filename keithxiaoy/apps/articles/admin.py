@@ -7,7 +7,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 # from import_export.admin import ImportExportMixin
 
-from .models import Article
+from .models import Article, UploadImage
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -37,4 +37,11 @@ class ArticleAdmin(admin.ModelAdmin):
     get_preview.short_description = _('preview')
 
 
+class UploadImageAdmin(admin.ModelAdmin):
+    list_display = ['imgName', 'imgType', 'imgSize', 'imgPath']
+    list_filter = ['imgType']
+    search_fields = ['imgName']
+
+
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(UploadImage, UploadImageAdmin)
