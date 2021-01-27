@@ -5,6 +5,7 @@ import datetime
 from ckeditor.fields import RichTextField
 from django.core.exceptions import ValidationError
 from django.db import models
+from mdeditor.fields import MDTextField
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from ..common.models import UserModel, TimeModel, StateModel, NoModel
@@ -43,6 +44,8 @@ class UploadImage(TimeModel):
     imgType = models.CharField(max_length=32, verbose_name="类型")
     imgSize = models.IntegerField(verbose_name="大小")
     imgPath = models.CharField(max_length=128, verbose_name="图片路径")
+    content = MDTextField()
+
     # imgUpdated = models.CharField(max_length=64,default=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),verbose_name="更新时间")
 
     def __str__(self):
