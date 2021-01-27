@@ -49,7 +49,7 @@ class ArticleDetail(WebView):
             dj_logger.info('do1  ')
             return redirect(article_obj.url)
 
-        article_data = {'name': article_obj.name, 'content': article_obj.content}
+        article_data = article_obj
         title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
         # endpoint = '{}{}'.format('/api/v1/orders', request.get_full_path())
