@@ -12,7 +12,7 @@ class FileAdmin(SuperAdmin):
     filter_list = ('type',)
 
     def get_preview(self, obj):
-        return format_html('<a href="{0}" rel="external"><img src="{0}" width="50" height="50"/></a>'.format(obj.url))
+        return format_html('<a href="{0}" rel="external"><img src="/media{0}" width="50" height="50"/></a>'.format(obj.url))
     get_preview.short_description = _('preview')
 
 admin.site.register(File, FileAdmin)
