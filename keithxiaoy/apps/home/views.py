@@ -17,7 +17,7 @@ class HomeView(WebView):
         # endpoint = '{}{}'.format('/api/v1/orders', request.get_full_path())
         # template_name = self.template_nam
         me_blog = Article.objects.get(id=1)
-        top_article = Article.objects.filter(set_top=True, type=3).order_by('priority', '-modify_time').first()
+        top_article = Article.objects.filter(set_top=True, type=3).order_by('priority').first()
         valid_blogs = Article.objects.filter(type=3).order_by('-modify_time').exclude(english_name='about_me').exclude(id=top_article.id)
 
         template_name = 'index.html'
