@@ -63,7 +63,7 @@ def uploadImg(request):
     if request.method == "POST":
         file = request.FILES.get('img')
         md5=GetFileMd5(file)
-        imgobj = models.uploadImage.objects.filter(imgMd5=md5)
+        imgobj = UploadImage.objects.filter(imgMd5=md5)
         if not imgobj:
             size = file.size
             if not FileSize(size):
@@ -75,7 +75,7 @@ def uploadImg(request):
                 return JsonResponse(info)
             path = Rename(file)
             name = os.path.basename(path)
-            create=models.uploadImage.objects.create(imgName=name, imgMd5=md5,imgType=ext,imgSize=size,imgPath=path)
+            create=UploadImage.objects.create(imgName=name, imgMd5=md5,imgType=ext,imgSize=size,imgPath=path)
             url='http://'+settings.HOST_NAME +"/"+create.imgPath
             info={'code':200,'imgurl':url}
             return JsonResponse(info)
