@@ -93,8 +93,7 @@
               </div>
             </div>
             <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
-                {{ article_data.md_content.media }}
-                {{ article_data.md_content.as_p }}
+                {% csrf_token %}
                 {{ article_data.md_content }}
             </div>
           </div>
