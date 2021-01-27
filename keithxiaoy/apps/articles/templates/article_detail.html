@@ -52,6 +52,12 @@
     <script src="{% static 'mdeditor/js/lib/prettify.min.js' %}"></script>
     <script src="{% static 'mdeditor/js/lib/marked.min.js' %}"></script>
     <script src="{% static 'mdeditor/js/editormd.js' %}"></script>
+      <script>
+        editormd.markdownToHTML("article_content", { //article_content是html文档的ID
+        emoji: true,
+        taskList: true,
+        });
+    </script>
     <style>
     #view-source {
       position: fixed;
