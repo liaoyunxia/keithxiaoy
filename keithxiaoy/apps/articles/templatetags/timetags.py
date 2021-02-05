@@ -24,5 +24,3 @@ register.filter(print_timestamp)
 def markdown(value):
     return md.markdown(value, extensions=['markdown.extensions.fenced_code'])
 
-
-register.filter(markdown)
