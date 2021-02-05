@@ -51,6 +51,9 @@ class ArticleDetail(WebView):
             return redirect(article_obj.url)
 
         article_data = article_obj
+        md = markdown.Markdown(extensions=['extra'])
+        md_data = md.convert(article_obj.md_content)
+
         # article_detail = markdown.markdown(article_obj.md_content)
         title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
