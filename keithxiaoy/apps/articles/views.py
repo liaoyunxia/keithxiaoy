@@ -37,6 +37,7 @@ dj_logger = logging.getLogger('django')
 class ArticleDetail(WebView):
 
     def get(self, request, *args, **kwargs):
+        import markdown
         dj_logger.info('kwargs={} ; '.format(kwargs))
 
         article_name = kwargs.get('title') if kwargs.get('title') else 'about_me'
@@ -50,6 +51,7 @@ class ArticleDetail(WebView):
             return redirect(article_obj.url)
 
         article_data = article_obj
+        article_detail = markdown.markdown(article_obj.md_content)
         title = kwargs.get('title', '{}'.format(article_name))
         # opt_type = self.request.GET.get('type', '')
         # endpoint = '{}{}'.format('/api/v1/orders', request.get_full_path())
