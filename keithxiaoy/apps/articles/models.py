@@ -28,11 +28,11 @@ class Article(UserModel, TimeModel, StateModel, NoModel):
     priority = models.IntegerField(_('priority'), default=0, help_text='越小优先级越高')
     category = models.IntegerField(_('category'), choices=ARTICLE_CATEGORY_CHOICES, default=0)
 
-    content = RichTextField(_('content'), blank=True)
+    content = RichTextField(_('content'), blank=True, help_text='first show')
     remark = models.CharField(_('remark'), max_length=200, blank=True)
     type = models.IntegerField(_('type'), choices=ARTICLE_TYPE_CHOICES, default=0)
     bg_img = models.ImageField(upload_to='article_bg_img', verbose_name='图片', null=True)
-    md_content = MDTextField(blank=True)
+    md_content = MDTextField(blank=True, help_text='show when content is null')
 
     class Meta:
         verbose_name = _('article')
