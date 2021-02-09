@@ -114,10 +114,12 @@
             </div>
             <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
 {#                {{ article_detail | markdown | safe }}#}
-{#                <h1>HELLO WORLD</h1>#}
+                <h1>md_content & markdown & safe</h1>
                 {{ article_data.md_content | markdown | safe }}
-                <h1>hes</h1>
+                <h1>view: convert_md_content & _safe</h1>
                 {{ md_data | safe }}
+                <h2>obj.md_content & safe</h2>
+                {{ article_data.md_content | safe }}
             </div>
           </div>
 
