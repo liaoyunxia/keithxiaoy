@@ -32,7 +32,7 @@ class Article(UserModel, TimeModel, StateModel, NoModel):
     remark = models.CharField(_('remark'), max_length=200, blank=True)
     type = models.IntegerField(_('type'), choices=ARTICLE_TYPE_CHOICES, default=0)
     bg_img = models.ImageField(upload_to='article_bg_img', verbose_name='图片', null=True)
-    md_content = MDTextField()
+    md_content = MDTextField(blank=True)
 
     class Meta:
         verbose_name = _('article')
