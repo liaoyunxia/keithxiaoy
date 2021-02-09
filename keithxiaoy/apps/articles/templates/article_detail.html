@@ -113,7 +113,11 @@
               </div>
             </div>
             <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+                {% if article_data.content %}
+                {{  article_data.content | safe }}
+                {% else %}
                 {{ article_data.md_content | markdown | safe }}
+                {% endif %}
             </div>
           </div>
 
