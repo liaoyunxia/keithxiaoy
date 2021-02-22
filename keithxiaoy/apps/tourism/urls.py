@@ -20,5 +20,5 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.TrourismHome.as_view()),
+    url(r'^xiaohege/$', views.TrourismHome.as_view()),
 ]
