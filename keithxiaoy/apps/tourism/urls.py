@@ -20,5 +20,5 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^tourism/$', views.ArticleDetail.as_view()),
+    url(r'^tourism/$', views.TrourismHome.as_view()),
 ]
