@@ -21,4 +21,16 @@ from . import views
 
 urlpatterns = [
     url(r'^xiaohege/$', views.TrourismHome.as_view()),
+    url(r'^contact/$', views.ConnectsUs.as_view()),
+    url(r'^about-us/$', views.AbountUs.as_view()),
+    url(r'^tours/$', views.Tours.as_view()),
+    url(r'^blog/$', views.Blog.as_view()),
+    url(r'^login/$', views.Login.as_view()),
+    url(r'^regsiter/$', views.Register.as_view()),
+    url(r'^booking/$', views.Booking.as_view()),
+    url(r'^team/$', views.Team.as_view()),
+    url(r'^faq/$', views.Faq.as_view()),
+    url(r'^destination/$', views.Destination.as_view()),
+    url(r'^destination-detail/$', views.DestinationDetail.as_view()),
+
 ]
