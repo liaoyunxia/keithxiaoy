@@ -40,3 +40,105 @@ class TrourismHome(WebView):
 
         template_name = 'tourism-index.html'
         return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class Blog(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'blog.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class ConnectsUs(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'contact.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class Tours(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'tours.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class AbountUs(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'about-us.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class Register(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'register.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class Faq(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'faq.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class Login(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'login.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class DestinationDetail(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'destination-details.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class Destination(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'destinations.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class Booking(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'booking.html'
+        return render(request, template_name, locals())
+
+
+@permission_classes([AllowAny])
+class Team(WebView):
+
+    def get(self, request, *args, **kwargs):
+
+        template_name = 'team.html'
+        return render(request, template_name, locals())
+
+
+
