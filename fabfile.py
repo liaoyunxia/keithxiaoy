@@ -305,6 +305,7 @@ def local_deploy_static(*args):
                 continue
             path = os.path.join(dirpath, filename)
             content_type = mimetypes.guess_type(filename)[0] or 'application/octet-stream'
+            # if not path.startswith('libs/') and content_type in ['text/css', 'application/javascript']:  # 处理自己的css和js.
             #     css_in = open(path, 'r')
             #     try:
             #         old = css_in.read()
