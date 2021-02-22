@@ -296,29 +296,28 @@ def local_createsuperuser(username='admin'):
 @task
 def local_deploy_static(*args):
     """可选参数all(上传所有) :img,libs(多上传img, libs), 注意子路径含img也会过滤"""
-    local_collectstatic(*args)
+    # local_collectstatic(*args)
     top = 'static/'
     tmp = 'tmp/static/'
-    for dirpath, dirnames, filenames in os.walk(top):
+    for dirpath, dirnames, filenames in os.walk('tourism/templates/assets/'):
         for filename in filenames:
             if filename.startswith('.'):  # 过滤隐藏文件.
                 continue
             path = os.path.join(dirpath, filename)
             content_type = mimetypes.guess_type(filename)[0] or 'application/octet-stream'
-            if not path.startswith('libs/') and content_type in ['text/css', 'application/javascript']:  # 处理自己的css和js.
-                css_in = open(path, 'r')
-                try:
-                    old = css_in.read()
-                    # new = old.replace('url(/static/', 'url({}'.format(env.STATIC_URL))
-                    new = old.replace('/static/', '{}'.format(env.STATIC_URL))
-                    if old != new:
-                        css_out = open(path, 'w')
-                        css_out.write(new)
-                        css_out.close()
-                finally:
-                    css_in.close()
+            #     css_in = open(path, 'r')
+            #     try:
+            #         old = css_in.read()
+            #         # new = old.replace('url(/static/', 'url({}'.format(env.STATIC_URL))
+            #         new = old.replace('/static/', '{}'.format(env.STATIC_URL))
+            #         if old != new:
+            #             css_out = open(path, 'w')
+            #             css_out.write(new)
+            #             css_out.close()
+            #     finally:
+            #         css_in.close()
             out_path = path
-            is_gzip = content_type.startswith('text/') or content_type in ['application/javascript', 'application/json']
+            # is_gzip = content_type.startswith('text/') or content_type in ['application/javascript', 'application/json']
             dest_name = path[len(top):]  # 含路径.
             if is_gzip:
                 out_path = os.path.join(tmp, dest_name)
@@ -331,18 +330,18 @@ def local_deploy_static(*args):
                 finally:
                     f_out.close()
                     f_in.close()
-            params_url = 'http://120.27.142.121:8000/upload_params/{}/?filename={}&bucket={}'.format(cloud.name, dest_name, cloud.bucket_static)
-            if is_gzip:
-                params_url = '{}&content_encoding=gzip'.format(params_url)
-            if path.startswith('static/libs'):
-                params_url = '{}&cache_control=public,max-age=864000'.format(params_url)
-            data = requests.get(params_url).text
-            url = 'http://{}'.format(cloud.bucket_static.replace('-', '.'))  # 阿里云bucket名中不能出现.号
-            response = requests.post(url, files={'file': open(out_path, 'rb')}, data=json.loads(data))
-            if 200 < response.status_code < 300:
-                puts(green(dest_name))
-            else:
-                puts(red('{}----{}'.format(response.status_code, response.text)))
+            # params_url = 'http://120.27.142.121:8000/upload_params/{}/?filename={}&bucket={}'.format(cloud.name, dest_name, cloud.bucket_static)
+            # if is_gzip:
+            #     params_url = '{}&content_encoding=gzip'.format(params_url)
+            # if path.startswith('static/libs'):
+            #     params_url = '{}&cache_control=public,max-age=864000'.format(params_url)
+            # data = requests.get(params_url).text
+            # url = 'http://{}'.format(cloud.bucket_static.replace('-', '.'))  # 阿里云bucket名中不能出现.号
+            # response = requests.post(url, files={'file': open(out_path, 'rb')}, data=json.loads(data))
+            # if 200 < response.status_code < 300:
+            #     puts(green(dest_name))
+            # else:
+            #     puts(red('{}----{}'.format(response.status_code, response.text)))
     safe_local_delete(top)
     safe_local_delete(tmp)
 
