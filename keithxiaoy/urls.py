@@ -51,6 +51,7 @@ urlpatterns += [
     url(r'^api/v1/', include(('{}.apps.api.urls'.format(settings.PROJECT_NAME), 'v1'), namespace='v1')),
     url(r'^article/', include('{}.apps.articles.urls'.format(settings.PROJECT_NAME, 'article'))),
     url(r'^chasing/', include('{}.apps.home.urls'.format(settings.PROJECT_NAME, 'home'))),
+    url(r'^tourism/', include('{}.apps.tourism.urls'.format(settings.PROJECT_NAME, 'tourism'))),
     url(r'^mdeditor/', include('mdeditor.urls'))
     # *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     # *static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),
