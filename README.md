@@ -83,3 +83,8 @@ Credits
 * [Eclipse](http://www.eclipse.org/)
 * [Django](http://www.djangoproject.com/)
 * [Django REST framework](http://www.django-rest-framework.org/)
+
+
+```bash
+pip uninstall bali bali-cli -y && pip install -r requirements.txt -i https://pypi.douban.com/simple
+```

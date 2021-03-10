@@ -2,3 +2,11 @@
 *.pyc
 .idea/vcs.xml
 .idea/workspace.xml
+*.pyc
+log/*.log
+venv
+__pycache__
+
+.idea/CamelCaseConfigNew.xml
+.idea/dataSources/*
+.pre-commit-config.yaml
