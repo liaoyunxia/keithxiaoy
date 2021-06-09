@@ -1,0 +1,131 @@
+/*
+fabric deploy
+version - 1.0
+*/
+pipeline {
+
+    agent any
+
+    // Global environments
+    //
+    //  environment {
+          // PROJECT_NAME = ''
+    //  }
+
+    stages {
+
+        stage('Pull') {
+            steps {
+                // Get code from a GitLab repository
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo 'Pull from git..'
+                git branch: 'master', credentialsId: 'gitlab', url: 'http://git.qfin-asia.com/backend/jk_p2p_app.git'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Test step, test-automation scripts here.
+                echo 'Skip Testing..'
+            }
+        }
+
+        stage('Backup') {
+            steps {
+                sh '''
+                    sed -i "s:env.project_name = os.path.basename(os.path.dirname(__file__)):# env.project_name = os.path.basename(os.path.dirname(__file__)):"  fabfile.py
+                '''
+                // Backup the on-line entire project.
+                sh '''
+                    /usr/local/bin/fab ${PROJECT_ENV} backup_django --set project_name=${PROJECT_NAME}  --fabfile=fabfile.py
+                '''
+            }
+        }
+
+        stage('Offline') {
+            // Offline the node in alicloud SLB
+            steps {
+                sh '''
+                    /usr/local/bin/fab ${PROJECT_ENV} Offline --set  project_name=${PROJECT_NAME}   --fabfile=fabfile.py
+                '''
+            }
+        }
+
+        stage('Deploy') {
+            when {
+              expression {
+                // When last 'stage' is not failure.
+                currentBuild.result == null || currentBuild.result == 'SUCCESS'
+              }
+            }
+            steps {
+                // Deploy with Fabric3 << fabfile.py
+                echo 'Deploying....'
+                sh '''
+                    /usr/local/bin/fab ${PROJECT_ENV} deploy:groups=${groups} --set  project_name=${PROJECT_NAME}  --fabfile=fabfile.py
+                '''
+            }
+            post {
+                always {
+                    echo 'clean up workspace'
+                    // deleteDir() /* clean up our workspace */
+                }
+                success {
+                    echo 'Deploy succeeded!'
+                }
+                unstable {
+                    echo 'Deploy unstable :/'
+                }
+                failure {
+                    echo 'Deploy failed :('
+                }
+                changed {
+                    echo 'Things were different before deployment...'
+                }
+            }
+        }
+
+        stage('Check') {
+            // Gunicorn Health Check.
+            steps {
+                sh '''
+                    /usr/local/bin/fab ${PROJECT_ENV} gunicorn_check --set  project_name=${PROJECT_NAME}   --fabfile=fabfile.py
+                '''
+            }
+            post {
+                        always {
+                                qyWechatNotification webhookUrl:'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=ea1343b5-8042-4024-a7a0-f3b72899261a',
+                                failNotify:true,
+                                projectName:'jk_p2p_app',
+                                mentionedId:'ALL',
+                                mentionedMobile:''
+                        }
+            }
+        }
+
+        stage('Online') {
+            // Online the node in alicloud SLB
+            steps {
+                sh '''
+                    /usr/local/bin/fab ${PROJECT_ENV} Online --set  project_name=${PROJECT_NAME}   --fabfile=fabfile.py
+                '''
+            }
+        }
+
+        stage('Rollback') {
+            when {
+              expression {
+                // When last 'stage' is not Sucess.
+                currentBuild.result == 'FAILURE'
+              }
+            }
+            steps {
+                echo '''
+                Rollback needed.You should run command like:
+                fab ${PROJECT_ENV} rollback_django --set project_name=${PROJECT_NAME},backup_time=20200423-1636
+                '''
+            }
+        }
+
+   }
+}

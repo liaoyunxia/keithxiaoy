@@ -1,0 +1,6 @@
+-r base.txt
+bali-cli==1.0.0
+django-debug-toolbar
+django-silk
+pytest
+fabric3
